@@ -36,6 +36,66 @@ en:
     rate_limit_exceeded: Try again later.
     something_went_wrong: Something went wrong
     back_to: "Back to %{label}"
+    home: Home
+
+  searches:
+    show:
+      page_title: Search
+      page_title_with_query: "Search results for \"%{query}\""
+    form:
+      label: Search jetKB
+      placeholder: "Find something…"
+      submit: Search
+      close: Close search
+    results:
+      no_matches: No matches
+
+  columns:
+    show:
+      add_card_button:
+        add_card: Add card
+        add_a_card: Add a card
+
+  boards:
+    new:
+      page_title: Create a new board
+      name_placeholder: "Name it…"
+      name_validation: "Board names can't be blank"
+      submit: Create board
+      cancel: Cancel and go back
+    edit:
+      page_title: Board Settings
+      admin_only: Only admins can change these settings
+      self_removal_prompt: "Are you sure you want to remove yourself from this board? You won't be able to get back in unless someone invites you."
+      save: Save changes
+      cancel: Cancel and go back
+      name:
+        placeholder: "Board name…"
+      auto_close:
+        title: Auto close
+        description: "jetKB doesn't let stale cards stick around forever. Cards automatically move to \"Not now\" if no one updates, comments, or moves a card for…"
+      delete:
+        button: Delete this board
+        title: Delete this board?
+        confirm: "Are you sure you want to permanently delete this board and all the cards on it? This can't be undone."
+        cancel: Cancel
+        submit: Delete board
+      publication:
+        title: Public link
+        description: "Turn on the Public link to share this board with anyone in the world. They won't need to log in and they won't be able to see anything else in jetKB."
+        turn_off: Turn off the public link
+        turn_on: Turn on the public link
+        copy: Copy public link
+        description_label: Add an optional description to the public page
+        description_placeholder: "Add a public note about this board…"
+        save: Save changes
+      users:
+        title: Who can access this board?
+        everyone: Everyone
+        give_access: Give everyone access to this board
+        filter: "Filter…"
+        select_all: Select all
+        select_none: Select none
 
   sessions:
     new:

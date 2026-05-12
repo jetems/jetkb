@@ -6,20 +6,20 @@
     bar_target: "form",
     turbo_action: defined?(turbo_action) ? turbo_action : nil,
     turbo_frame: defined?(target_turbo_frame) ? target_turbo_frame : nil } do |form| %>
-  <%= form.label :q, "Search Fizzy", class: "font-weight-black txt-nowrap" %>
+  <%= form.label :q, t(".label"), class: "font-weight-black txt-nowrap" %>
   <%= text_field_tag :q, query_terms,
         class: "search__input input",
         type: "search",
-        placeholder: "Find something…",
+        placeholder: t(".placeholder"),
         autocomplete: "off",
         autofocus: true,
         data: {
           search_form_target: "searchInput",
           bar_target: "searchInput",
           action: "keydown.enter->bar#showModalAndSubmit:prevent keydown.esc->bar#reset" } %>
-  <button hidden>Search</button>
+  <button hidden><%= t(".submit") %></button>
   <button class="search__reset btn btn--circle borderless" data-action="search-form#clearInput">
     <%= icon_tag "close" %>
-    <span class="for-screen-reader">Close search</span>
+    <span class="for-screen-reader"><%= t(".close") %></span>
   </button>
 <% end %>

@@ -1,8 +1,8 @@
-<% @page_title = @query ? "Search results for \"#{@query}\"" : "Search" %>
+<% @page_title = @query ? t(".page_title_with_query", query: @query) : t(".page_title") %>
 
 <% content_for :header do %>
   <div class="header__actions header__actions--start">
-    <%= back_link_to "Home", root_path, "keydown.left@document->hotkey#click keydown.esc@document->hotkey#click" %>
+    <%= back_link_to t("common.home"), root_path, "keydown.left@document->hotkey#click keydown.esc@document->hotkey#click" %>
   </div>
 
   <h1 class="header__title" data-bridge--title-target="header"><%= @page_title %></h1>

@@ -5,6 +5,66 @@ zh-CN:
     rate_limit_exceeded: 请稍后重试。
     something_went_wrong: 出错了
     back_to: 返回 %{label}
+    home: 首页
+
+  searches:
+    show:
+      page_title: 搜索
+      page_title_with_query: "搜索结果:%{query}"
+    form:
+      label: 搜索 jetKB
+      placeholder: 找点什么…
+      submit: 搜索
+      close: 关闭搜索
+    results:
+      no_matches: 没有结果
+
+  columns:
+    show:
+      add_card_button:
+        add_card: 添加卡片
+        add_a_card: 添加一张卡片
+
+  boards:
+    new:
+      page_title: 新建看板
+      name_placeholder: 起个名字…
+      name_validation: 看板名不能为空
+      submit: 创建看板
+      cancel: 取消返回
+    edit:
+      page_title: 看板设置
+      admin_only: 只有管理员才能修改这些设置
+      self_removal_prompt: 确定要把自己从这个看板移除吗?除非有人重新邀请,否则你无法再进入。
+      save: 保存修改
+      cancel: 取消返回
+      name:
+        placeholder: 看板名…
+      auto_close:
+        title: 自动关闭
+        description: "jetKB 不允许长期无人理会的卡片堆积。如果一段时间内没有人更新、评论或移动卡片,它会被自动移到「暂不处理」:"
+      delete:
+        button: 删除此看板
+        title: 删除此看板?
+        confirm: 确定要永久删除这个看板和它所有的卡片吗?此操作不可撤销。
+        cancel: 取消
+        submit: 删除看板
+      publication:
+        title: 公开链接
+        description: 打开公开链接,可以把这个看板分享给任何人。他们无需登录,也看不到 jetKB 里的其他内容。
+        turn_off: 关闭公开链接
+        turn_on: 打开公开链接
+        copy: 复制公开链接
+        description_label: 为公开页添加一段可选说明
+        description_placeholder: 为这个看板写一段公开备注…
+        save: 保存修改
+      users:
+        title: 谁可以访问这个看板?
+        everyone: 所有人
+        give_access: 给所有人访问权限
+        filter: 筛选…
+        select_all: 全选
+        select_none: 全不选
 
   sessions:
     new:
