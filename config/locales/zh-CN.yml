@@ -369,6 +369,56 @@ zh-CN:
           retry: 修改邮箱
           stuck_html: 卡住了?%{email_link} 我们帮你解决。
 
+  my:
+    menus:
+      jump:
+        close_menu: 关闭菜单
+        home: 首页
+        assigned_to_me: 分配给我
+        added_by_me: 我创建的
+        no_match: 没有匹配项
+      accounts:
+        title: 账户
+      boards:
+        title: 看板
+        add: 添加看板
+      custom_views:
+        title: 自定义视图
+        create: 创建自定义视图
+      people:
+        title: 成员
+        invite: 邀请成员
+      settings:
+        title: 设置
+        account_settings: 账户设置
+        my_profile: 我的资料
+        all_notifications: 所有通知
+        notification_settings: 通知设置
+        sign_out: 登出
+
+  account:
+    settings:
+      export:
+        title: 导出账户数据
+        description: 下载完整的账户数据归档。
+        begin: 开始导出…
+        dialog_title: 导出所有账户数据
+        dialog_intro: 这会生成一个 ZIP 归档,包含此账户的所有数据,包括所有看板、卡片、用户和设置。
+        dialog_email_notice: 准备好后我们会给你发邮件提供下载链接。链接 24 小时后失效。
+        start: 开始导出
+        cancel: 取消
+      user:
+        role_label: "角色:%{role}"
+        remove_confirm: 确定要把这个成员从账户中永久移除吗?
+        remove_aria: "将 %{name} 从账户中移除"
+      users:
+        title: 此账户成员
+        filter: 筛选…
+        invite: 邀请成员
+      entropy:
+        title: 自动关闭
+        description_html: "jetKB 不允许长期无人理会的卡片堆积。如果一段时间内没有活动,卡片会自动移到「暂不处理」。<em>这是默认的全局设置 — 每个看板可以单独覆盖。</em>"
+
   mailers:
     notification:
       bundle_mailer:

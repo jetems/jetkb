@@ -400,6 +400,56 @@ en:
           retry: Change my email address
           stuck_html: "If you get stuck, %{email_link} and we'll get you back on track."
 
+  my:
+    menus:
+      jump:
+        close_menu: Close menu
+        home: Home
+        assigned_to_me: Assigned to me
+        added_by_me: Added by me
+        no_match: Nothing matches that filter
+      accounts:
+        title: Accounts
+      boards:
+        title: Boards
+        add: Add a board
+      custom_views:
+        title: Custom views
+        create: Create a custom view
+      people:
+        title: People
+        invite: Invite people
+      settings:
+        title: Settings
+        account_settings: Account Settings
+        my_profile: My Profile
+        all_notifications: All notifications
+        notification_settings: Notification Settings
+        sign_out: Sign out
+
+  account:
+    settings:
+      export:
+        title: Export account data
+        description: Download a complete archive of all account data.
+        begin: "Begin export..."
+        dialog_title: Export all account data
+        dialog_intro: This will generate a ZIP archive of all data in this account including all boards, cards, users, and settings.
+        dialog_email_notice: We'll email you a link to download the file when it's ready. The link will expire after 24 hours.
+        start: Start export
+        cancel: Cancel
+      user:
+        role_label: "Role: %{role}"
+        remove_confirm: Are you sure you want to permanently remove this person from the account?
+        remove_aria: "Remove %{name} from the account"
+      users:
+        title: People on this account
+        filter: "Filter…"
+        invite: Invite people
+      entropy:
+        title: Auto close
+        description_html: "jetKB doesn't let stale cards stick around forever. Cards automatically move to “Not Now” if there is no activity for a specific period of time. <em>This is the default, global setting — you can override it on each board.</em>"
+
   mailers:
     notification:
       bundle_mailer:

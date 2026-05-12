@@ -1,6 +1,6 @@
 <section class="settings__section">
   <header>
-    <h2 class="divider">People on this account</h2>
+    <h2 class="divider"><%= t(".title") %></h2>
   </header>
 
   <%= tag.div class: "settings__user-filter flex flex-column gap", data: {
@@ -11,7 +11,7 @@
   } do %>
 
     <div class="settings__user-filter">
-      <input placeholder="Filter…" class="input input--transparent full-width txt-small" type="search" autocorrect="off" autocomplete="off" data-1p-ignore="true" data-filter-target="input" data-action="input->filter#filter">
+      <input placeholder="<%= t(".filter") %>" class="input input--transparent full-width txt-small" type="search" autocorrect="off" autocomplete="off" data-1p-ignore="true" data-filter-target="input" data-action="input->filter#filter">
 
       <ul class="settings__scrollable-list margin-block-half" data-filter-target="list" role="listbox">
         <%= render partial: "account/settings/user", collection: users %>
@@ -20,7 +20,7 @@
 
     <%= link_to account_join_code_path, class: "btn btn--link center" do %>
       <%= icon_tag "add" %>
-      <span>Invite people</span>
+      <span><%= t(".invite") %></span>
     <% end %>
   <% end %>
 </section>
