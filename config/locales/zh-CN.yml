@@ -398,6 +398,28 @@ zh-CN:
 
   account:
     settings:
+      show:
+        page_title: 账户设置
+        admins_only: 只有管理员可以修改这些设置
+      name:
+        placeholder: 账户名称…
+        save: 保存修改
+      cancellation:
+        title: 危险操作
+        description_html: 删除你的账户以及里面的所有内容,包括所有看板和卡片。
+        open: 删除账户…
+        dialog_title: 删除账户
+        what_happens: "之后会发生什么:"
+        bullet_close_html: 你的 <strong>%{name}</strong> 账户将立即关闭。
+        bullet_users: 所有用户(包括你)都会失去访问权限。
+        bullet_subscription: 你的订阅将被取消。
+        bullet_delete_html: 你所有的数据将在 30 天内被永久删除。
+        export_reminder: 记得先导出你的数据
+        export_link_html: "走之前 %{link}。删除账户后就没法再做了。"
+        export_link_label: 导出数据
+        confirm_checkbox: 我已阅读上述内容,继续删除
+        not_now: 暂不删除
+        delete_my_account: 删除我的账户
       export:
         title: 导出账户数据
         description: 下载完整的账户数据归档。
@@ -418,6 +440,60 @@ zh-CN:
       entropy:
         title: 自动关闭
         description_html: "jetKB 不允许长期无人理会的卡片堆积。如果一段时间内没有活动,卡片会自动移到「暂不处理」。<em>这是默认的全局设置 — 每个看板可以单独覆盖。</em>"
+    exports:
+      show:
+        page_title_ready: 下载导出
+        page_title_expired: 下载已过期
+        back_to_settings: 账户设置
+        ready: 下载会自动开始。
+        download_link: 下载你的数据
+        expired_html: "下载链接已过期,你需要 %{link}。"
+        request_new_link: 申请新的导出
+    imports:
+      new:
+        page_title: 导入账户
+        heading: 导入 jetKB 账户
+        saas_intro_html: "在自己的服务器上运行 jetKB,想迁到 %{link} 上托管?"
+        saas_subtitle: 导出你的自托管账户,然后在下方上传 .zip 文件。
+        oss_intro: 准备在自己的服务器上托管 jetKB 吗?
+        oss_subtitle_html: "导出你的 %{link} 账户,然后在下方上传 .zip 文件。"
+        choose_file: 选择文件…
+        submit: 开始导入 →
+        help_html: "遇到问题或需要协助,直接 %{link}。"
+        send_us_an_email: 发邮件给我们
+      show:
+        page_title: 导入状态
+        heading: 导入状态
+        in_progress: 正在导入。大账户可能需要一段时间。
+        success: 导入成功!
+        go_to_account: 进入账户 →
+        failed: 导入失败
+        failed_conflict_html: "你要导入的账户已经存在。请确认导入的是%{kind}账户。"
+        failed_conflict_kind_self: 自托管
+        failed_invalid: 你上传的 .zip 文件似乎不是 jetKB 账户的导出文件。
+        failed_other: 可能是导出数据损坏,或与现有数据冲突。请用一份新的导出再试。
+        try_again: 重试
+    join_codes:
+      show:
+        page_title: 添加成员
+        back_to_settings: 账户设置
+        share_intro: 分享下方链接以邀请成员加入此账户
+        regenerate_confirm: 确定要生成新链接吗?旧链接将失效。
+        regenerate_aria: 生成新的链接
+        copy_invite: 复制邀请链接
+        get_qr: 获取二维码
+        scan_to_join_html: "扫描此二维码加入 <strong>%{name}</strong>:"
+        qr_done: 完成
+        usage_html: "此链接已使用 %{used}/%{limit} 次(剩余 %{remaining} 次)"
+        usage_remaining_none: 无
+        change_limit: 修改限额
+      edit:
+        page_title: 修改使用限额
+        back_to_invite: 邀请链接
+        intro: 此链接最多可以被使用多少次来加入账户?
+        usage_count_html: "此链接已使用 %{used}/%{limit} 次。"
+        save: 保存修改
+        go_back: 返回
 
   mailers:
     notification:

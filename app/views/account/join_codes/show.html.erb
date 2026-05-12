@@ -1,15 +1,15 @@
-<% @page_title = "Add people" %>
+<% @page_title = t(".page_title") %>
 
 <% content_for :header do %>
   <div class="header__actions header__actions--start">
-    <%= back_link_to "Account Settings", account_settings_path, "keydown.left@document->hotkey#click keydown.esc@document->hotkey#click" %>
+    <%= back_link_to t(".back_to_settings"), account_settings_path, "keydown.left@document->hotkey#click keydown.esc@document->hotkey#click" %>
   </div>
 <% end %>
 
 <div class="panel panel--wide shadow center flex flex-column gap" style="view-transition-name: <%= dom_id(@join_code) %>">
   <header>
     <h2 class="txt-large margin-none font-weight-black"><%= @page_title %></h2>
-    <p class="txt-medium margin-none">Share the link below to invite people to this account</p>
+    <p class="txt-medium margin-none"><%= t(".share_intro") %></p>
   </header>
 
   <% url = join_url(code: @join_code.code, script_name: Current.account.slug) %>
@@ -18,9 +18,9 @@
 
     <% if Current.user.admin? %>
       <%= button_to account_join_code_path, method: :delete, class: "btn btn--circle txt-small", data: {
-            turbo_confirm: "Are you sure you want to generate a new link? The previous code will stop working." } do %>
+            turbo_confirm: t(".regenerate_confirm") } do %>
         <%= icon_tag "refresh" %>
-        <span class="for-screen-reader">Generate a new code</span>
+        <span class="for-screen-reader"><%= t(".regenerate_aria") %></span>
       <% end %>
     <% end %>
   </div>
@@ -30,25 +30,25 @@
           controller: "copy-to-clipboard", action: "copy-to-clipboard#copy",
           copy_to_clipboard_success_class: "btn--success", copy_to_clipboard_content_value: url } do %>
       <%= icon_tag "copy-paste" %>
-      <span class="txt-nowrap">Copy invite link</span>
+      <span class="txt-nowrap"><%= t(".copy_invite") %></span>
     <% end %>
 
     <div data-controller="dialog" data-dialog-modal-value="true" class="flex-inline">
       <%= tag.button class: "btn", data: { action: "dialog#open" } do %>
         <%= icon_tag "qr-code" %>
-        <span>Get QR code</span>
+        <span><%= t(".get_qr") %></span>
       <% end %>
 
       <dialog class="dialog panel shadow" data-dialog-target="dialog" style="--panel-size: 50ch;">
         <p class="margin-none-block-start txt-balance">
-          <strong>Scan this code to join <%= Current.account.name %>:</strong>
+          <%= t(".scan_to_join_html", name: Current.account.name).html_safe %>
         </p>
 
         <%= qr_code_image(url) %>
 
         <form method="dialog" class="margin-block-start flex justify-center">
           <button class="btn">
-            <span>Done</span>
+            <span><%= t(".qr_done") %></span>
           </button>
         </form>
       </dialog>
@@ -59,12 +59,12 @@
     <hr class="separator--horizontal full-width margin-block" style="--border-color: var(--color-ink-lighter)">
 
     <p class="margin-none <%= "txt-negative" if !@join_code.active? %>">
-      This code has been used <%= @join_code.usage_count %>/<%= @join_code.usage_limit %> times
-      (<%= @join_code.active? ? @join_code.usage_limit - @join_code.usage_count : "none" %> remaining)
+      <% remaining = @join_code.active? ? @join_code.usage_limit - @join_code.usage_count : t(".usage_remaining_none") %>
+      <%= t(".usage_html", used: @join_code.usage_count, limit: @join_code.usage_limit, remaining: remaining) %>
 
       <% if Current.user.admin? %>
         <%= link_to edit_account_join_code_path, class: @join_code.active? ? "txt-link" : "txt-negative txt-underline" do %>
-          <span>Change limit</span>
+          <span><%= t(".change_limit") %></span>
         <% end %>
       <% end %>
     </p>

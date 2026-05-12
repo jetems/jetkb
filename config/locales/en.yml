@@ -429,6 +429,28 @@ en:
 
   account:
     settings:
+      show:
+        page_title: Account Settings
+        admins_only: Only admins can change these settings
+      name:
+        placeholder: "Account name…"
+        save: Save changes
+      cancellation:
+        title: Danger zone
+        description_html: Delete your account and everything in&nbsp;it, including all boards and cards.
+        open: "Delete account..."
+        dialog_title: Delete account
+        what_happens: "What happens next:"
+        bullet_close_html: Your <strong>%{name}</strong> account will be closed immediately.
+        bullet_users: All users, including you, will lose access.
+        bullet_subscription: Your subscription will be canceled.
+        bullet_delete_html: All your data will be permanently deleted within 30&nbsp;days.
+        export_reminder: Remember to export your data
+        export_link_html: "%{link} before you go. You won't be able to do it after you delete your account."
+        export_link_label: Export your data
+        confirm_checkbox: I've read the above and want to continue
+        not_now: Not now
+        delete_my_account: Delete my account
       export:
         title: Export account data
         description: Download a complete archive of all account data.
@@ -449,6 +471,60 @@ en:
       entropy:
         title: Auto close
         description_html: "jetKB doesn't let stale cards stick around forever. Cards automatically move to “Not Now” if there is no activity for a specific period of time. <em>This is the default, global setting — you can override it on each board.</em>"
+    exports:
+      show:
+        page_title_ready: Download Export
+        page_title_expired: Download Expired
+        back_to_settings: Account Settings
+        ready: The download should start automatically.
+        download_link: Download your data
+        expired_html: "That download link has expired. You'll need to %{link}."
+        request_new_link: request a new export
+    imports:
+      new:
+        page_title: Import an account
+        heading: Import a jetKB account
+        saas_intro_html: "Running jetKB on your own server and want us to host on %{link} instead?"
+        saas_subtitle: Export your self-hosted account, then upload the .zip file below.
+        oss_intro: Ready to host jetKB on your own server?
+        oss_subtitle_html: "Export your %{link} account, then upload the .zip file below."
+        choose_file: "Choose a file…"
+        submit: Start Import →
+        help_html: "If you run into issues or would like assistance, just %{link}."
+        send_us_an_email: send us an email
+      show:
+        page_title: Import status
+        heading: Import status
+        in_progress: Your import is in progress. This may take a while for large accounts.
+        success: Your import was successful!
+        go_to_account: Go to your account →
+        failed: Import failed
+        failed_conflict_html: "The account you're trying to import already exists. Make sure you're importing a %{kind} account."
+        failed_conflict_kind_self: self-hosted
+        failed_invalid: "The .zip file you uploaded doesn't look like a jetKB account export."
+        failed_other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export.
+        try_again: Try again
+    join_codes:
+      show:
+        page_title: Add people
+        back_to_settings: Account Settings
+        share_intro: Share the link below to invite people to this account
+        regenerate_confirm: Are you sure you want to generate a new link? The previous code will stop working.
+        regenerate_aria: Generate a new code
+        copy_invite: Copy invite link
+        get_qr: Get QR code
+        scan_to_join_html: "Scan this code to join <strong>%{name}</strong>:"
+        qr_done: Done
+        usage_html: "This code has been used %{used}/%{limit} times (%{remaining} remaining)"
+        usage_remaining_none: none
+        change_limit: Change limit
+      edit:
+        page_title: Change usage limit
+        back_to_invite: Invite link
+        intro: How many times can this link be used to join the account?
+        usage_count_html: "This code has been used %{used}/%{limit} times."
+        save: Save changes
+        go_back: Go back
 
   mailers:
     notification:
