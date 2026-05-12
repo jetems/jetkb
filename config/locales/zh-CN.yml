@@ -750,6 +750,47 @@ zh-CN:
         prefix: 关闭者
         filter: 筛选…
 
+  join_codes:
+    new:
+      page_title_html: "在 jetKB 加入 %{name}"
+      email_placeholder: 邮箱
+      continue: 继续
+    inactive:
+      page_title: 该邀请码次数已用完
+      ask_html: "请联系 %{name} 的成员发新链接,或者提高使用上限。"
+      ok: 知道了
+
+  public:
+    boards:
+      columns:
+        show:
+          page_title: "列:%{name}"
+          no_cards: 此处暂无卡片
+        closeds:
+          show:
+            page_title: "列:已完成"
+            no_cards: 此处暂无卡片
+        not_nows:
+          show:
+            page_title: "列:暂不处理"
+            no_cards: 此处暂无卡片
+        streams:
+          show:
+            page_title: "列:也许?"
+            no_cards: 此处暂无卡片
+      show:
+        closed:
+          title: 已完成
+          maximize: 放大此列
+        column:
+          maximize: 放大此列
+        not_now:
+          title: 暂不处理
+          maximize: 放大此列
+        stream:
+          title: "也许?"
+          maximize: 放大此列
+
   account_mailer:
     cancellation:
       cancelled_html: "你的 jetKB 账户 <strong>%{name}</strong> 已被取消。"

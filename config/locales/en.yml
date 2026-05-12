@@ -781,6 +781,47 @@ en:
         prefix: Closed by
         filter: "Filter…"
 
+  join_codes:
+    new:
+      page_title_html: "Join %{name} in jetKB"
+      email_placeholder: Email address
+      continue: Continue
+    inactive:
+      page_title: That code is all used up
+      ask_html: "Ask someone from %{name} to send you a new link or increase the limit."
+      ok: OK
+
+  public:
+    boards:
+      columns:
+        show:
+          page_title: "Column: %{name}"
+          no_cards: No cards here
+        closeds:
+          show:
+            page_title: "Column: Done"
+            no_cards: No cards here
+        not_nows:
+          show:
+            page_title: "Column: Not now"
+            no_cards: No cards here
+        streams:
+          show:
+            page_title: "Column: Maybe?"
+            no_cards: No cards here
+      show:
+        closed:
+          title: Done
+          maximize: Maximize column
+        column:
+          maximize: Maximize column
+        not_now:
+          title: Not Now
+          maximize: Maximize column
+        stream:
+          title: "Maybe?"
+          maximize: Maximize column
+
   account_mailer:
     cancellation:
       cancelled_html: "Your jetKB account <strong>%{name}</strong> was cancelled."
