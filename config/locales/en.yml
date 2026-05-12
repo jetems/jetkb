@@ -176,6 +176,49 @@ en:
           assign: Assign
           assign_to_me: Assign to me
 
+  reactions:
+    reaction:
+      reacted_aria: "%{user} reacted %{content}"
+      delete: Delete this reaction
+      delete_hint: Press enter to delete this reaction
+    new:
+      aria_label: New reaction
+      add_reaction: Add a reaction
+      submit: Submit
+      cancel: Cancel
+    reactions:
+      add_own: Add your own reaction
+
+  notifications:
+    index:
+      page_title: Notifications
+      settings: Notification settings
+      unread_notifications:
+        heading: New for you
+        mark_all_read: Mark all as read
+        empty: Nothing new for you
+        limit_notice: "Showing the %{count} most recent (%{hidden} are hidden)"
+      read_notifications:
+        heading: Previously seen
+    tray:
+      settings_title: Notification Settings
+      settings_button: Settings
+      see_more_new: See more new items
+      see_older: See older items
+      mark_all_read_title: Mark all notifications as read
+      clear_all: Clear all
+      toggle_aria: Toggle notifications stack
+      toggle_label: Notifications
+    unsubscribes:
+      show:
+        title: You're unsubscribed
+        body_html: "Thanks, %{name}! jetKB won't send you any more email notifications. If you change your mind, you can turn them back on in %{settings_link}."
+        settings_link: Notification Settings
+        back: Back to jetKB
+      new:
+        progress: "Unsubscribing from all email notifications as %{name}…"
+        submit: Unsubscribe now
+
   boards:
     new:
       page_title: Create a new board

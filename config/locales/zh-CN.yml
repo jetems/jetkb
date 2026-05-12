@@ -145,6 +145,49 @@ zh-CN:
           assign: 分配
           assign_to_me: 分配给我
 
+  reactions:
+    reaction:
+      reacted_aria: "%{user} 反应了 %{content}"
+      delete: 删除此反应
+      delete_hint: 回车删除此反应
+    new:
+      aria_label: 新反应
+      add_reaction: 添加一个反应
+      submit: 提交
+      cancel: 取消
+    reactions:
+      add_own: 添加你的反应
+
+  notifications:
+    index:
+      page_title: 通知
+      settings: 通知设置
+      unread_notifications:
+        heading: 新通知
+        mark_all_read: 全部标为已读
+        empty: 暂无新通知
+        limit_notice: "显示最近 %{count} 条(隐藏 %{hidden} 条)"
+      read_notifications:
+        heading: 之前的通知
+    tray:
+      settings_title: 通知设置
+      settings_button: 设置
+      see_more_new: 查看更多新通知
+      see_older: 查看更早的通知
+      mark_all_read_title: 将所有通知标为已读
+      clear_all: 全部清除
+      toggle_aria: 切换通知栏
+      toggle_label: 通知
+    unsubscribes:
+      show:
+        title: 你已取消订阅
+        body_html: "感谢,%{name}!jetKB 不会再给你发送邮件通知了。如果你改变主意,可以在 %{settings_link} 重新打开。"
+        settings_link: 通知设置
+        back: 返回 jetKB
+      new:
+        progress: "正以 %{name} 取消所有邮件通知…"
+        submit: 立即取消订阅
+
   boards:
     new:
       page_title: 新建看板
