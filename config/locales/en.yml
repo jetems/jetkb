@@ -240,11 +240,95 @@ en:
         prefix_or_install: "…or install "
         fallback: Some platforms require you to install jetKB as a web app to receive push notifications.
         ios_intro: "To receive push notifications in %{browser} for %{os}, you must first install jetKB as a web app."
+        alt_more: More options
+        alt_share: the share button
+        edge:
+          alt: "the app available - install %{app} button"
+          s1_html: "Click <em>%{icon}</em> in the address bar."
+          s2_html: "Click <em>Install</em>."
+        chrome_android:
+          s1_html: "Tap the <em>%{icon}</em> menu button."
+          s2_html: "Tap <em>Install app</em> in the menu."
+        firefox_android:
+          s1_html: "Tap the <em>%{icon}</em> menu button."
+          s2_html: "Tap <em>Install</em> in the menu."
+        safari_desktop:
+          s1_html: "Click <em>File</em> in the top left."
+          s2_html: "Click <em>Add to Dock…</em>"
+        ios:
+          s1_html: "Tap <em>%{icon}</em>"
+          s2_html: "Tap <em>Add to Home Screen</em>."
       browser:
         fallback_html: "Ensure notifications are enabled for <em>%{url}</em> in your web browser settings."
+        heading_for_browser: "Turn on notifications for %{browser}."
+        heading_for_site: Turn on notifications for this website.
+        alt_view_info: the View site information button
+        alt_bell: the notification bell
+        firefox_android:
+          s1_html: "Tap <em>%{icon}</em> in the address bar."
+          s2_html: "Tap <em>Notification</em> to change to <em>Allowed</em>."
+        edge:
+          site_s1_html: "Click <em>%{icon}</em> left of the address bar."
+          site_s2_html: "Under <em>Permissions for this site &gt; Notifications</em>, choose <em>Allow</em>."
+        firefox_desktop:
+          s1_html: "Click <em>%{browser}</em> in the top left."
+          s2_html: "Click <em>Settings…</em>"
+          s3_html: "Click <em>Privacy &amp; Security</em> in the sidebar."
+          s4_html: "Scroll down to <em>Permissions</em>."
+          s5_html: "Click <em>Settings</em> next to <em>Notifications</em>."
+          s6_html: "Select <em>Allow</em> next to <em>%{url}</em>."
+        chrome_desktop:
+          s1_html: "Click the <em>%{icon}</em> icon in the address bar."
+          s2_html: "Click <em>Site Settings</em>."
+          s3_html: "Ensure notifications are <em>Allowed</em>."
+        chrome_android:
+          s1_html: "Tap the <em>%{icon}</em> menu button."
+          s2_html: "Tap <em>Settings</em>."
+          s3_html: "Tap <em>Notifications</em>."
+          s4_html: "Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>."
+          s5_html: "Tap <em>%{switch}</em> next to <em>Web apps</em>."
+          s6_html: "Tap <em>%{bell}</em> and select <em>Allow</em>."
+        safari_desktop:
+          s4_html: "Click <em>%{url}</em> in the list."
+          b1_html: "Click <em>%{browser}</em> in the top left."
+          b2_html: "Click <em>Settings…</em>"
+          b3_html: "Click the <em>Websites</em> tab."
+          b4_html: "Click <em>Notifications</em> in the sidebar."
+          b5_html: "Click <em>%{url}</em> in the list."
+          b6_html: "Select <em>Allow</em>."
       system:
         check_os_settings: "Check your %{os} settings"
         fallback: "Ensure notifications are allowed for %{browser} in your system settings."
+        alt_toggle: the toggle button
+        alt_allow_switch: the allow notifications switch
+        alt_allow_switch_button: the allow notifications switch button
+        alt_switch: the switch
+        firefox_android:
+          s1_html: "Tap the <em>menu</em> button."
+          s2: "Tap Settings."
+          s3: "Tap Notifications."
+          s4_html: "Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>."
+        windows:
+          s1_html: "Click <em>Start</em>, then <em>Settings</em>."
+          s2_html: "Go to <em>System &gt; Notification</em>."
+          s3_html: "Click <em>%{switch}</em> <em>ON</em> for %{app}."
+        mac:
+          s1_html: "Click the Apple menu in the top left."
+          s2: "Click System Settings…"
+          s3: "Click Notifications."
+          s4_html: "Click <em>%{app}</em>."
+          s5_html: "Click <em>%{switch}</em> to <em>Allow notifications</em>."
+        ios:
+          s1_html: "Open the <em>%{gear}</em> Settings app."
+          s2_html: "Scroll to and tap <em>%{app}</em>."
+          s3: "Tap Notifications."
+          s4_html: "Tap <em>%{switch}</em> to <em>Allow Notifications</em>."
+        android:
+          s1_html: "Open the <em>%{gear}</em> Settings app."
+          s2: "Tap Notifications."
+          s3: "Tap App notifications."
+          s4_html: "Scroll to <em>%{app}</em>."
+          s5_html: "Tap <em>%{switch}</em> to <em>Allow Notifications</em>."
 
   boards:
     new:

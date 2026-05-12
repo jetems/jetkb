@@ -1,32 +1,33 @@
+<% app = JetKB::Brand::APP_NAME %>
 <% unless (platform.chrome? && !platform.ios?) || (platform.firefox? && !platform.android?) %>
   <div class="notifications-help pwa__instructions hide-in-pwa">
     <h3><%= t(".install_title", prefix: platform.safari? && platform.desktop? ? t(".prefix_or_install") : t(".prefix_install")) %></h3>
     <% case
       when platform.edge? %>
         <ol>
-          <li>Click <em><%= icon_tag "install-edge", alt: "the app available - install Fizzy button" %></em>in the address bar.</li>
-          <li>Click <em>Install</em>.</li>
+          <li><%= t("notifications.settings.install.edge.s1_html", icon: icon_tag("install-edge", alt: t("notifications.settings.install.edge.alt", app: app)), app: app).html_safe %></li>
+          <li><%= t("notifications.settings.install.edge.s2_html").html_safe %></li>
         </ol>
       <% when platform.chrome? && platform.android? %>
         <ol>
-          <li>Tap the <em><%= icon_tag "menu-dots-vertical", alt: "More options" %></em> menu button.</li>
-          <li>Tap <em>Install app</em> in the menu.</li>
+          <li><%= t("notifications.settings.install.chrome_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))).html_safe %></li>
+          <li><%= t("notifications.settings.install.chrome_android.s2_html").html_safe %></li>
         </ol>
       <% when platform.firefox? && platform.android? %>
         <ol>
-          <li>Tap the <em><%= icon_tag "menu-dots-vertical", alt: "More options" %></em> menu button.</li>
-          <li>Tap <em>Install</em> in the menu.</li>
+          <li><%= t("notifications.settings.install.firefox_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))).html_safe %></li>
+          <li><%= t("notifications.settings.install.firefox_android.s2_html").html_safe %></li>
         </ol>
       <% when platform.safari? && platform.desktop? %>
         <ol>
-          <li>Click <em>File</em> in the top left.</li>
-          <li>Click <em>Add to Dock…</em></li>
+          <li><%= t("notifications.settings.install.safari_desktop.s1_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.safari_desktop.s2_html").html_safe %></li>
         </ol>
       <% when (platform.safari? || platform.chrome?) && platform.ios? %>
         <p><%= t(".ios_intro", browser: platform.browser.capitalize, os: platform.operating_system) %></p>
         <ol>
-          <li>Tap <em><%= icon_tag "share", alt: "the share button" %></em></li>
-          <li>Tap <em>Add to Home Screen</em>.</li>
+          <li><%= t("notifications.settings.install.ios.s1_html", icon: icon_tag("share", alt: t("notifications.settings.install.alt_share"))).html_safe %></li>
+          <li><%= t("notifications.settings.install.ios.s2_html").html_safe %></li>
         </ol>
       <% else %>
         <p><%= t(".fallback") %></p>

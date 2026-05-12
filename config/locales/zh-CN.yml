@@ -209,11 +209,95 @@ zh-CN:
         prefix_or_install: "…或安装 "
         fallback: 某些平台需要你把 jetKB 安装为网页应用才能接收推送通知。
         ios_intro: "想在 %{os} 上的 %{browser} 接收推送通知,需要先把 jetKB 安装为网页应用。"
+        alt_more: 更多选项
+        alt_share: 分享按钮
+        edge:
+          alt: "可用应用 - 安装 %{app} 按钮"
+          s1_html: "点击地址栏中的 <em>%{icon}</em>。"
+          s2_html: "点击<em>安装</em>。"
+        chrome_android:
+          s1_html: "点击 <em>%{icon}</em> 菜单按钮。"
+          s2_html: 在菜单中点击<em>安装应用</em>。
+        firefox_android:
+          s1_html: "点击 <em>%{icon}</em> 菜单按钮。"
+          s2_html: 在菜单中点击<em>安装</em>。
+        safari_desktop:
+          s1_html: 点击左上角的<em>文件</em>。
+          s2_html: "点击 <em>添加到程序坞…</em>"
+        ios:
+          s1_html: "点击 <em>%{icon}</em>"
+          s2_html: 点击<em>添加到主屏幕</em>。
       browser:
         fallback_html: "请确保浏览器设置中允许 <em>%{url}</em> 的通知。"
+        heading_for_browser: "为 %{browser} 开启通知。"
+        heading_for_site: 为本网站开启通知。
+        alt_view_info: 查看网站信息按钮
+        alt_bell: 通知铃铛
+        firefox_android:
+          s1_html: "点击地址栏中的 <em>%{icon}</em>。"
+          s2_html: 点击<em>通知</em>,改为<em>已允许</em>。
+        edge:
+          site_s1_html: "点击地址栏左侧的 <em>%{icon}</em>。"
+          site_s2_html: "在<em>此网站权限 &gt; 通知</em>下,选择<em>允许</em>。"
+        firefox_desktop:
+          s1_html: "点击左上角的 <em>%{browser}</em>。"
+          s2_html: "点击 <em>设置…</em>"
+          s3_html: 点击侧边栏的<em>隐私与安全</em>。
+          s4_html: 向下滚动到<em>权限</em>。
+          s5_html: 点击<em>通知</em>旁边的<em>设置</em>。
+          s6_html: "在 <em>%{url}</em> 旁边选择<em>允许</em>。"
+        chrome_desktop:
+          s1_html: "点击地址栏中的 <em>%{icon}</em> 图标。"
+          s2_html: 点击<em>网站设置</em>。
+          s3_html: 确认通知已设为<em>允许</em>。
+        chrome_android:
+          s1_html: "点击 <em>%{icon}</em> 菜单按钮。"
+          s2_html: 点击<em>设置</em>。
+          s3_html: 点击<em>通知</em>。
+          s4_html: "点击 <em>%{switch}</em>,将<em>允许 %{browser} 通知</em>。"
+          s5_html: "点击 <em>Web apps</em> 旁边的 <em>%{switch}</em>。"
+          s6_html: "点击 <em>%{bell}</em>,然后选择<em>允许</em>。"
+        safari_desktop:
+          s4_html: "点击列表中的 <em>%{url}</em>。"
+          b1_html: "点击左上角的 <em>%{browser}</em>。"
+          b2_html: "点击 <em>设置…</em>"
+          b3_html: 点击<em>网站</em>选项卡。
+          b4_html: 点击侧边栏的<em>通知</em>。
+          b5_html: "点击列表中的 <em>%{url}</em>。"
+          b6_html: 选择<em>允许</em>。
       system:
         check_os_settings: 检查你的 %{os} 设置
         fallback: 请在系统设置中允许 %{browser} 的通知。
+        alt_toggle: 切换按钮
+        alt_allow_switch: 允许通知的开关
+        alt_allow_switch_button: 允许通知的开关按钮
+        alt_switch: 开关
+        firefox_android:
+          s1_html: "点击<em>菜单</em>按钮。"
+          s2: 点击「设置」。
+          s3: 点击「通知」。
+          s4_html: "点击 <em>%{switch}</em>,将<em>允许 %{browser} 通知</em>。"
+        windows:
+          s1_html: "点击<em>开始</em>,然后选<em>设置</em>。"
+          s2_html: "进入<em>系统 &gt; 通知</em>。"
+          s3_html: "将 %{app} 的 <em>%{switch}</em> 切换到<em>打开</em>。"
+        mac:
+          s1_html: 点击左上角的苹果菜单。
+          s2: 点击「系统设置…」。
+          s3: 点击「通知」。
+          s4_html: "点击 <em>%{app}</em>。"
+          s5_html: "点击 <em>%{switch}</em>,将<em>允许通知</em>。"
+        ios:
+          s1_html: "打开 <em>%{gear}</em>「设置」应用。"
+          s2_html: "滑动并点击 <em>%{app}</em>。"
+          s3: 点击「通知」。
+          s4_html: "点击 <em>%{switch}</em>,将<em>允许通知</em>。"
+        android:
+          s1_html: "打开 <em>%{gear}</em>「设置」应用。"
+          s2: 点击「通知」。
+          s3: 点击「应用通知」。
+          s4_html: "滑动到 <em>%{app}</em>。"
+          s5_html: "点击 <em>%{switch}</em>,将<em>允许通知</em>。"
 
   boards:
     new:
