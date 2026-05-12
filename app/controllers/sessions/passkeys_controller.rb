@@ -15,8 +15,8 @@ class Sessions::PasskeysController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to new_session_path, alert: "That passkey didn't work. Try again." }
-        format.json { render json: { message: "That passkey didn't work. Try again." }, status: :unauthorized }
+        format.html { redirect_to new_session_path, alert: I18n.t("flash.passkey_failed") }
+        format.json { render json: { message: I18n.t("flash.passkey_failed") }, status: :unauthorized }
       end
     end
   end

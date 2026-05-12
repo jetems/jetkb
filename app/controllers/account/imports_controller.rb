@@ -15,7 +15,7 @@ class Account::ImportsController < ApplicationController
     if signup.complete
       start_import(signup.account)
     else
-      render :new, alert: "Couldn't create account."
+      render :new, alert: I18n.t("flash.cannot_create_account")
     end
   end
 

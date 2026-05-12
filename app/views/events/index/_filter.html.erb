@@ -7,7 +7,7 @@
   <% end %>
 
   <% unless user_filtering.users.one? %>
-    <span>by</span>
+    <span><%= t(".by") %></span>
     <%= render "events/index/filter/user", user_filtering: %>
   <% end %>
 <% end %>

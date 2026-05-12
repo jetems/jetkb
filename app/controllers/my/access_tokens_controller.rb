@@ -10,7 +10,7 @@ class My::AccessTokensController < ApplicationController
   def show
     @access_token = my_access_tokens.find(verifier.verify(params[:id]))
   rescue ActiveSupport::MessageVerifier::InvalidSignature
-    redirect_to my_access_tokens_path, alert: "Token is no longer visible"
+    redirect_to my_access_tokens_path, alert: I18n.t("flash.token_not_visible")
   end
 
   def new

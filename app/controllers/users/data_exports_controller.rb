@@ -18,7 +18,7 @@ class Users::DataExportsController < ApplicationController
     @export.build_later
 
     respond_to do |format|
-      format.html { redirect_to @user, notice: "Export started. You'll receive an email when it's ready." }
+      format.html { redirect_to @user, notice: I18n.t("flash.export_started") }
       format.json { render :show, status: :created }
     end
   end

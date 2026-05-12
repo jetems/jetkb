@@ -1,75 +1,60 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
+---
 en:
-  # === jetKB additions below ===
+  flash:
+    saved: Saved
+    saved_removed_from_board: Saved (you were removed from the board)
+    card_deleted: Card deleted
+    card_added: Card added
+    export_started: "Export started. You'll receive an email when it's ready."
+    account_deleted: Account deleted
+    account_updated: Account updated
+    settings_updated: Settings updated
+    passkey_failed: That passkey didn't work. Try again.
+    token_not_visible: Token is no longer visible
+    cannot_create_account: Couldn't create account.
+    invalid_unsubscribe_link: Invalid unsubscribe link
 
   common:
     send_us_an_email: Send us an email
     send_us_an_email_lower: send us an email
     rate_limit_exceeded: Try again later.
     something_went_wrong: Something went wrong
-    back_to: "Back to %{label}"
+    back_to: Back to %{label}
     home: Home
-
   searches:
     show:
       page_title: Search
-      page_title_with_query: "Search results for \"%{query}\""
+      page_title_with_query: Search results for "%{query}"
     form:
       label: Search jetKB
-      placeholder: "Find something…"
+      placeholder: Find something…
       submit: Search
       close: Close search
     results:
       no_matches: No matches
-
   columns:
     show:
       add_card_button:
         add_card: Add card
         add_a_card: Add a card
-
   cards:
     statuses:
       done: Done
       not_now: Not Now
-      maybe: "Maybe?"
+      maybe: Maybe?
       triage: Triage
     card_number: Card number
     index:
       no_match: No cards match this filter
     edit:
-      title_placeholder: "Name it…"
-      description_placeholder: "Add some notes, context, pictures, or video about this…"
+      title_placeholder: Name it…
+      description_placeholder: Add some notes, context, pictures, or video about this…
       close_discard: Close editor and discard changes
       cancel: Cancel
+      title_placeholder_main: Give it a name…
+      description_placeholder_main: Add notes, context, images, or videos…
+      close_discard_main: Close the editor, discard changes
+      cancel_main: Cancel
     delete:
       button: Delete this card
       title: Delete this card?
@@ -82,30 +67,33 @@ en:
         edit: Edit this comment
       edit:
         save: Save
-        save_title: "Save changes (Ctrl+Enter)"
+        save_title: Save changes (Ctrl+Enter)
         cancel: Cancel
-        cancel_title: "Cancel (Esc)"
+        cancel_title: Cancel (Esc)
         delete: Delete
         delete_confirm: Are you sure you want to delete this comment?
+      new:
+        post_title: Post this comment (%{hotkey})
+        post: Post
     container:
       gild:
         demote: Demote to normal
-        demote_hint: "Demote to normal (shift+g)"
+        demote_hint: Demote to normal (shift+g)
         promote: Promote to Golden Ticket
-        promote_hint: "Promote to Golden Ticket (shift+g)"
+        promote_hint: Promote to Golden Ticket (shift+g)
       closure:
-        completed_html: "Completed by <strong>%{user}</strong> on %{date}."
+        completed_html: Completed by <strong>%{user}</strong> on %{date}.
         undo: Undo
-        will_postpone_html: "Moves to “Not Now” %{when} if there's no activity."
+        will_postpone_html: Moves to “Not Now” %{when} if there's no activity.
       image:
         remove: Remove background image
         add: Add background image
       save_button:
         save: Save changes
-        save_title: "Save changes (Ctrl+Enter)"
+        save_title: Save changes (Ctrl+Enter)
       content:
-        title_placeholder: "Name it…"
-        description_placeholder: "Add some notes, context, pictures, or video about this…"
+        title_placeholder: Name it…
+        description_placeholder: Add some notes, context, pictures, or video about this…
       closure_buttons:
         edit: Edit
         mark_done: Mark done
@@ -113,40 +101,40 @@ en:
       footer:
         create:
           create_card: Create card
-          create_card_title: "Create card (Ctrl+Enter)"
+          create_card_title: Create card (Ctrl+Enter)
           create_and_add: Create and add another
-          create_and_add_title: "Create and add another (Ctrl+Shift+Enter)"
+          create_and_add_title: Create and add another (Ctrl+Shift+Enter)
         published:
           watch: Watch this
           pin: Pin this card
     pins:
       pin_button:
         unpin: Unpin this card
-        unpin_hint: "Unpin this card (shift+p)"
+        unpin_hint: Unpin this card (shift+p)
         pin: Pin this card
-        pin_hint: "Pin this card (shift+p)"
+        pin_hint: Pin this card (shift+p)
     watches:
       watch_button:
         stop_watching: Stop watching
-        stop_watching_hint: "Stop watching (shift+n)"
+        stop_watching_hint: Stop watching (shift+n)
         watch: Watch this
-        watch_hint: "Watch this (shift+n)"
+        watch_hint: Watch this (shift+n)
     taggings:
       new:
-        title: "Tag this…"
-        placeholder_with_tags: "Add a new tag or filter…"
-        placeholder_empty: "Name this tag…"
+        title: Tag this…
+        placeholder_with_tags: Add a new tag or filter…
+        placeholder_empty: Name this tag…
         create_a_new_tag: Create a new tag
         create_tag: Create tag
     assignments:
       new:
-        title: "Assign this to…"
-        filter: "Filter…"
-        max_assignees: "Maximum %{count} assignees"
+        title: Assign this to…
+        filter: Filter…
+        max_assignees: Maximum %{count} assignees
         me: Me
     steps:
       edit:
-        placeholder: "Name this step…"
+        placeholder: Name this step…
         save: Save changes
         cancel: Cancel changes
         delete: Delete this step
@@ -156,7 +144,7 @@ en:
     display:
       public_preview:
         meta:
-          by_html: "By <strong>%{name}</strong>"
+          by_html: By <strong>%{name}</strong>
       perma:
         tags:
           add_tag: Add a tag
@@ -164,6 +152,9 @@ en:
           choose_board: Choose a board for this card
         background:
           zoom: Zoom background image
+        steps:
+          add_placeholder: Add a step…
+          add_aria: Add a step
       common:
         meta:
           updated: Updated
@@ -171,11 +162,15 @@ en:
           assigned_to: Assigned to
           not_assigned: Not assigned
         stamp:
-          by_html: 'by <span class="card__closed-by">%{name}</span>'
+          by_html: by <span class="card__closed-by">%{name}</span>
         assignees:
           assign: Assign
           assign_to_me: Assign to me
-
+      preview:
+        meta:
+          last_updated: Last updated
+          assigned_to: Assigned to
+          card_number: Card number
   reactions:
     reaction:
       reacted_aria: "%{user} reacted %{content}"
@@ -188,7 +183,6 @@ en:
       cancel: Cancel
     reactions:
       add_own: Add your own reaction
-
   notifications:
     index:
       page_title: Notifications
@@ -197,7 +191,7 @@ en:
         heading: New for you
         mark_all_read: Mark all as read
         empty: Nothing new for you
-        limit_notice: "Showing the %{count} most recent (%{hidden} are hidden)"
+        limit_notice: Showing the %{count} most recent (%{hidden} are hidden)
       read_notifications:
         heading: Previously seen
     tray:
@@ -212,11 +206,11 @@ en:
     unsubscribes:
       show:
         title: You're unsubscribed
-        body_html: "Thanks, %{name}! jetKB won't send you any more email notifications. If you change your mind, you can turn them back on in %{settings_link}."
+        body_html: Thanks, %{name}! jetKB won't send you any more email notifications. If you change your mind, you can turn them back on in %{settings_link}.
         settings_link: Notification Settings
         back: Back to jetKB
       new:
-        progress: "Unsubscribing from all email notifications as %{name}…"
+        progress: Unsubscribing from all email notifications as %{name}…
         submit: Unsubscribe now
     settings:
       show:
@@ -224,8 +218,8 @@ en:
         boards_heading: Boards
       push_notifications:
         status_label: Push notifications are
-        status_on: "ON"
-        status_off: "OFF"
+        status_on: 'ON'
+        status_off: 'OFF'
         turn_on: Turn ON push notifications on this device
         help_fix: Help me fix this
         not_receiving: Not receiving notifications?
@@ -233,145 +227,144 @@ en:
       email:
         title: Email Notifications
         description: Get a single email with all your notifications every few hours, daily, or weekly.
-        label: "Email me about new notifications..."
+        label: Email me about new notifications...
       install:
         install_title: "%{prefix}jetKB as a web app."
-        prefix_install: "Install "
+        prefix_install: 'Install '
         prefix_or_install: "…or install "
         fallback: Some platforms require you to install jetKB as a web app to receive push notifications.
-        ios_intro: "To receive push notifications in %{browser} for %{os}, you must first install jetKB as a web app."
+        ios_intro: To receive push notifications in %{browser} for %{os}, you must first install jetKB as a web app.
         alt_more: More options
         alt_share: the share button
         edge:
-          alt: "the app available - install %{app} button"
-          s1_html: "Click <em>%{icon}</em> in the address bar."
-          s2_html: "Click <em>Install</em>."
+          alt: the app available - install %{app} button
+          s1_html: Click <em>%{icon}</em> in the address bar.
+          s2_html: Click <em>Install</em>.
         chrome_android:
-          s1_html: "Tap the <em>%{icon}</em> menu button."
-          s2_html: "Tap <em>Install app</em> in the menu."
+          s1_html: Tap the <em>%{icon}</em> menu button.
+          s2_html: Tap <em>Install app</em> in the menu.
         firefox_android:
-          s1_html: "Tap the <em>%{icon}</em> menu button."
-          s2_html: "Tap <em>Install</em> in the menu."
+          s1_html: Tap the <em>%{icon}</em> menu button.
+          s2_html: Tap <em>Install</em> in the menu.
         safari_desktop:
-          s1_html: "Click <em>File</em> in the top left."
-          s2_html: "Click <em>Add to Dock…</em>"
+          s1_html: Click <em>File</em> in the top left.
+          s2_html: Click <em>Add to Dock…</em>
         ios:
-          s1_html: "Tap <em>%{icon}</em>"
-          s2_html: "Tap <em>Add to Home Screen</em>."
+          s1_html: Tap <em>%{icon}</em>
+          s2_html: Tap <em>Add to Home Screen</em>.
       browser:
-        fallback_html: "Ensure notifications are enabled for <em>%{url}</em> in your web browser settings."
-        heading_for_browser: "Turn on notifications for %{browser}."
+        fallback_html: Ensure notifications are enabled for <em>%{url}</em> in your web browser settings.
+        heading_for_browser: Turn on notifications for %{browser}.
         heading_for_site: Turn on notifications for this website.
         alt_view_info: the View site information button
         alt_bell: the notification bell
         firefox_android:
-          s1_html: "Tap <em>%{icon}</em> in the address bar."
-          s2_html: "Tap <em>Notification</em> to change to <em>Allowed</em>."
+          s1_html: Tap <em>%{icon}</em> in the address bar.
+          s2_html: Tap <em>Notification</em> to change to <em>Allowed</em>.
         edge:
-          site_s1_html: "Click <em>%{icon}</em> left of the address bar."
-          site_s2_html: "Under <em>Permissions for this site &gt; Notifications</em>, choose <em>Allow</em>."
+          site_s1_html: Click <em>%{icon}</em> left of the address bar.
+          site_s2_html: Under <em>Permissions for this site &gt; Notifications</em>, choose <em>Allow</em>.
         firefox_desktop:
-          s1_html: "Click <em>%{browser}</em> in the top left."
-          s2_html: "Click <em>Settings…</em>"
-          s3_html: "Click <em>Privacy &amp; Security</em> in the sidebar."
-          s4_html: "Scroll down to <em>Permissions</em>."
-          s5_html: "Click <em>Settings</em> next to <em>Notifications</em>."
-          s6_html: "Select <em>Allow</em> next to <em>%{url}</em>."
+          s1_html: Click <em>%{browser}</em> in the top left.
+          s2_html: Click <em>Settings…</em>
+          s3_html: Click <em>Privacy &amp; Security</em> in the sidebar.
+          s4_html: Scroll down to <em>Permissions</em>.
+          s5_html: Click <em>Settings</em> next to <em>Notifications</em>.
+          s6_html: Select <em>Allow</em> next to <em>%{url}</em>.
         chrome_desktop:
-          s1_html: "Click the <em>%{icon}</em> icon in the address bar."
-          s2_html: "Click <em>Site Settings</em>."
-          s3_html: "Ensure notifications are <em>Allowed</em>."
+          s1_html: Click the <em>%{icon}</em> icon in the address bar.
+          s2_html: Click <em>Site Settings</em>.
+          s3_html: Ensure notifications are <em>Allowed</em>.
         chrome_android:
-          s1_html: "Tap the <em>%{icon}</em> menu button."
-          s2_html: "Tap <em>Settings</em>."
-          s3_html: "Tap <em>Notifications</em>."
-          s4_html: "Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>."
-          s5_html: "Tap <em>%{switch}</em> next to <em>Web apps</em>."
-          s6_html: "Tap <em>%{bell}</em> and select <em>Allow</em>."
+          s1_html: Tap the <em>%{icon}</em> menu button.
+          s2_html: Tap <em>Settings</em>.
+          s3_html: Tap <em>Notifications</em>.
+          s4_html: Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>.
+          s5_html: Tap <em>%{switch}</em> next to <em>Web apps</em>.
+          s6_html: Tap <em>%{bell}</em> and select <em>Allow</em>.
         safari_desktop:
-          s4_html: "Click <em>%{url}</em> in the list."
-          b1_html: "Click <em>%{browser}</em> in the top left."
-          b2_html: "Click <em>Settings…</em>"
-          b3_html: "Click the <em>Websites</em> tab."
-          b4_html: "Click <em>Notifications</em> in the sidebar."
-          b5_html: "Click <em>%{url}</em> in the list."
-          b6_html: "Select <em>Allow</em>."
+          s4_html: Click <em>%{url}</em> in the list.
+          b1_html: Click <em>%{browser}</em> in the top left.
+          b2_html: Click <em>Settings…</em>
+          b3_html: Click the <em>Websites</em> tab.
+          b4_html: Click <em>Notifications</em> in the sidebar.
+          b5_html: Click <em>%{url}</em> in the list.
+          b6_html: Select <em>Allow</em>.
       system:
-        check_os_settings: "Check your %{os} settings"
-        fallback: "Ensure notifications are allowed for %{browser} in your system settings."
+        check_os_settings: Check your %{os} settings
+        fallback: Ensure notifications are allowed for %{browser} in your system settings.
         alt_toggle: the toggle button
         alt_allow_switch: the allow notifications switch
         alt_allow_switch_button: the allow notifications switch button
         alt_switch: the switch
         firefox_android:
-          s1_html: "Tap the <em>menu</em> button."
-          s2: "Tap Settings."
-          s3: "Tap Notifications."
-          s4_html: "Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>."
+          s1_html: Tap the <em>menu</em> button.
+          s2: Tap Settings.
+          s3: Tap Notifications.
+          s4_html: Tap <em>%{switch}</em> to <em>Allow %{browser} notifications</em>.
         windows:
-          s1_html: "Click <em>Start</em>, then <em>Settings</em>."
-          s2_html: "Go to <em>System &gt; Notification</em>."
-          s3_html: "Click <em>%{switch}</em> <em>ON</em> for %{app}."
+          s1_html: Click <em>Start</em>, then <em>Settings</em>.
+          s2_html: Go to <em>System &gt; Notification</em>.
+          s3_html: Click <em>%{switch}</em> <em>ON</em> for %{app}.
         mac:
-          s1_html: "Click the Apple menu in the top left."
-          s2: "Click System Settings…"
-          s3: "Click Notifications."
-          s4_html: "Click <em>%{app}</em>."
-          s5_html: "Click <em>%{switch}</em> to <em>Allow notifications</em>."
+          s1_html: Click the Apple menu in the top left.
+          s2: Click System Settings…
+          s3: Click Notifications.
+          s4_html: Click <em>%{app}</em>.
+          s5_html: Click <em>%{switch}</em> to <em>Allow notifications</em>.
         ios:
-          s1_html: "Open the <em>%{gear}</em> Settings app."
-          s2_html: "Scroll to and tap <em>%{app}</em>."
-          s3: "Tap Notifications."
-          s4_html: "Tap <em>%{switch}</em> to <em>Allow Notifications</em>."
+          s1_html: Open the <em>%{gear}</em> Settings app.
+          s2_html: Scroll to and tap <em>%{app}</em>.
+          s3: Tap Notifications.
+          s4_html: Tap <em>%{switch}</em> to <em>Allow Notifications</em>.
         android:
-          s1_html: "Open the <em>%{gear}</em> Settings app."
-          s2: "Tap Notifications."
-          s3: "Tap App notifications."
-          s4_html: "Scroll to <em>%{app}</em>."
-          s5_html: "Tap <em>%{switch}</em> to <em>Allow Notifications</em>."
-
+          s1_html: Open the <em>%{gear}</em> Settings app.
+          s2: Tap Notifications.
+          s3: Tap App notifications.
+          s4_html: Scroll to <em>%{app}</em>.
+          s5_html: Tap <em>%{switch}</em> to <em>Allow Notifications</em>.
   boards:
     new:
       page_title: Create a new board
-      name_placeholder: "Name it…"
-      name_validation: "Board names can't be blank"
+      name_placeholder: Name it…
+      name_validation: Board names can't be blank
       submit: Create board
       cancel: Cancel and go back
     edit:
       page_title: Board Settings
       admin_only: Only admins can change these settings
-      self_removal_prompt: "Are you sure you want to remove yourself from this board? You won't be able to get back in unless someone invites you."
+      self_removal_prompt: Are you sure you want to remove yourself from this board? You won't be able to get back in unless someone invites you.
       save: Save changes
       cancel: Cancel and go back
       name:
-        placeholder: "Board name…"
+        placeholder: Board name…
       auto_close:
         title: Auto close
-        description: "jetKB doesn't let stale cards stick around forever. Cards automatically move to \"Not now\" if no one updates, comments, or moves a card for…"
+        description: jetKB doesn't let stale cards stick around forever. Cards automatically move to "Not now" if no one updates, comments, or moves a card for…
       delete:
         button: Delete this board
         title: Delete this board?
-        confirm: "Are you sure you want to permanently delete this board and all the cards on it? This can't be undone."
+        confirm: Are you sure you want to permanently delete this board and all the cards on it? This can't be undone.
         cancel: Cancel
         submit: Delete board
       publication:
         title: Public link
-        description: "Turn on the Public link to share this board with anyone in the world. They won't need to log in and they won't be able to see anything else in jetKB."
+        description: Turn on the Public link to share this board with anyone in the world. They won't need to log in and they won't be able to see anything else in jetKB.
         turn_off: Turn off the public link
         turn_on: Turn on the public link
         copy: Copy public link
         description_label: Add an optional description to the public page
-        description_placeholder: "Add a public note about this board…"
+        description_placeholder: Add a public note about this board…
         save: Save changes
       users:
         title: Who can access this board?
         everyone: Everyone
         give_access: Give everyone access to this board
-        filter: "Filter…"
+        filter: Filter…
         select_all: Select all
         select_none: Select none
     access_toggle:
-      give_user_access: "Give %{name} access"
+      give_user_access: Give %{name} access
     show:
       column:
         maximize: Maximize column
@@ -384,7 +377,7 @@ en:
           move_left: Move to the left
           move_right: Move to the right
           delete: Delete column
-          delete_confirm: "Are you sure you want to delete this column? This will move the cards back to Maybe."
+          delete_confirm: Are you sure you want to delete this column? This will move the cards back to Maybe.
           save: Save changes
         columns:
           add_a_column: Add a column
@@ -399,78 +392,75 @@ en:
         no_cards: No cards here
         drag_here: Drag cards here
       show:
-        page_title: "Column: %{name}"
+        page_title: 'Column: %{name}'
       closeds:
         show:
-          page_title: "Column: Done"
+          page_title: 'Column: Done'
       not_nows:
         show:
-          page_title: "Column: Not Now"
+          page_title: 'Column: Not Now'
       streams:
         show:
-          page_title: "Column: Maybe?"
-
+          page_title: 'Column: Maybe?'
   sessions:
     new:
       page_title: Enter your email
       title: Get into jetKB
-      email_placeholder: "Enter your email address…"
+      email_placeholder: Enter your email address…
       new_here_html: "<strong>New here?</strong> %{signup_link} to create an account. <strong>Already have an account?</strong> Enter your email and we'll get you signed in."
       sign_up: Sign up
-      existing_account: "Enter your email and we'll get you signed in."
-      submit: "Let's go"
+      existing_account: Enter your email and we'll get you signed in.
+      submit: Let's go
       passkey_button: Sign in with a passkey
     footer:
-      need_help_html: "Need help? %{email_link}."
+      need_help_html: Need help? %{email_link}.
     magic_links:
       show:
         page_title: Check your email
-        instruction: "Then enter the verification code included in the email below:"
-        code_sent_html: "The code sent to <strong>%{email}</strong> will work for %{duration}."
-        dev_hint: "Psst, here's your code:"
+        instruction: 'Then enter the verification code included in the email below:'
+        code_sent_html: The code sent to <strong>%{email}</strong> will work for %{duration}.
+        dev_hint: 'Psst, here''s your code:'
     menus:
       show:
         page_title: Choose an account
         accounts_title: Your jetKB accounts
-        empty_title: "Hmm..."
-        empty_body: "You don't have any jetKB accounts."
+        empty_title: Hmm...
+        empty_body: You don't have any jetKB accounts.
         sign_up_for_new: Sign up for a new jetKB account
     starts:
       new:
-        page_title: "Signing in..."
-        signing_in: "Just a sec while we sign you in with %{account_name}."
+        page_title: Signing in...
+        signing_in: Just a sec while we sign you in with %{account_name}.
         submit: Sign in
-        submits_with: "Signing in..."
-
+        submits_with: Signing in...
   signups:
     new:
       page_title: Signup for jetKB
       title: Sign up
-      email_placeholder: "Enter your email address…"
+      email_placeholder: Enter your email address…
       hint: Enter your email to create an account.
-      submit: "Let's go"
+      submit: Let's go
     completions:
       new:
         page_title: Complete your sign-up
-        full_name_placeholder: "Enter your full name…"
-        hint: "You're one step away. Just enter your name to get your own jetKB account."
-        errors_title: "Your changes couldn't be saved:"
+        full_name_placeholder: Enter your full name…
+        hint: You're one step away. Just enter your name to get your own jetKB account.
+        errors_title: 'Your changes couldn''t be saved:'
         submit: Continue
         import_link: Or import a jetKB account
-
   users:
     email_addresses:
       new:
         page_title: Change your email
         back: My profile
         email_placeholder: New email address
-        hint_html: "Enter your new email address, then check your&nbsp;email to confirm the change."
+        hint_html: Enter your new email address, then check your&nbsp;email to confirm the change.
         submit: Continue
       create:
         page_title: Confirm your new email address
         back: My profile
         title: Check your email
-        sent_html: "We just sent an email to <strong>%{email}</strong>"
+        sent_html: We just sent an email to <strong>%{email}</strong>
         instruction: Hit the link in the email to confirm this is the email address you want to use with jetKB going forward.
         done: Done
       confirmations:
@@ -480,10 +470,71 @@ en:
           submit: Done
         invalid_token:
           page_title: Link expired
-          body: "That email confirmation link is no longer valid—they expire after 30 minutes. You'll have to try again."
+          body: That email confirmation link is no longer valid—they expire after 30 minutes. You'll have to try again.
           retry: Change my email address
-          stuck_html: "If you get stuck, %{email_link} and we'll get you back on track."
-
+          stuck_html: If you get stuck, %{email_link} and we'll get you back on track.
+    show:
+      page_title: My profile
+      edit_profile: Edit profile
+      no_longer_on_account_html: "%{name} is no longer on this account"
+      unverified: Unverified
+      unverified_hint: A sign-in code has been sent to this email address, but the user has not yet logged in to confirm their identity.
+      avatar_alt: Profile avatar for %{name}
+      assigned_self: Which cards are assigned to me?
+      assigned_other: Which cards are assigned to %{name}?
+      added_self: Which cards were added by me?
+      added_other: Which cards were added by %{name}?
+      manage_passkeys: Manage passkeys
+      sign_out_device: Sign out of jetKB on this device
+    edit:
+      page_title: Edit your profile
+      back_to_profile: profile
+      delete_avatar: Delete avatar
+      delete_avatar_confirm: Are you sure you want to remove your avatar? This can't be undone.
+      name_placeholder: Name
+      email_placeholder: Email address
+      change_email: Change email
+      errors_title: 'Your changes couldn''t be saved:'
+      save: Save changes
+      cancel: Cancel and go back
+    theme:
+      title: Appearance
+      always_light: Always light
+      always_dark: Always dark
+      same_as_os: Same as OS
+    transfer:
+      title: Devices
+      description: Link to automatically log in on another device.
+      qr_aria: Display auto-login QR code
+      scan_intro: 'Scan this code to instantly log in on another device:'
+      qr_done: Done
+      copy_aria: Copy auto-login link
+    access_tokens:
+      title: Developer
+      description_html: Manage %{link} used with the jetKB developer API.
+      link_label: personal access tokens
+    data_export:
+      title: Export your data
+      description: Download an archive of your jetKB data.
+      begin: Begin export...
+      dialog_title: Export your data
+      dialog_intro: This will generate a ZIP archive of all cards you have access to.
+      dialog_email_notice: We'll email you a link to download the file when it's ready. The link will expire after 24 hours.
+      start: Start export
+      cancel: Cancel
+    data_exports:
+      show:
+        page_title_ready: Download Export
+        page_title_expired: Download Expired
+        ready: Your export is ready. The download should start automatically.
+        download_link: Download your data
+        expired_html: That download link has expired. You'll need to %{link}.
+        request_new_link: request a new export
+    joins:
+      new:
+        page_title: Great! Now enter your name
+        name_placeholder: Full name
+        continue: Continue
   my:
     menus:
       jump:
@@ -492,6 +543,9 @@ en:
         assigned_to_me: Assigned to me
         added_by_me: Added by me
         no_match: Nothing matches that filter
+        search_placeholder: "Type to jump to a board, person, place, or tag…"
+      tags:
+        title: Tags
       accounts:
         title: Accounts
       boards:
@@ -510,171 +564,13 @@ en:
         all_notifications: All notifications
         notification_settings: Notification Settings
         sign_out: Sign out
-
-  account:
-    settings:
-      show:
-        page_title: Account Settings
-        admins_only: Only admins can change these settings
-      name:
-        placeholder: "Account name…"
-        save: Save changes
-      cancellation:
-        title: Danger zone
-        description_html: Delete your account and everything in&nbsp;it, including all boards and cards.
-        open: "Delete account..."
-        dialog_title: Delete account
-        what_happens: "What happens next:"
-        bullet_close_html: Your <strong>%{name}</strong> account will be closed immediately.
-        bullet_users: All users, including you, will lose access.
-        bullet_subscription: Your subscription will be canceled.
-        bullet_delete_html: All your data will be permanently deleted within 30&nbsp;days.
-        export_reminder: Remember to export your data
-        export_link_html: "%{link} before you go. You won't be able to do it after you delete your account."
-        export_link_label: Export your data
-        confirm_checkbox: I've read the above and want to continue
-        not_now: Not now
-        delete_my_account: Delete my account
-      export:
-        title: Export account data
-        description: Download a complete archive of all account data.
-        begin: "Begin export..."
-        dialog_title: Export all account data
-        dialog_intro: This will generate a ZIP archive of all data in this account including all boards, cards, users, and settings.
-        dialog_email_notice: We'll email you a link to download the file when it's ready. The link will expire after 24 hours.
-        start: Start export
-        cancel: Cancel
-      user:
-        role_label: "Role: %{role}"
-        remove_confirm: Are you sure you want to permanently remove this person from the account?
-        remove_aria: "Remove %{name} from the account"
-      users:
-        title: People on this account
-        filter: "Filter…"
-        invite: Invite people
-      entropy:
-        title: Auto close
-        description_html: "jetKB doesn't let stale cards stick around forever. Cards automatically move to “Not Now” if there is no activity for a specific period of time. <em>This is the default, global setting — you can override it on each board.</em>"
-    exports:
-      show:
-        page_title_ready: Download Export
-        page_title_expired: Download Expired
-        back_to_settings: Account Settings
-        ready: The download should start automatically.
-        download_link: Download your data
-        expired_html: "That download link has expired. You'll need to %{link}."
-        request_new_link: request a new export
-    imports:
-      new:
-        page_title: Import an account
-        heading: Import a jetKB account
-        saas_intro_html: "Running jetKB on your own server and want us to host on %{link} instead?"
-        saas_subtitle: Export your self-hosted account, then upload the .zip file below.
-        oss_intro: Ready to host jetKB on your own server?
-        oss_subtitle_html: "Export your %{link} account, then upload the .zip file below."
-        choose_file: "Choose a file…"
-        submit: Start Import →
-        help_html: "If you run into issues or would like assistance, just %{link}."
-        send_us_an_email: send us an email
-      show:
-        page_title: Import status
-        heading: Import status
-        in_progress: Your import is in progress. This may take a while for large accounts.
-        success: Your import was successful!
-        go_to_account: Go to your account →
-        failed: Import failed
-        failed_conflict_html: "The account you're trying to import already exists. Make sure you're importing a %{kind} account."
-        failed_conflict_kind_self: self-hosted
-        failed_invalid: "The .zip file you uploaded doesn't look like a jetKB account export."
-        failed_other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export.
-        try_again: Try again
-    join_codes:
-      show:
-        page_title: Add people
-        back_to_settings: Account Settings
-        share_intro: Share the link below to invite people to this account
-        regenerate_confirm: Are you sure you want to generate a new link? The previous code will stop working.
-        regenerate_aria: Generate a new code
-        copy_invite: Copy invite link
-        get_qr: Get QR code
-        scan_to_join_html: "Scan this code to join <strong>%{name}</strong>:"
-        qr_done: Done
-        usage_html: "This code has been used %{used}/%{limit} times (%{remaining} remaining)"
-        usage_remaining_none: none
-        change_limit: Change limit
-      edit:
-        page_title: Change usage limit
-        back_to_invite: Invite link
-        intro: How many times can this link be used to join the account?
-        usage_count_html: "This code has been used %{used}/%{limit} times."
-        save: Save changes
-        go_back: Go back
-
-  users:
-    show:
-      page_title: My profile
-      edit_profile: Edit profile
-      no_longer_on_account_html: "%{name} is no longer on this account"
-      unverified: Unverified
-      unverified_hint: A sign-in code has been sent to this email address, but the user has not yet logged in to confirm their identity.
-      avatar_alt: "Profile avatar for %{name}"
-      assigned_self: Which cards are assigned to me?
-      assigned_other: Which cards are assigned to %{name}?
-      added_self: Which cards were added by me?
-      added_other: Which cards were added by %{name}?
-      manage_passkeys: Manage passkeys
-      sign_out_device: Sign out of jetKB on this device
-    edit:
-      page_title: Edit your profile
-      back_to_profile: profile
-      delete_avatar: Delete avatar
-      delete_avatar_confirm: Are you sure you want to remove your avatar? This can't be undone.
-      name_placeholder: Name
-      email_placeholder: Email address
-      change_email: Change email
-      errors_title: "Your changes couldn't be saved:"
-      save: Save changes
-      cancel: Cancel and go back
-    theme:
-      title: Appearance
-      always_light: Always light
-      always_dark: Always dark
-      same_as_os: Same as OS
-    transfer:
-      title: Devices
-      description: Link to automatically log in on another device.
-      qr_aria: Display auto-login QR code
-      scan_intro: "Scan this code to instantly log in on another device:"
-      qr_done: Done
-      copy_aria: Copy auto-login link
-    access_tokens:
-      title: Developer
-      description_html: "Manage %{link} used with the jetKB developer API."
-      link_label: personal access tokens
-    data_export:
-      title: Export your data
-      description: Download an archive of your jetKB data.
-      begin: "Begin export..."
-      dialog_title: Export your data
-      dialog_intro: This will generate a ZIP archive of all cards you have access to.
-      dialog_email_notice: "We'll email you a link to download the file when it's ready. The link will expire after 24 hours."
-      start: Start export
-      cancel: Cancel
-    data_exports:
-      show:
-        page_title_ready: Download Export
-        page_title_expired: Download Expired
-        ready: Your export is ready. The download should start automatically.
-        download_link: Download your data
-        expired_html: "That download link has expired. You'll need to %{link}."
-        request_new_link: request a new export
-    joins:
-      new:
-        page_title: Great! Now enter your name
-        name_placeholder: Full name
-        continue: Continue
-
-  my:
+      shortcuts:
+        title: Shortcuts
+        golden: Golden cards
+        stalled: Stalled cards
+        closing_soon: Cards closing soon
+        added_today: Added today
+        done_today: Done today
     access_tokens:
       index:
         page_title: Personal access tokens
@@ -721,6 +617,116 @@ en:
         remove_confirm: Are you sure you want to remove this passkey?
       passkey:
         unnamed: Passkey
+    pins:
+      index:
+        page_title: Pinned
+        back_to_home: Home
+      pin:
+        unpin: Unpin this card
+      tray:
+        toggle_aria: Toggle pins stack
+        pinned: Pinned
+  account:
+    settings:
+      show:
+        page_title: Account Settings
+        admins_only: Only admins can change these settings
+      name:
+        placeholder: Account name…
+        save: Save changes
+      cancellation:
+        title: Danger zone
+        description_html: Delete your account and everything in&nbsp;it, including all boards and cards.
+        open: Delete account...
+        dialog_title: Delete account
+        what_happens: 'What happens next:'
+        bullet_close_html: Your <strong>%{name}</strong> account will be closed immediately.
+        bullet_users: All users, including you, will lose access.
+        bullet_subscription: Your subscription will be canceled.
+        bullet_delete_html: All your data will be permanently deleted within 30&nbsp;days.
+        export_reminder: Remember to export your data
+        export_link_html: "%{link} before you go. You won't be able to do it after you delete your account."
+        export_link_label: Export your data
+        confirm_checkbox: I've read the above and want to continue
+        not_now: Not now
+        delete_my_account: Delete my account
+      export:
+        title: Export account data
+        description: Download a complete archive of all account data.
+        begin: Begin export...
+        dialog_title: Export all account data
+        dialog_intro: This will generate a ZIP archive of all data in this account including all boards, cards, users, and settings.
+        dialog_email_notice: We'll email you a link to download the file when it's ready. The link will expire after 24 hours.
+        start: Start export
+        cancel: Cancel
+      user:
+        role_label: 'Role: %{role}'
+        remove_confirm: Are you sure you want to permanently remove this person from the account?
+        remove_aria: Remove %{name} from the account
+      users:
+        title: People on this account
+        filter: Filter…
+        invite: Invite people
+      entropy:
+        title: Auto close
+        description_html: jetKB doesn't let stale cards stick around forever. Cards automatically move to “Not Now” if there is no activity for a specific period of time. <em>This is the default, global setting — you can override it on each board.</em>
+    exports:
+      show:
+        page_title_ready: Download Export
+        page_title_expired: Download Expired
+        back_to_settings: Account Settings
+        ready: The download should start automatically.
+        download_link: Download your data
+        expired_html: That download link has expired. You'll need to %{link}.
+        request_new_link: request a new export
+    imports:
+      new:
+        page_title: Import an account
+        heading: Import a jetKB account
+        saas_intro_html: Running jetKB on your own server and want us to host on %{link} instead?
+        saas_subtitle: Export your self-hosted account, then upload the .zip file below.
+        oss_intro: Ready to host jetKB on your own server?
+        oss_subtitle_html: Export your %{link} account, then upload the .zip file below.
+        choose_file: Choose a file…
+        submit: Start Import →
+        help_html: If you run into issues or would like assistance, just %{link}.
+        send_us_an_email: send us an email
+      show:
+        page_title: Import status
+        heading: Import status
+        in_progress: Your import is in progress. This may take a while for large accounts.
+        success: Your import was successful!
+        go_to_account: Go to your account →
+        failed: Import failed
+        failed_conflict_html: The account you're trying to import already exists. Make sure you're importing a %{kind} account.
+        failed_conflict_kind_self: self-hosted
+        failed_invalid: The .zip file you uploaded doesn't look like a jetKB account export.
+        failed_other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export.
+        try_again: Try again
+    join_codes:
+      show:
+        page_title: Add people
+        back_to_settings: Account Settings
+        share_intro: Share the link below to invite people to this account
+        regenerate_confirm: Are you sure you want to generate a new link? The previous code will stop working.
+        regenerate_aria: Generate a new code
+        copy_invite: Copy invite link
+        get_qr: Get QR code
+        scan_to_join_html: 'Scan this code to join <strong>%{name}</strong>:'
+        qr_done: Done
+        usage_html: This code has been used %{used}/%{limit} times (%{remaining} remaining)
+        usage_remaining_none: none
+        change_limit: Change limit
+      edit:
+        page_title: Change usage limit
+        back_to_invite: Invite link
+        intro: How many times can this link be used to join the account?
+        usage_count_html: This code has been used %{used}/%{limit} times.
+        save: Save changes
+        go_back: Go back
+  bar:
+    bar:
+      search: Search
 
   layouts:
     application:
@@ -735,8 +741,7 @@ en:
       sign_off: Thanks again and all the best,
       signer: Jason Fried
       signer_email: jason@37signals.com
-      signer_title_html: <em>CEO &amp; co-founder of 37signals, makers of jetKB, Basecamp, and HEY</em>
-
+      signer_title_html: "<em>CEO &amp; co-founder of 37signals, makers of jetKB, Basecamp, and HEY</em>"
   webhooks:
     index:
       page_title: Webhooks
@@ -745,22 +750,22 @@ en:
       new: Set up a new webhook
     webhook:
       remove_confirm: Are you sure you want to permanently remove this webhook?
-      remove_aria: "Remove %{name}"
+      remove_aria: Remove %{name}
     new:
       page_title: Set up a Webhook
       back_to_webhooks: Webhooks
-      name_placeholder: "Name this Webhook…"
+      name_placeholder: Name this Webhook…
       url_label: Payload URL
       url_help: This is the URL for the app that will receive payloads from jetKB.
       url_title: Must be an http:// or https:// URL
       events_label: Events
-      events_help: "Trigger a call to the Payload URL when:"
+      events_help: 'Trigger a call to the Payload URL when:'
       submit: Create Webhook
       cancel: Go back
     edit:
-      name_placeholder: "Name your Webhook…"
+      name_placeholder: Name your Webhook…
       events_label: Events
-      events_help: "Trigger a call to the Payload URL when:"
+      events_help: 'Trigger a call to the Payload URL when:'
       submit: Save Changes
       cancel: Go back
     show:
@@ -768,7 +773,7 @@ en:
       edit_aria: Edit
       reactivate: Reactivate
       secret_heading: Secret
-      secret_help_html: "We'll send a <code>X-Webhook-Signature</code> header with each request. You can generate a <code>HMAC</code> using <code>SHA256</code> of the request body with this secret to verify that the request came from us."
+      secret_help_html: We'll send a <code>X-Webhook-Signature</code> header with each request. You can generate a <code>HMAC</code> using <code>SHA256</code> of the request body with this secret to verify that the request came from us.
       subscribed_heading: Subscribed to
       subscribed_empty: This Webhook isn't subscribed to any events. It will never trigger.
       deliveries_heading: Deliveries
@@ -777,73 +782,41 @@ en:
       actions:
         enable_all: Enable all
         disable_all: Disable all
-
   tags:
     index:
       title: All tags
       delete_confirm: Are you sure?
       delete_aria: Delete
-
   entropy:
     knob:
       days: Days
-
-  cards:
-    comments:
-      new:
-        post_title: "Post this comment (%{hotkey})"
-        post: Post
-    edit:
-      title_placeholder_main: "Give it a name…"
-      description_placeholder_main: "Add notes, context, images, or videos…"
-      close_discard_main: Close the editor, discard changes
-      cancel_main: Cancel
-    display:
-      preview:
-        meta:
-          last_updated: Last updated
-          assigned_to: Assigned to
-          card_number: Card number
-      perma:
-        steps:
-          add_placeholder: "Add a step…"
-          add_aria: Add a step
-
   events:
     index:
+      page_title: Home
+      activity_in: Activity in
+      activity_across: Activity across
+      latest_activity: Latest Activity
       add_card: Add a card
       add_card_title: Add card
       add_board: Add a board
       add_board_title: Add board
+      filter:
+        by: by
     event:
       card_number: Card number
     empty_days:
       no_activity: No activity
       no_activity_for_days:
         one: No activity for 1 day
-        other: "No activity for %{count} days"
+        other: No activity for %{count} days
       no_more_activity: No more activity
     day_timeline:
       column:
         expand: Expand column
-        showing_recent_html: "Showing the 100 most recent (%{count} are hidden)"
-
-  my:
-    pins:
-      pin:
-        unpin: Unpin this card
-      tray:
-        toggle_aria: Toggle pins stack
-        pinned: Pinned
-    menus:
-      shortcuts:
-        title: Shortcuts
-        golden: Golden cards
-        stalled: Stalled cards
-        closing_soon: Cards closing soon
-        added_today: Added today
-        done_today: Done today
-
+        showing_recent_html: Showing the 100 most recent (%{count} are hidden)
+      columns:
+        show:
+          back_to_activity: Activity
   filters:
     filter_toggle:
       delete_aria: Delete custom view
@@ -856,46 +829,44 @@ en:
       manage:
         clear_all: Clear all
       assignees:
-        prompt: "Assigned to…"
+        prompt: Assigned to…
         prefix: Assigned to
-        filter: "Filter…"
+        filter: Filter…
         no_one: No one
       creators:
-        prompt: "Added by…"
+        prompt: Added by…
         prefix: Added by
-        filter: "Filter…"
+        filter: Filter…
       closers:
-        prompt: "Closed by…"
+        prompt: Closed by…
         prefix: Closed by
-        filter: "Filter…"
-
+        filter: Filter…
   join_codes:
     new:
-      page_title_html: "Join %{name} in jetKB"
+      page_title_html: Join %{name} in jetKB
       email_placeholder: Email address
       continue: Continue
     inactive:
       page_title: That code is all used up
-      ask_html: "Ask someone from %{name} to send you a new link or increase the limit."
+      ask_html: Ask someone from %{name} to send you a new link or increase the limit.
       ok: OK
-
   public:
     boards:
       columns:
         show:
-          page_title: "Column: %{name}"
+          page_title: 'Column: %{name}'
           no_cards: No cards here
         closeds:
           show:
-            page_title: "Column: Done"
+            page_title: 'Column: Done'
             no_cards: No cards here
         not_nows:
           show:
-            page_title: "Column: Not now"
+            page_title: 'Column: Not now'
             no_cards: No cards here
         streams:
           show:
-            page_title: "Column: Maybe?"
+            page_title: 'Column: Maybe?'
             no_cards: No cards here
       show:
         closed:
@@ -907,110 +878,104 @@ en:
           title: Not Now
           maximize: Maximize column
         stream:
-          title: "Maybe?"
+          title: Maybe?
           maximize: Maximize column
-
   account_mailer:
     subject_cancellation: Your jetKB account was cancelled
     cancellation:
-      cancelled_html: "Your jetKB account <strong>%{name}</strong> was cancelled."
+      cancelled_html: Your jetKB account <strong>%{name}</strong> was cancelled.
       what_now: What happens now?
       bullet_access: No one can access the account anymore
-      bullet_delete_html: "Everything in the account will be deleted in %{time}"
+      bullet_delete_html: Everything in the account will be deleted in %{time}
       changed_mind: Changed your mind?
-      restore_html: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
+      restore_html: If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible.
       text:
-        cancelled: "Your jetKB account \"%{name}\" was cancelled."
+        cancelled: Your jetKB account "%{name}" was cancelled.
         what_now_heading: WHAT HAPPENS NOW?
         bullet_access: "- No one can access the account anymore"
         bullet_delete: "- Everything in the account will be deleted in %{time}"
         changed_mind_heading: CHANGED YOUR MIND?
-        restore: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
-
+        restore: If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible.
   export_mailer:
     subject_completed: Your jetKB data export is ready for download
     completed:
       title: Download your jetKB data
       subtitle: Your jetKB data export has finished processing and is ready to download.
       download: Download your data
-      footer_html: "Need help? %{link}."
+      footer_html: Need help? %{link}.
       send_email: Send us an email
       text:
         intro: Your jetKB data export has finished processing and is ready to download.
-        download: "Download your data: %{url}"
-
+        download: 'Download your data: %{url}'
   import_mailer:
     subject_completed: Your jetKB account import is done
     subject_failed: Your jetKB account import failed
     completed:
-      subtitle_html: "Your import of %{name} is complete!"
+      subtitle_html: Your import of %{name} is complete!
       go_to_account: Go to your account
-      footer_html: "Need help? %{link}."
+      footer_html: Need help? %{link}.
       send_email: Send us an email
       text:
-        intro: "Your import of %{name} is complete!"
-        url: "Here's the URL: %{url}"
+        intro: Your import of %{name} is complete!
+        url: 'Here''s the URL: %{url}'
     failed:
       subtitle: Unfortunately, we couldn't import your jetKB account.
       conflict: It looks like the account you are trying to import already exists.
       invalid: The ZIP file isn't a jetKB account export.
       other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
-      footer_html: "Need help? %{link}."
+      footer_html: Need help? %{link}.
       send_email: Send us an email
       text:
         intro: Unfortunately, we couldn't import your jetKB account.
         conflict: It looks like the account you are trying to import already exists.
         invalid: The ZIP file isn't a jetKB account export.
         other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
-        footer: "Need help? Send us an email at %{email}"
-
+        footer: Need help? Send us an email at %{email}
   user_mailer:
     email_change_confirmation:
       subtitle: Confirm your email address change
       confirm: Yes use this email address
-      ignore: "If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button."
-      footer_html: "Need help? %{link}."
+      ignore: If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button.
+      footer_html: Need help? %{link}.
       send_email: Send us an email
-
   identity_mailer:
     email_change_confirmation:
       text:
         subtitle: Confirm your email address change
-        intro: "Hit the link below to use this email address in jetKB:"
-        ignore: "If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button."
-
+        intro: 'Hit the link below to use this email address in jetKB:'
+        ignore: If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button.
   mailers:
     notification:
       bundle_mailer:
-        subject_single: "jetKB: New notifications"
-        subject_multi: "jetKB (%{account}): New notifications"
+        subject_single: 'jetKB: New notifications'
+        subject_multi: 'jetKB (%{account}): New notifications'
         notification:
-          title: "Notifications since %{since}"
+          title: Notifications since %{since}
           since_format: "%-l%P on %A, %B %-d"
-          intro_single_html: "You have %{link}."
-          intro_multi_html: "You have %{link} in %{account}."
+          intro_single_html: You have %{link}.
+          intro_multi_html: You have %{link} in %{account}.
           notification_count:
-            one: "1 new notification"
+            one: 1 new notification
             other: "%{count} new notifications"
           footer: jetKB emails you about new notifications every few hours.
           change_frequency: Change how often you get these
           or: or
           unsubscribe: unsubscribe from all email notifications
           footer_text: jetKB emails you about new notifications every few hours.
-          change_frequency_text: "Change how often you get these:"
-          unsubscribe_text: "Unsubscribe from all email notifications:"
+          change_frequency_text: 'Change how often you get these:'
+          unsubscribe_text: 'Unsubscribe from all email notifications:'
         mention:
           body:
             mentioned_you: "%{name} mentioned you:"
     magic_link_mailer:
       sign_in_instructions:
-        subject: "Your jetKB code is %{code}"
+        subject: Your jetKB code is %{code}
         title_sign_in: jetKB verification code
-        subtitle_sign_in: "Please enter this 6-character verification code on the jetKB sign-in page:"
+        subtitle_sign_in: 'Please enter this 6-character verification code on the jetKB sign-in page:'
         title_welcome: Welcome to jetKB!
-        subtitle_welcome: "Please enter this 6-character verification code to finish creating your account:"
-        code_validity: "This code will work for %{duration}."
-        passkey_tip_html: "P.S. You can make your account more secure and sign-in faster with a %{passkey_link}"
-        passkey_tip_text: "P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}"
+        subtitle_welcome: 'Please enter this 6-character verification code to finish creating your account:'
+        code_validity: This code will work for %{duration}.
+        passkey_tip_html: P.S. You can make your account more secure and sign-in faster with a %{passkey_link}
+        passkey_tip_text: 'P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}'
         passkey: Passkey
-        need_help_html: "Need help? %{email_link}."
+        need_help_html: Need help? %{email_link}.
