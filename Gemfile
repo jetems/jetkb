@@ -64,3 +64,12 @@ group :test do
   gem "vcr"
   gem "mocha"
 end
+
+# === jetKB additions ===
+# Rails core translations (date / number / errors) for non-English locales
+gem "rails-i18n"
+
+group :development, :test do
+  # Detect missing / unused i18n keys
+  gem "i18n-tasks", require: false
+end

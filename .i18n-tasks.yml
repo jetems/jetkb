@@ -1,0 +1,43 @@
+# i18n-tasks configuration — https://github.com/glebm/i18n-tasks
+#
+# Run:
+#   bundle exec i18n-tasks missing      # keys used in code but not in any locale
+#   bundle exec i18n-tasks unused       # keys defined in locale but not used
+#   bundle exec i18n-tasks normalize    # sort + format locale files
+#   bundle exec i18n-tasks health       # summary
+
+base_locale: en
+locales: [en, zh-CN]
+
+# Where to scan for t("...") / I18n.t calls
+search:
+  paths:
+    - app/
+  exclude:
+    - app/assets/images
+    - app/assets/stylesheets
+    - app/assets/builds
+
+# Where translation data lives + where new keys land when running `add-missing`
+data:
+  read:
+    - config/locales/%{locale}.yml
+    - config/locales/%{locale}/**/*.yml
+  write:
+    - config/locales/%{locale}.yml
+
+# Keys that are dynamically referenced (e.g. AR attribute names) and
+# should not trip "unused" detection.
+ignore_unused:
+  - activerecord.attributes.*
+  - activerecord.models.*
+  - errors.attributes.*
+  - errors.messages.*
+  - date.*
+  - time.*
+  - number.*
+  - support.*
+  - helpers.*
+
+# Phase 1+ — keys still untranslated but acknowledged. Empty for now.
+ignore_missing: []

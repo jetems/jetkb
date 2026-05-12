@@ -1,0 +1,7 @@
+zh-CN:
+  app:
+    name: jetKB
+
+  # Translations for jetKB-overridden / jetKB-only keys live in this file
+  # (and in config/locales/zh-CN/*.yml as it grows). Rails core translations
+  # (date, number, errors, etc.) come from the rails-i18n gem automatically.
