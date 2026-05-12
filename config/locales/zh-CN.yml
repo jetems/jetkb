@@ -187,6 +187,33 @@ zh-CN:
       new:
         progress: "正以 %{name} 取消所有邮件通知…"
         submit: 立即取消订阅
+    settings:
+      show:
+        page_title: 通知设置
+        boards_heading: 看板
+      push_notifications:
+        status_label: 推送通知
+        status_on: 已开启
+        status_off: 已关闭
+        turn_on: 在此设备上开启推送通知
+        help_fix: 帮我修一下
+        not_receiving: 收不到通知?
+        intro: 推送通知没工作时,通常检查一下你的通知设置允许情况就能解决。
+      email:
+        title: 邮件通知
+        description: 每隔几小时、每天或每周收到一封汇总你所有通知的邮件。
+        label: 给我发新通知邮件,频率为…
+      install:
+        install_title: "%{prefix}jetKB 作为网页应用安装。"
+        prefix_install: "安装 "
+        prefix_or_install: "…或安装 "
+        fallback: 某些平台需要你把 jetKB 安装为网页应用才能接收推送通知。
+        ios_intro: "想在 %{os} 上的 %{browser} 接收推送通知,需要先把 jetKB 安装为网页应用。"
+      browser:
+        fallback_html: "请确保浏览器设置中允许 <em>%{url}</em> 的通知。"
+      system:
+        check_os_settings: 检查你的 %{os} 设置
+        fallback: 请在系统设置中允许 %{browser} 的通知。
 
   boards:
     new:

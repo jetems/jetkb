@@ -218,6 +218,35 @@ en:
       new:
         progress: "Unsubscribing from all email notifications as %{name}…"
         submit: Unsubscribe now
+    settings:
+      show:
+        page_title: Notification Settings
+        boards_heading: Boards
+      push_notifications:
+        status_label: Push notifications are
+        status_on: "ON"
+        status_off: "OFF"
+        turn_on: Turn ON push notifications on this device
+        help_fix: Help me fix this
+        not_receiving: Not receiving notifications?
+        intro: When push notifications aren't working, this can usually be fixed by checking your notification settings to make sure they're allowed.
+      email:
+        title: Email Notifications
+        description: Get a single email with all your notifications every few hours, daily, or weekly.
+        label: "Email me about new notifications..."
+      install:
+        install_title: "%{prefix}jetKB as a web app."
+        prefix_install: "Install "
+        prefix_or_install: "…or install "
+        fallback: Some platforms require you to install jetKB as a web app to receive push notifications.
+        ios_intro: "To receive push notifications in %{browser} for %{os}, you must first install jetKB as a web app."
+      browser:
+        turn_on_for_site_for_browser: "Turn on notifications for %{browser}."
+        turn_on_for_browser: "Turn on notifications for %{browser}."
+        fallback_html: "Ensure notifications are enabled for <em>%{url}</em> in your web browser settings."
+      system:
+        check_os_settings: "Check your %{os} settings"
+        fallback: "Ensure notifications are allowed for %{browser} in your system settings."
 
   boards:
     new:

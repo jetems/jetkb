@@ -1,6 +1,6 @@
 <% unless (platform.chrome? && !platform.ios?) || (platform.firefox? && !platform.android?) %>
   <div class="notifications-help pwa__instructions hide-in-pwa">
-    <h3><%= platform.safari? && platform.desktop? ? "…or install" : "Install " -%> Fizzy as a web app.</h3>
+    <h3><%= t(".install_title", prefix: platform.safari? && platform.desktop? ? t(".prefix_or_install") : t(".prefix_install")) %></h3>
     <% case
       when platform.edge? %>
         <ol>
@@ -23,13 +23,13 @@
           <li>Click <em>Add to Dock…</em></li>
         </ol>
       <% when (platform.safari? || platform.chrome?) && platform.ios? %>
-        <p>To receive push notifications in <%= platform.browser.capitalize %> for <%= platform.operating_system %>, you must first install Fizzy as a web app.</p>
+        <p><%= t(".ios_intro", browser: platform.browser.capitalize, os: platform.operating_system) %></p>
         <ol>
           <li>Tap <em><%= icon_tag "share", alt: "the share button" %></em></li>
           <li>Tap <em>Add to Home Screen</em>.</li>
         </ol>
       <% else %>
-        <p>Some platforms require you to install Fizzy as a web app to receive push notifications.</p>
+        <p><%= t(".fallback") %></p>
     <% end %>
   </div>
 <% end %>

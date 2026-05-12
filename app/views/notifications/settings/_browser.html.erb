@@ -103,7 +103,7 @@
           <li>Select <em>Allow</em>.</li>
         </ol>
       <% else %>
-        <p>Ensure notifications are enabled for <em><%= root_url %></em> in your web browser settings.</p>
+        <p><%= t(".fallback_html", url: root_url).html_safe %></p>
     <% end %>
   </div>
 <% end %>

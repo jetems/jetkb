@@ -1,5 +1,5 @@
 <div class="notifications-help hide-in-browser" data-notifications-target="details">
-  <h3>Check your <%= platform.operating_system %> settings</h3>
+  <h3><%= t(".check_os_settings", os: platform.operating_system) %></h3>
   <% case
     when platform.firefox? && platform.android? %>
       <ol>
@@ -52,6 +52,6 @@
         <li>Tap <em><%= icon_tag "switch", alt: "the switch" %></em> to <em>Allow Notifications</em>.</li>
       </ol>
     <% else %>
-      <p>Ensure notifications are allowed for <%= platform.browser.capitalize %> in your system settings.</p>
+      <p><%= t(".fallback", browser: platform.browser.capitalize) %></p>
   <% end %>
 </div>
