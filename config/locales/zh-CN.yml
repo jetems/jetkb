@@ -880,6 +880,7 @@ zh-CN:
           maximize: 放大此列
 
   account_mailer:
+    subject_cancellation: 你的 jetKB 账户已被取消
     cancellation:
       cancelled_html: "你的 jetKB 账户 <strong>%{name}</strong> 已被取消。"
       what_now: 接下来会发生什么?
@@ -896,6 +897,7 @@ zh-CN:
         restore: "如果你想取消删除并恢复账户,请尽快通过邮件联系我们 %{email}。"
 
   export_mailer:
+    subject_completed: 你的 jetKB 数据导出已可以下载
     completed:
       title: 下载你的 jetKB 数据
       subtitle: 你的 jetKB 数据导出已处理完成,可以下载了。
@@ -907,6 +909,8 @@ zh-CN:
         download: "下载你的数据:%{url}"
 
   import_mailer:
+    subject_completed: 你的 jetKB 账户导入已完成
+    subject_failed: 你的 jetKB 账户导入失败
     completed:
       subtitle_html: "%{name} 已导入完成!"
       go_to_account: 进入账户

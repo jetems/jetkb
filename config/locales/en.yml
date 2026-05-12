@@ -911,6 +911,7 @@ en:
           maximize: Maximize column
 
   account_mailer:
+    subject_cancellation: Your jetKB account was cancelled
     cancellation:
       cancelled_html: "Your jetKB account <strong>%{name}</strong> was cancelled."
       what_now: What happens now?
@@ -927,6 +928,7 @@ en:
         restore: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
 
   export_mailer:
+    subject_completed: Your jetKB data export is ready for download
     completed:
       title: Download your jetKB data
       subtitle: Your jetKB data export has finished processing and is ready to download.
@@ -938,6 +940,8 @@ en:
         download: "Download your data: %{url}"
 
   import_mailer:
+    subject_completed: Your jetKB account import is done
+    subject_failed: Your jetKB account import failed
     completed:
       subtitle_html: "Your import of %{name} is complete!"
       go_to_account: Go to your account
