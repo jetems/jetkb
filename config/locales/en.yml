@@ -43,6 +43,9 @@ en:
       not_now: Not Now
       maybe: Maybe?
       triage: Triage
+    status_label:
+      drafted: Drafted
+      added: Added
     card_number: Card number
     index:
       no_match: No cards match this filter
@@ -324,6 +327,14 @@ en:
           s4_html: Scroll to <em>%{app}</em>.
           s5_html: Tap <em>%{switch}</em> to <em>Allow Notifications</em>.
   boards:
+    watchers:
+      watching_for_new_cards: Watching for new cards
+      no_one_watching: No one is watching for new cards
+      show_more:
+        one: Show 1 more watcher
+        other: Show %{count} more watchers
+      watch_this: Watch this
+      stop_watching: Stop watching
     new:
       page_title: Create a new board
       name_placeholder: Name it…
@@ -855,6 +866,32 @@ en:
         prompt: Closed by…
         prefix: Closed by
         filter: Filter…
+      terms:
+        placeholder: "Filter these cards…"
+        placeholder_with_hotkey: "Filter these cards… [F]"
+      boards:
+        prompt: "Board…"
+        filter: "Filter…"
+      sorted_by:
+        prompt: "Sort by…"
+      indexed_by:
+        prompt: "Status…"
+        dialog: "Filter by…"
+        dialog_title: "Filter by status…"
+
+  filter:
+    indexed_by:
+      all: Open
+      closed: Done
+      not_now: Not now
+      stalled: Stalled
+      postponing_soon: Closing soon
+      golden: Golden
+    sorted_by:
+      newest: Newest to oldest
+      oldest: Oldest to newest
+      latest: Recently updated
+
   join_codes:
     new:
       page_title_html: Join %{name} in jetKB

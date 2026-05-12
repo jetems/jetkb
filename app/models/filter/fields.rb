@@ -16,16 +16,7 @@ module Filter::Fields
     end
 
     def indexed_by_human_name(index)
-      case index
-      when "postponing_soon"
-        "Closing soon"
-      when "closed"
-        "Done"
-      when "all"
-        "Open"
-      else
-        index.humanize
-      end
+      I18n.t("filter.indexed_by.#{index}", default: index.humanize)
     end
   end
 

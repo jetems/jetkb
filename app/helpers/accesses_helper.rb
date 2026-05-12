@@ -31,18 +31,18 @@ module AccessesHelper
     overflow_count = watchers.size - 8
 
     tag.div(class: "divider divider--fade") do
-      tag.strong(watchers.any? ? "Watching for new cards" : "No one is watching for new cards", class: "txt-uppercase")
+      tag.strong(I18n.t(watchers.any? ? "boards.watchers.watching_for_new_cards" : "boards.watchers.no_one_watching"), class: "txt-uppercase")
     end +
     tag.div(avatar_tags(displayed_watchers), class: "board-tools__watching") do
       tag.div(data: { controller: "dialog", action: "keydown.esc->dialog#close click@document->dialog#closeOnClickOutside" }) do
-        tag.button("+#{overflow_count}", class: "overflow-count btn btn--circle borderless", data: { action: "dialog#open" }, aria: { label: "Show #{overflow_count} more watchers" }) +
+        tag.button("+#{overflow_count}", class: "overflow-count btn btn--circle borderless", data: { action: "dialog#open" }, aria: { label: I18n.t("boards.watchers.show_more", count: overflow_count) }) +
         tag.dialog(avatar_tags(watchers), class: "board-tools__watching-dialog dialog panel", data: { dialog_target: "dialog" }, aria: { hidden: "true" })
       end if overflow_count > 0
     end
   end
 
   def involvement_button(board, access, show_watchers, icon_only)
-    label_text = access.access_only? ? "Watch this" : "Stop watching"
+    label_text = access.access_only? ? I18n.t("boards.watchers.watch_this") : I18n.t("boards.watchers.stop_watching")
     button_to(
       board_involvement_path(board), method: :put,
       params: { show_watchers: show_watchers, involvement: next_involvement(access.involvement), icon_only: icon_only },

@@ -43,6 +43,9 @@ zh-CN:
       not_now: 暂不处理
       maybe: 也许?
       triage: 待分类
+    status_label:
+      drafted: 草稿
+      added: 已添加
     card_number: 卡片编号
     index:
       no_match: 没有匹配的卡片
@@ -324,6 +327,14 @@ zh-CN:
           s4_html: 滑动到 <em>%{app}</em>。
           s5_html: 点击 <em>%{switch}</em>,将<em>允许通知</em>。
   boards:
+    watchers:
+      watching_for_new_cards: 关注新增卡片
+      no_one_watching: 无人关注新增卡片
+      show_more:
+        one: 再显示 1 位关注者
+        other: 再显示 %{count} 位关注者
+      watch_this: 关注此看板
+      stop_watching: 取消关注
     new:
       page_title: 新建看板
       name_placeholder: 起个名字…
@@ -855,6 +866,32 @@ zh-CN:
         prompt: 关闭者…
         prefix: 关闭者
         filter: 筛选…
+      terms:
+        placeholder: 筛选卡片…
+        placeholder_with_hotkey: 筛选卡片… [F]
+      boards:
+        prompt: 看板…
+        filter: 筛选…
+      sorted_by:
+        prompt: 排序方式…
+      indexed_by:
+        prompt: 状态…
+        dialog: 状态筛选…
+        dialog_title: 按状态筛选…
+
+  filter:
+    indexed_by:
+      all: 进行中
+      closed: 已完成
+      not_now: 暂不处理
+      stalled: 停滞
+      postponing_soon: 即将关闭
+      golden: 金卡
+    sorted_by:
+      newest: 最新优先
+      oldest: 最早优先
+      latest: 最近更新
+
   join_codes:
     new:
       page_title_html: 在 jetKB 加入 %{name}

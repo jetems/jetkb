@@ -1,7 +1,34 @@
 import { Controller } from "@hotwired/stimulus"
 import { differenceInDays, secondsToDate } from "helpers/date_helpers"
 
-const DEFAULT_LOCALE = "en-US"
+const DEFAULT_LOCALE = document.documentElement.lang || "en-US"
+
+const I18N = {
+  "zh-CN": {
+    today: "今天",
+    yesterday: "昨天",
+    tomorrow: "明天",
+    less_than_minute: "不到一分钟前",
+    ago_template: (n, unit) => `${n}${unit}前`,
+    in_template: (n, unit) => `${n}${unit}后`,
+    days_ago_template: (n) => `${n} 天前`,
+    units: { year: "年", month: "个月", week: "周", day: "天", hour: "小时", minute: "分钟" }
+  },
+  "en-US": {
+    today: "today",
+    yesterday: "yesterday",
+    tomorrow: "tomorrow",
+    less_than_minute: "Less than a minute ago",
+    ago_template: (n, unit) => `${n} ${unit}${n === 1 ? "" : "s"} ago`,
+    in_template: (n, unit) => `in ${n} ${unit}${n === 1 ? "" : "s"}`,
+    days_ago_template: (n) => `${n} days ago`,
+    units: { year: "year", month: "month", week: "week", day: "day", hour: "hour", minute: "minute" }
+  }
+}
+
+function strings() {
+  return I18N[DEFAULT_LOCALE] || I18N["en-US"]
+}
 
 export default class extends Controller {
   static targets = [ "time", "date", "datetime", "shortdate", "ago", "indays", "daysago", "agoorweekday", "timeordate" ]
@@ -106,30 +133,31 @@ class AgoFormatter {
     const months = days / (365 / 12)
     const years = days / 365
 
-    if (years >= 1) return this.#pluralize("year", years)
-    if (months >= 1) return this.#pluralize("month", months)
-    if (weeks >= 1) return this.#pluralize("week", weeks)
-    if (days >= 1) return this.#pluralize("day", days)
-    if (hours >= 1) return this.#pluralize("hour", hours)
-    if (minutes >= 1) return this.#pluralize("minute", minutes)
+    if (years >= 1) return this.#renderAgo("year", years)
+    if (months >= 1) return this.#renderAgo("month", months)
+    if (weeks >= 1) return this.#renderAgo("week", weeks)
+    if (days >= 1) return this.#renderAgo("day", days)
+    if (hours >= 1) return this.#renderAgo("hour", hours)
+    if (minutes >= 1) return this.#renderAgo("minute", minutes)
 
-    return "Less than a minute ago"
+    return strings().less_than_minute
   }
 
-  #pluralize(word, quantity) {
-    quantity = Math.floor(quantity)
-    const suffix = (quantity === 1) ? "" : "s"
-    return `${quantity} ${word}${suffix} ago`
+  #renderAgo(unit, quantity) {
+    const s = strings()
+    const n = Math.floor(quantity)
+    return s.ago_template(n, s.units[unit])
   }
 }
 
 class DaysAgoFormatter {
   format(date) {
+    const s = strings()
     const days = differenceInDays(date, new Date())
 
-    if (days <= 0) return styleableValue("today")
-    if (days === 1) return styleableValue("yesterday")
-    return `${styleableValue(days)} days ago`
+    if (days <= 0) return styleableValue(s.today)
+    if (days === 1) return styleableValue(s.yesterday)
+    return s.days_ago_template(styleableValue(days))
   }
 }
 
@@ -147,11 +175,12 @@ class DaysAgoOrWeekdayFormatter {
 
 class InDaysFormatter {
   format(date) {
+    const s = strings()
     const days = differenceInDays(new Date(), date)
 
-    if (days <= 0) return styleableValue("today")
-    if (days === 1) return styleableValue("tomorrow")
-    return `in ${styleableValue(days)} days`
+    if (days <= 0) return styleableValue(s.today)
+    if (days === 1) return styleableValue(s.tomorrow)
+    return s.in_template(styleableValue(days), s.units.day)
   }
 }
 
