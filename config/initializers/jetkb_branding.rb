@@ -10,6 +10,7 @@ module JetKB
     APP_NAME      = ENV.fetch("JETKB_APP_NAME",      "jetKB")
     SUPPORT_EMAIL = ENV.fetch("JETKB_SUPPORT_EMAIL", "support@jetkb.com")
     MARKETING_URL = ENV.fetch("JETKB_MARKETING_URL", "https://jetkb.com")
+    DOMAIN        = ENV.fetch("JETKB_DOMAIN",        "jetkb.com")
     COMPANY       = ENV.fetch("JETKB_COMPANY",       "jetKB")
   end
 end
