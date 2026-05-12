@@ -1,6 +1,6 @@
 <section class="settings__section flex flex-column align-center">
   <header>
-    <h2 class="divider">Developer</h2>
-    <div>Manage <%= link_to "personal access tokens", my_access_tokens_path, class: "btn btn--plain txt-link" %> used with the Fizzy developer API.</div>
+    <h2 class="divider"><%= t(".title") %></h2>
+    <div><%= t(".description_html", link: link_to(t(".link_label"), my_access_tokens_path, class: "btn btn--plain txt-link")).html_safe %></div>
   </header>
 </section>

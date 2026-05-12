@@ -7,7 +7,7 @@
       <%= image_tag "passkeys/generic_light.svg", size: 24, class: "flex-item-no-shrink hide-on-dark-mode", aria: { hidden: true } %>
       <%= image_tag "passkeys/generic_dark.svg", size: 24, class: "flex-item-no-shrink hide-on-light-mode", aria: { hidden: true } %>
     <% end %>
-    <strong class="overflow-ellipsis min-width"><%= passkey.name.presence || "Passkey" %></strong>
+    <strong class="overflow-ellipsis min-width"><%= passkey.name.presence || t(".unnamed") %></strong>
     <strong class="credential__arrow">→</strong>
   <% end %>
 </li>

@@ -526,6 +526,118 @@ en:
         save: Save changes
         go_back: Go back
 
+  users:
+    show:
+      page_title: My profile
+      edit_profile: Edit profile
+      no_longer_on_account_html: "%{name} is no longer on this account"
+      unverified: Unverified
+      unverified_hint: A sign-in code has been sent to this email address, but the user has not yet logged in to confirm their identity.
+      avatar_alt: "Profile avatar for %{name}"
+      assigned_self: Which cards are assigned to me?
+      assigned_other: Which cards are assigned to %{name}?
+      added_self: Which cards were added by me?
+      added_other: Which cards were added by %{name}?
+      manage_passkeys: Manage passkeys
+      sign_out_device: Sign out of jetKB on this device
+    edit:
+      page_title: Edit your profile
+      back_to_profile: profile
+      delete_avatar: Delete avatar
+      delete_avatar_confirm: Are you sure you want to remove your avatar? This can't be undone.
+      name_placeholder: Name
+      email_placeholder: Email address
+      change_email: Change email
+      errors_title: "Your changes couldn't be saved:"
+      save: Save changes
+      cancel: Cancel and go back
+    theme:
+      title: Appearance
+      always_light: Always light
+      always_dark: Always dark
+      same_as_os: Same as OS
+    transfer:
+      title: Devices
+      description: Link to automatically log in on another device.
+      qr_aria: Display auto-login QR code
+      scan_intro: "Scan this code to instantly log in on another device:"
+      qr_done: Done
+      copy_aria: Copy auto-login link
+    access_tokens:
+      title: Developer
+      description_html: "Manage %{link} used with the jetKB developer API."
+      link_label: personal access tokens
+    data_export:
+      title: Export your data
+      description: Download an archive of your jetKB data.
+      begin: "Begin export..."
+      dialog_title: Export your data
+      dialog_intro: This will generate a ZIP archive of all cards you have access to.
+      dialog_email_notice: "We'll email you a link to download the file when it's ready. The link will expire after 24 hours."
+      start: Start export
+      cancel: Cancel
+    data_exports:
+      show:
+        page_title_ready: Download Export
+        page_title_expired: Download Expired
+        ready: Your export is ready. The download should start automatically.
+        download_link: Download your data
+        expired_html: "That download link has expired. You'll need to %{link}."
+        request_new_link: request a new export
+    joins:
+      new:
+        page_title: Great! Now enter your name
+        name_placeholder: Full name
+        continue: Continue
+
+  my:
+    access_tokens:
+      index:
+        page_title: Personal access tokens
+        back_to_profile: My profile
+        intro_with_tokens: Tokens you have generated that can be used to access the jetKB API.
+        intro_empty: Personal access tokens can be used like a password to access the jetKB developer API. You can have as many tokens as you need and revoke access to each one at any time.
+        col_description: Description
+        col_permission: Permission
+        col_created: Created
+        generate: Generate a new access token
+      access_token:
+        revoke_confirm: Are you sure you want to permanently revoke this access token?
+        edit_aria: Edit this token
+      new:
+        page_title: Generate a personal access token
+        back_to_tokens: tokens
+        description_label: Access token description
+        description_placeholder: e.g. Github
+        permission_label: Permission
+        permission_read: Read
+        permission_write: Read + Write
+        submit: Generate access token
+        cancel: Cancel and go back
+      show:
+        page_title: New personal access token
+        back_to_tokens: Tokens
+        save_reminder: Be sure to save this access token now because you won't be able to see it again.
+        copy: Copy access token
+    passkeys:
+      index:
+        page_title: Passkeys
+        back_to_profile: My profile
+        intro: Passkeys let you sign in securely without a password or email code.
+        register: Register a passkey
+        register_hint: Your browser will prompt you to create a passkey using your device's biometrics, PIN, or security key
+      edit:
+        page_title: Edit Passkey
+        back_to_passkeys: Passkeys
+        registered_intro: Your passkey has been registered. Give it a name so you can identify it later.
+        name_label: Name your passkey
+        name_placeholder: e.g. MacBook Pro, iPhone
+        save: Save
+        remove: Remove this passkey
+        remove_confirm: Are you sure you want to remove this passkey?
+      passkey:
+        unnamed: Passkey
+
   mailers:
     notification:
       bundle_mailer:

@@ -1,7 +1,7 @@
 <% if @export.present? %>
-  <% @page_title = "Download Export" %>
+  <% @page_title = t(".page_title_ready") %>
 <% else %>
-  <% @page_title = "Download Expired" %>
+  <% @page_title = t(".page_title_expired") %>
 <% end %>
 
 <% content_for :header do %>
@@ -14,14 +14,14 @@
   <h2 class="txt-large font-weight-black margin-none"><%= @page_title %></h2>
 
   <% if @export.present? %>
-    <div>Your export is ready. The download should start automatically.</div>
+    <div><%= t(".ready") %></div>
 
-    <%= link_to "Download your data", rails_blob_path(@export.file, disposition: "attachment"),
+    <%= link_to t(".download_link"), rails_blob_path(@export.file, disposition: "attachment"),
           id: "download-link",
           class: "btn btn--link",
           data: { turbo: false, controller: "auto-click" } %>
   <% else %>
-    <div>That download link has expired. You'll need to <%= link_to "request a new export", user_path(@user), class: "txt-link" %>.</div>
+    <div><%= t(".expired_html", link: link_to(t(".request_new_link"), user_path(@user), class: "txt-link")).html_safe %></div>
   <% end %>
 
 </div>

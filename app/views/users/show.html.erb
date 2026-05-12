@@ -1,28 +1,28 @@
 <% @page_title = @user.name %>
-<% me_or_you = Current.user == @user ? "me" : @user.first_name %>
+<% is_self = Current.user == @user %>
 
 <div class="settings settings--profile">
   <div class="settings__panel panel shadow txt-align-center">
     <div class="flex flex-column gap position-relative">
-      <% if Current.user == @user %>
+      <% if is_self %>
         <%= link_to edit_user_path(@user), class: "user-edit-link btn", data: { controller: "tooltip" } do %>
           <%= icon_tag "pencil" %>
-          <span class="for-screen-reader">Edit profile</span>
+          <span class="for-screen-reader"><%= t(".edit_profile") %></span>
         <% end %>
       <% end %>
 
       <div class="avatar txt-xx-large center fill-white btn--circle hide-focus-ring">
-        <%= image_tag user_avatar_path(@user), alt: "Profile avatar for #{@user.name}" %>
+        <%= image_tag user_avatar_path(@user), alt: t(".avatar_alt", name: @user.name) %>
       </div>
 
       <div class="flex flex-column gap-half margin-block-end">
         <h1 class="txt-x-large margin-none"><%= @user.name %></h1>
         <div class="txt-medium">
           <% if !@user.active? %>
-            <%= @user.name %> is no longer on this account
+            <%= t(".no_longer_on_account_html", name: @user.name) %>
           <% elsif !@user.verified? %>
-            Unverified
-            <div class="txt-small txt-tinted">A sign-in code has been sent to this email address, but the user has not yet logged in to confirm their identity.</div>
+            <%= t(".unverified") %>
+            <div class="txt-small txt-tinted"><%= t(".unverified_hint") %></div>
           <% else %>
             <%= mail_to @user.identity.email_address %>
           <% end %>
@@ -31,31 +31,31 @@
 
       <% if @user.verified? %>
         <div class="flex-inline center justify-center flex-wrap gap">
-          <%= link_to "Which cards are assigned to #{me_or_you}?",
+          <%= link_to (is_self ? t(".assigned_self") : t(".assigned_other", name: @user.first_name)),
                 cards_path(assignee_ids: [ @user.id ], sorted_by: "newest"), class: "btn btn--link", data: { turbo_frame: "_top" } %>
-          <%= link_to "Which cards were added by #{me_or_you}?",
+          <%= link_to (is_self ? t(".added_self") : t(".added_other", name: @user.first_name)),
                 cards_path(creator_ids: [ @user.id ], sorted_by: "newest"), class: "btn btn--link", data: { turbo_frame: "_top" } %>
         </div>
       <% end %>
 
-      <% if Current.user == @user %>
+      <% if is_self %>
         <div class="flex-inline justify-center flex-wrap gap full-width hide-on-native">
           <hr class="separator--horizontal full-width margin-block-start-double" style="--border-color: var(--color-ink-light);" aria-hidden="true">
 
           <%= link_to my_passkeys_path, class: "btn txt-x-small" do %>
             <%= icon_tag "authentication" %>
-            <span>Manage passkeys</span>
+            <span><%= t(".manage_passkeys") %></span>
           <% end %>
 
           <%= button_to session_path(script_name: nil), method: :delete, class: "btn txt-x-small", form: { data: { turbo: false, controller: "clear-offline-cache", action: "submit->clear-offline-cache#clearCache" } } do %>
-            <span>Sign out of Fizzy on this device</span>
+            <span><%= t(".sign_out_device") %></span>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
 
-  <% if Current.user == @user %>
+  <% if is_self %>
     <div class="settings__panel panel shadow hide-on-native">
       <%= render "users/theme" %>
       <%= render "users/transfer", user: @user %>

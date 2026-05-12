@@ -495,6 +495,118 @@ zh-CN:
         save: 保存修改
         go_back: 返回
 
+  users:
+    show:
+      page_title: 我的资料
+      edit_profile: 编辑资料
+      no_longer_on_account_html: "%{name} 已不在此账户中"
+      unverified: 未验证
+      unverified_hint: 已向此邮箱发送了登录码,但用户尚未登录以确认身份。
+      avatar_alt: "%{name} 的头像"
+      assigned_self: 哪些卡片分配给我?
+      assigned_other: 哪些卡片分配给 %{name}?
+      added_self: 哪些卡片是我添加的?
+      added_other: 哪些卡片是 %{name} 添加的?
+      manage_passkeys: 管理通行密钥
+      sign_out_device: 在此设备登出 jetKB
+    edit:
+      page_title: 编辑个人资料
+      back_to_profile: 个人资料
+      delete_avatar: 删除头像
+      delete_avatar_confirm: 确定要删除头像吗?此操作无法撤销。
+      name_placeholder: 姓名
+      email_placeholder: 邮箱
+      change_email: 修改邮箱
+      errors_title: "更改未能保存:"
+      save: 保存修改
+      cancel: 取消并返回
+    theme:
+      title: 外观
+      always_light: 一直浅色
+      always_dark: 一直深色
+      same_as_os: 跟随系统
+    transfer:
+      title: 设备
+      description: 通过此链接在其他设备自动登录。
+      qr_aria: 显示自动登录二维码
+      scan_intro: "扫描此二维码可在其他设备立即登录:"
+      qr_done: 完成
+      copy_aria: 复制自动登录链接
+    access_tokens:
+      title: 开发者
+      description_html: "管理用于 jetKB 开发者 API 的 %{link}。"
+      link_label: 个人访问令牌
+    data_export:
+      title: 导出我的数据
+      description: 下载你的 jetKB 数据归档。
+      begin: 开始导出…
+      dialog_title: 导出我的数据
+      dialog_intro: 这会生成一个 ZIP 归档,包含你有权限访问的所有卡片。
+      dialog_email_notice: 准备好后我们会给你发邮件提供下载链接。链接 24 小时后失效。
+      start: 开始导出
+      cancel: 取消
+    data_exports:
+      show:
+        page_title_ready: 下载导出
+        page_title_expired: 下载已过期
+        ready: 你的导出已就绪。下载将自动开始。
+        download_link: 下载我的数据
+        expired_html: "下载链接已过期,你需要 %{link}。"
+        request_new_link: 申请新的导出
+    joins:
+      new:
+        page_title: 太好了!请输入你的名字
+        name_placeholder: 全名
+        continue: 继续
+
+  my:
+    access_tokens:
+      index:
+        page_title: 个人访问令牌
+        back_to_profile: 我的资料
+        intro_with_tokens: 你生成的、可用于访问 jetKB API 的令牌。
+        intro_empty: 个人访问令牌可以像密码一样用来访问 jetKB 开发者 API。你可以创建任意数量的令牌,也可以随时撤销其中任何一个。
+        col_description: 描述
+        col_permission: 权限
+        col_created: 创建时间
+        generate: 生成新的访问令牌
+      access_token:
+        revoke_confirm: 确定要永久撤销此访问令牌吗?
+        edit_aria: 编辑此令牌
+      new:
+        page_title: 生成个人访问令牌
+        back_to_tokens: 令牌列表
+        description_label: 访问令牌描述
+        description_placeholder: 例如 Github
+        permission_label: 权限
+        permission_read: 只读
+        permission_write: 读 + 写
+        submit: 生成访问令牌
+        cancel: 取消并返回
+      show:
+        page_title: 新的个人访问令牌
+        back_to_tokens: 令牌列表
+        save_reminder: 请立即保存此访问令牌,你将无法再次查看。
+        copy: 复制访问令牌
+    passkeys:
+      index:
+        page_title: 通行密钥
+        back_to_profile: 我的资料
+        intro: 通行密钥让你无需密码或邮件验证码即可安全登录。
+        register: 注册通行密钥
+        register_hint: 浏览器会引导你用设备生物识别、PIN 或安全密钥创建通行密钥
+      edit:
+        page_title: 编辑通行密钥
+        back_to_passkeys: 通行密钥
+        registered_intro: 通行密钥已注册。给它起个名字,方便以后识别。
+        name_label: 给通行密钥命名
+        name_placeholder: 例如 MacBook Pro、iPhone
+        save: 保存
+        remove: 删除此通行密钥
+        remove_confirm: 确定要删除此通行密钥吗?
+      passkey:
+        unnamed: 通行密钥
+
   mailers:
     notification:
       bundle_mailer:
