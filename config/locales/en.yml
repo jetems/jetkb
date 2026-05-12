@@ -638,6 +638,188 @@ en:
       passkey:
         unnamed: Passkey
 
+  layouts:
+    application:
+      skip_navigation: Skip to main content
+    public:
+      skip_navigation: Skip to main content
+    welcome_letter:
+      close: Close dialog
+      heading: Welcome, and thanks for signing up for jetKB.
+      body_html: To get you started, we set you up with a jetKB board called <em>Playground</em>. It's got a few cards designed to help you learn jetKB itself. Open each card, go through the simple steps, and you'll be an expert in jetKB in no time. You'll see the <em>Playground</em> when you close this message.
+      contact_html: If you ever need a hand, please contact me directly at jason@37signals.com. I'm here for you, we're all here for you.
+      sign_off: Thanks again and all the best,
+      signer: Jason Fried
+      signer_email: jason@37signals.com
+      signer_title_html: <em>CEO &amp; co-founder of 37signals, makers of jetKB, Basecamp, and HEY</em>
+
+  webhooks:
+    index:
+      page_title: Webhooks
+      empty_intro: Webhooks can notify another application when something happens in this jetKB board. You'll choose which events to subscribe to and provide a URL to receive the data.
+      empty_example: For example, you could create a webhook that posts to a Campfire chat in Basecamp when new cards are added to jetKB.
+      new: Set up a new webhook
+    webhook:
+      remove_confirm: Are you sure you want to permanently remove this webhook?
+      remove_aria: "Remove %{name}"
+    new:
+      page_title: Set up a Webhook
+      back_to_webhooks: Webhooks
+      name_placeholder: "Name this Webhook…"
+      url_label: Payload URL
+      url_help: This is the URL for the app that will receive payloads from jetKB.
+      url_title: Must be an http:// or https:// URL
+      events_label: Events
+      events_help: "Trigger a call to the Payload URL when:"
+      submit: Create Webhook
+      cancel: Go back
+    edit:
+      name_placeholder: "Name your Webhook…"
+      events_label: Events
+      events_help: "Trigger a call to the Payload URL when:"
+      submit: Save Changes
+      cancel: Go back
+    show:
+      back_to_webhooks: Webhooks
+      edit_aria: Edit
+      reactivate: Reactivate
+      secret_heading: Secret
+      secret_help_html: "We'll send a <code>X-Webhook-Signature</code> header with each request. You can generate a <code>HMAC</code> using <code>SHA256</code> of the request body with this secret to verify that the request came from us."
+      subscribed_heading: Subscribed to
+      subscribed_empty: This Webhook isn't subscribed to any events. It will never trigger.
+      deliveries_heading: Deliveries
+      deliveries_empty: This Webhook hasn't been triggered yet
+    form:
+      actions:
+        enable_all: Enable all
+        disable_all: Disable all
+
+  tags:
+    index:
+      title: All tags
+      delete_confirm: Are you sure?
+      delete_aria: Delete
+
+  entropy:
+    knob:
+      days: Days
+
+  cards:
+    comments:
+      new:
+        post_title: "Post this comment (%{hotkey})"
+        post: Post
+    edit:
+      title_placeholder_main: "Give it a name…"
+      description_placeholder_main: "Add notes, context, images, or videos…"
+      close_discard_main: Close the editor, discard changes
+      cancel_main: Cancel
+    display:
+      preview:
+        meta:
+          last_updated: Last updated
+          assigned_to: Assigned to
+          card_number: Card number
+
+  events:
+    index:
+      add_card: Add a card
+      add_card_title: Add card
+      add_board: Add a board
+      add_board_title: Add board
+    event:
+      card_number: Card number
+    empty_days:
+      no_activity: No activity
+      no_activity_for_days:
+        one: No activity for 1 day
+        other: "No activity for %{count} days"
+      no_more_activity: No more activity
+    day_timeline:
+      column:
+        expand: Expand column
+        showing_recent_html: "Showing the 100 most recent (%{count} are hidden)"
+
+  my:
+    pins:
+      pin:
+        unpin: Unpin this card
+      tray:
+        toggle_aria: Toggle pins stack
+        pinned: Pinned
+    menus:
+      shortcuts:
+        title: Shortcuts
+        golden: Golden cards
+        stalled: Stalled cards
+        closing_soon: Cards closing soon
+        added_today: Added today
+        done_today: Done today
+
+  filters:
+    filter_toggle:
+      delete_aria: Delete custom view
+      save_aria: Save custom view
+    settings:
+      toggle_filters: Toggle filters
+      close_options: Close filter options
+      collapse_options: Collapse filter options
+      expand_options: Expand filter options
+      manage:
+        clear_all: Clear all
+      assignees:
+        prompt: "Assigned to…"
+        prefix: Assigned to
+        filter: "Filter…"
+        no_one: No one
+      creators:
+        prompt: "Added by…"
+        prefix: Added by
+        filter: "Filter…"
+      closers:
+        prompt: "Closed by…"
+        prefix: Closed by
+        filter: "Filter…"
+
+  account_mailer:
+    cancellation:
+      cancelled_html: "Your jetKB account <strong>%{name}</strong> was cancelled."
+      what_now: What happens now?
+      bullet_access: No one can access the account anymore
+      bullet_delete_html: "Everything in the account will be deleted in %{time}"
+      changed_mind: Changed your mind?
+      restore_html: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
+
+  export_mailer:
+    completed:
+      title: Download your jetKB data
+      subtitle: Your jetKB data export has finished processing and is ready to download.
+      download: Download your data
+      footer_html: "Need help? %{link}."
+      send_email: Send us an email
+
+  import_mailer:
+    completed:
+      subtitle_html: "Your import of %{name} is complete!"
+      go_to_account: Go to your account
+      footer_html: "Need help? %{link}."
+      send_email: Send us an email
+    failed:
+      subtitle: Unfortunately, we couldn't import your jetKB account.
+      conflict: It looks like the account you are trying to import already exists.
+      invalid: The ZIP file isn't a jetKB account export.
+      other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
+      footer_html: "Need help? %{link}."
+      send_email: Send us an email
+
+  user_mailer:
+    email_change_confirmation:
+      subtitle: Confirm your email address change
+      confirm: Yes use this email address
+      ignore: "If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button."
+      footer_html: "Need help? %{link}."
+      send_email: Send us an email
+
   mailers:
     notification:
       bundle_mailer:

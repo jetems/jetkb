@@ -1,6 +1,6 @@
-<h1 class="title">Download your Fizzy data</h1>
-<p class="subtitle">Your Fizzy data export has finished processing and is ready to download.</p>
+<h1 class="title"><%= t("export_mailer.completed.title") %></h1>
+<p class="subtitle"><%= t("export_mailer.completed.subtitle") %></p>
 
-<p><%= link_to "Download your data", export_download_url(@export) %></p>
+<p><%= link_to t("export_mailer.completed.download"), export_download_url(@export) %></p>
 
-<p class="footer">Need help? <%= mail_to JetKB::Brand::SUPPORT_EMAIL, "Send us an email" %>.</p>
+<p class="footer"><%= t("export_mailer.completed.footer_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("export_mailer.completed.send_email"))).html_safe %></p>

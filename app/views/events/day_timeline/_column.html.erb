@@ -5,7 +5,7 @@
     <% if column.events_by_hour.any? %>
       <%= link_to events_day_timeline_column_path(column, day: column.day_timeline.day.to_date), class: "events__maximize-button btn btn--circle txt-x-small borderless", data: { turbo_frame: "_top" } do %>
         <%= icon_tag "grid", class: "translucent" %>
-        <span class="for-screen-reader">Expand column</span>
+        <span class="for-screen-reader"><%= t(".expand") %></span>
       <% end %>
     <% end %>
   </h3>
@@ -18,7 +18,7 @@
 
   <% if column.has_more_events? %>
     <div class="events__column-footer fill-highlight txt-x-small border-radius" style="grid-column-start: <%= column.index %>">
-      Showing the 100 most recent (<%= column.hidden_events_count %> are hidden)
+      <%= t(".showing_recent_html", count: column.hidden_events_count) %>
     </div>
   <% end %>
 </div>

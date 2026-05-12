@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= I18n.locale %>">
   <%= render "layouts/shared/head" %>
 
   <body class="<%= @body_class %>"
@@ -12,7 +12,7 @@
     data-bridge--title-title-value="<%= @page_title %>">
     <div id="global-container" data-controller="bridge--buttons bridge--overflow-menu">
       <header class="header header--mobile-actions-stack <%= @header_class %>" id="header">
-        <a href="#main" class="header__skip-navigation btn" data-turbo="false">Skip to main content</a>
+        <a href="#main" class="header__skip-navigation btn" data-turbo="false"><%= t("layouts.application.skip_navigation") %></a>
         <%= render "my/menu" if Current.user %>
         <%= yield :header %>
       </header>

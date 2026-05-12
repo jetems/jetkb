@@ -607,6 +607,188 @@ zh-CN:
       passkey:
         unnamed: 通行密钥
 
+  layouts:
+    application:
+      skip_navigation: 跳到主要内容
+    public:
+      skip_navigation: 跳到主要内容
+    welcome_letter:
+      close: 关闭对话框
+      heading: 欢迎你加入 jetKB,感谢注册。
+      body_html: 为了帮你快速上手,我们已经准备好了一个名为 <em>Playground</em> 的看板。里面有几张卡片,跟着完成简单的步骤,你很快就能熟练使用 jetKB。关闭此消息后即可看到 <em>Playground</em>。
+      contact_html: 如有任何需要,请直接通过 jason@37signals.com 联系我。我们都会为你提供支持。
+      sign_off: 再次感谢,祝一切顺利。
+      signer: Jason Fried
+      signer_email: jason@37signals.com
+      signer_title_html: <em>37signals 联合创始人兼 CEO,jetKB、Basecamp 与 HEY 的开发团队</em>
+
+  webhooks:
+    index:
+      page_title: Webhook
+      empty_intro: Webhook 可以在此 jetKB 看板发生事件时通知其他应用。你可以选择订阅哪些事件,并提供接收数据的 URL。
+      empty_example: 例如,你可以创建一个 Webhook,在新卡片添加到 jetKB 时,向 Basecamp 中的 Campfire 聊天发布消息。
+      new: 新建 Webhook
+    webhook:
+      remove_confirm: 确定要永久删除此 Webhook 吗?
+      remove_aria: "删除 %{name}"
+    new:
+      page_title: 新建 Webhook
+      back_to_webhooks: Webhook
+      name_placeholder: 给此 Webhook 命名…
+      url_label: 接收 URL
+      url_help: 用于从 jetKB 接收 Webhook 负载的应用 URL。
+      url_title: 必须是 http:// 或 https:// 开头的 URL
+      events_label: 事件
+      events_help: "在以下事件发生时调用此 URL:"
+      submit: 创建 Webhook
+      cancel: 返回
+    edit:
+      name_placeholder: 给 Webhook 命名…
+      events_label: 事件
+      events_help: "在以下事件发生时调用此 URL:"
+      submit: 保存修改
+      cancel: 返回
+    show:
+      back_to_webhooks: Webhook
+      edit_aria: 编辑
+      reactivate: 重新启用
+      secret_heading: 密钥
+      secret_help_html: "每次请求都会带上 <code>X-Webhook-Signature</code> 请求头。你可以用此密钥对请求体计算 <code>SHA256</code> 的 <code>HMAC</code>,以验证请求是否来自我们。"
+      subscribed_heading: 已订阅
+      subscribed_empty: 此 Webhook 未订阅任何事件,不会被触发。
+      deliveries_heading: 发送记录
+      deliveries_empty: 此 Webhook 尚未被触发
+    form:
+      actions:
+        enable_all: 全部启用
+        disable_all: 全部禁用
+
+  tags:
+    index:
+      title: 所有标签
+      delete_confirm: 确定吗?
+      delete_aria: 删除
+
+  entropy:
+    knob:
+      days: 天
+
+  cards:
+    comments:
+      new:
+        post_title: "发布此评论(%{hotkey})"
+        post: 发布
+    edit:
+      title_placeholder_main: 起个名字…
+      description_placeholder_main: 加点笔记、背景、图片或视频…
+      close_discard_main: 关闭编辑器,放弃更改
+      cancel_main: 取消
+    display:
+      preview:
+        meta:
+          last_updated: 最后更新
+          assigned_to: 分配给
+          card_number: 卡片编号
+
+  events:
+    index:
+      add_card: 添加卡片
+      add_card_title: 添加卡片
+      add_board: 添加看板
+      add_board_title: 添加看板
+    event:
+      card_number: 卡片编号
+    empty_days:
+      no_activity: 无活动
+      no_activity_for_days:
+        one: 1 天无活动
+        other: "%{count} 天无活动"
+      no_more_activity: 没有更多活动
+    day_timeline:
+      column:
+        expand: 展开此列
+        showing_recent_html: "仅显示最近的 100 条(%{count} 条已隐藏)"
+
+  my:
+    pins:
+      pin:
+        unpin: 取消置顶
+      tray:
+        toggle_aria: 切换置顶卡片栏
+        pinned: 置顶
+    menus:
+      shortcuts:
+        title: 快捷方式
+        golden: 金卡
+        stalled: 停滞卡片
+        closing_soon: 即将关闭的卡片
+        added_today: 今日添加
+        done_today: 今日完成
+
+  filters:
+    filter_toggle:
+      delete_aria: 删除自定义视图
+      save_aria: 保存自定义视图
+    settings:
+      toggle_filters: 切换筛选
+      close_options: 关闭筛选选项
+      collapse_options: 收起筛选选项
+      expand_options: 展开筛选选项
+      manage:
+        clear_all: 全部清除
+      assignees:
+        prompt: 分配给…
+        prefix: 分配给
+        filter: 筛选…
+        no_one: 无人
+      creators:
+        prompt: 添加者…
+        prefix: 添加者
+        filter: 筛选…
+      closers:
+        prompt: 关闭者…
+        prefix: 关闭者
+        filter: 筛选…
+
+  account_mailer:
+    cancellation:
+      cancelled_html: "你的 jetKB 账户 <strong>%{name}</strong> 已被取消。"
+      what_now: 接下来会发生什么?
+      bullet_access: 任何人都将无法再访问此账户
+      bullet_delete_html: "账户中的所有内容将在 %{time}后被删除"
+      changed_mind: 改变主意了?
+      restore_html: "如果你想取消删除并恢复账户,请尽快通过邮件联系我们 %{email}。"
+
+  export_mailer:
+    completed:
+      title: 下载你的 jetKB 数据
+      subtitle: 你的 jetKB 数据导出已处理完成,可以下载了。
+      download: 下载你的数据
+      footer_html: "需要帮助?%{link}。"
+      send_email: 发邮件给我们
+
+  import_mailer:
+    completed:
+      subtitle_html: "%{name} 已导入完成!"
+      go_to_account: 进入账户
+      footer_html: "需要帮助?%{link}。"
+      send_email: 发邮件给我们
+    failed:
+      subtitle: 很遗憾,我们无法导入你的 jetKB 账户。
+      conflict: 你要导入的账户似乎已经存在。
+      invalid: ZIP 文件不是 jetKB 账户的导出。
+      other: 可能是导出数据损坏,或与现有数据冲突。请用一份新的导出再试,如问题持续请联系我们。
+      footer_html: "需要帮助?%{link}。"
+      send_email: 发邮件给我们
+
+  user_mailer:
+    email_change_confirmation:
+      subtitle: 确认你的邮箱变更
+      confirm: 是的,使用这个邮箱
+      ignore: 如果你没有发起此变更,可以忽略此邮件。除非你点击按钮,否则你的邮箱不会被修改。
+      footer_html: "需要帮助?%{link}。"
+      send_email: 发邮件给我们
+
   mailers:
     notification:
       bundle_mailer:

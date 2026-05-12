@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= I18n.locale %>">
   <%= render "layouts/shared/head" %>
 
   <body class="public <%= @body_class %>" data-controller="local-time timezone-cookie bridge--title bridge--text-size bridge--insets" data-action="turbo:morph@window->local-time#refreshAll" data-platform="<%= platform.type %>" data-bridge--title-title-value="<%= @page_title %>">
     <div id="global-container">
       <header class="header" id="header">
-        <a href="#main" class="header__skip-navigation btn" data-turbo="false">Skip to main content</a>
+        <a href="#main" class="header__skip-navigation btn" data-turbo="false"><%= t("layouts.public.skip_navigation") %></a>
         <nav>
           <%= link_to JetKB::Brand::MARKETING_URL, class: "header__logo center flex-inline align-center" do %>
             <span><%= image_tag "logo.png", alt: JetKB::Brand::APP_NAME %></span>
