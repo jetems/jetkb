@@ -743,6 +743,20 @@ en:
       signer_email: jason@37signals.com
       signer_title_html: "<em>CEO &amp; co-founder of 37signals, makers of jetKB, Basecamp, and HEY</em>"
   webhooks:
+    link_title: Webhooks
+    actions:
+      card_published: Card added
+      card_title_changed: Card title changed
+      card_board_changed: Card board changed
+      comment_created: Comment added
+      card_assigned: Card assigned
+      card_unassigned: Card unassigned
+      card_triaged: Card column changed
+      card_closed: "Card moved to “Done”"
+      card_reopened: Card reopened
+      card_postponed: "Card moved to “Not Now”"
+      card_auto_postponed: "Card moved to “Not Now” due to inactivity"
+      card_sent_back_to_triage: "Card moved back to “Maybe?”"
     index:
       page_title: Webhooks
       empty_intro: Webhooks can notify another application when something happens in this jetKB board. You'll choose which events to subscribe to and provide a URL to receive the data.

@@ -743,6 +743,20 @@ zh-CN:
       signer_email: jason@37signals.com
       signer_title_html: "<em>37signals 联合创始人兼 CEO,jetKB、Basecamp 与 HEY 的开发团队</em>"
   webhooks:
+    link_title: Webhook
+    actions:
+      card_published: 卡片已添加
+      card_title_changed: 卡片标题已修改
+      card_board_changed: 卡片所属看板已变更
+      comment_created: 评论已添加
+      card_assigned: 卡片已分配
+      card_unassigned: 卡片取消分配
+      card_triaged: 卡片所在列已变更
+      card_closed: 卡片移到「已完成」
+      card_reopened: 卡片重新打开
+      card_postponed: 卡片移到「暂不处理」
+      card_auto_postponed: 卡片因长期无活动自动移到「暂不处理」
+      card_sent_back_to_triage: 卡片移回「也许?」
     index:
       page_title: Webhook
       empty_intro: Webhook 可以在此 jetKB 看板发生事件时通知其他应用。你可以选择订阅哪些事件,并提供接收数据的 URL。
