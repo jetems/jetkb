@@ -1,8 +1,8 @@
 <div id="<%= dom_id(card, :comment_watchers) %>" class="comments__subscribers flex flex-column margin-block-start txt-align-start full-width">
-  <strong class="txt-uppercase">Subscribers</strong>
+  <strong class="txt-uppercase"><%= t(".subscribers") %></strong>
 
   <p class="margin-none-block-start margin-block-end-half">
-    <%= pluralize(card.watchers.active.count, "person") %> will be notified when someone comments on this.
+    <%= t(".notify", count: card.watchers.active.count) %>
   </p>
 
   <div class="flex align-center flex-wrap gap-half max-width txt-normal">

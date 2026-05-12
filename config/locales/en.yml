@@ -65,6 +65,14 @@ en:
       cancel: Cancel
       submit: Delete card
     comments:
+      placeholder:
+        first: "Next, add some notes, context, pictures, or video about this…"
+        default: "Type your comment…"
+      watchers:
+        subscribers: Subscribers
+        notify:
+          one: 1 person will be notified when someone comments on this.
+          other: "%{count} people will be notified when someone comments on this."
       comment:
         full_history: Full history
         edit: Edit this comment
@@ -816,6 +824,23 @@ en:
     knob:
       days: Days
   events:
+    description:
+      creator_you: You
+      yourself: yourself
+      comment_created: "%{creator} commented on %{card}"
+      card_published: "%{creator} added %{card}"
+      card_closed: "%{creator} moved %{card} to \"Done\""
+      card_reopened: "%{creator} reopened %{card}"
+      card_postponed: "%{creator} moved %{card} to \"Not Now\""
+      card_auto_postponed: "%{card} moved to \"Not Now\" due to inactivity"
+      card_resumed: "%{creator} resumed %{card}"
+      card_sent_back_to_triage: "%{creator} moved %{card} back to \"Maybe?\""
+      assigned_self: "%{creator} will handle %{card}"
+      assigned_other: "%{creator} assigned %{assignees} to %{card}"
+      unassigned: "%{creator} unassigned %{assignees} from %{card}"
+      renamed: "%{creator} renamed %{card} (was: \"%{old_title}\")"
+      moved: "%{creator} moved %{card} to \"%{location}\""
+      triaged: "%{creator} moved %{card} to \"%{column}\""
     index:
       page_title: Home
       activity_in: Activity in

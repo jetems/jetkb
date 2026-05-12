@@ -65,6 +65,14 @@ zh-CN:
       cancel: 取消
       submit: 删除卡片
     comments:
+      placeholder:
+        first: 加点笔记、背景、图片或视频…
+        default: 写下你的评论…
+      watchers:
+        subscribers: 订阅者
+        notify:
+          one: 当有人评论时,将通知 1 位订阅者。
+          other: 当有人评论时,将通知 %{count} 位订阅者。
       comment:
         full_history: 完整历史
         edit: 编辑评论
@@ -816,6 +824,23 @@ zh-CN:
     knob:
       days: 天
   events:
+    description:
+      creator_you: 你
+      yourself: 你自己
+      comment_created: "%{creator} 在 %{card} 上评论"
+      card_published: "%{creator} 添加了 %{card}"
+      card_closed: "%{creator} 把 %{card} 移到「已完成」"
+      card_reopened: "%{creator} 重新打开了 %{card}"
+      card_postponed: "%{creator} 把 %{card} 移到「暂不处理」"
+      card_auto_postponed: "%{card} 因长期无活动自动移到「暂不处理」"
+      card_resumed: "%{creator} 恢复了 %{card}"
+      card_sent_back_to_triage: "%{creator} 把 %{card} 移回「也许?」"
+      assigned_self: "%{creator} 将处理 %{card}"
+      assigned_other: "%{creator} 把 %{card} 分配给 %{assignees}"
+      unassigned: "%{creator} 把 %{assignees} 从 %{card} 移除分配"
+      renamed: "%{creator} 重命名了 %{card}(原名:「%{old_title}」)"
+      moved: "%{creator} 把 %{card} 移到「%{location}」"
+      triaged: "%{creator} 把 %{card} 移到「%{column}」"
     index:
       page_title: 首页
       activity_in: 活动 ·
