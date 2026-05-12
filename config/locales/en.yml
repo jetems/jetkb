@@ -28,4 +28,99 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  # === jetKB additions below ===
+
+  common:
+    send_us_an_email: Send us an email
+    send_us_an_email_lower: send us an email
+    rate_limit_exceeded: Try again later.
+    something_went_wrong: Something went wrong
+    back_to: "Back to %{label}"
+
+  sessions:
+    new:
+      page_title: Enter your email
+      title: Get into jetKB
+      email_placeholder: "Enter your email address…"
+      new_here_html: "<strong>New here?</strong> %{signup_link} to create an account. <strong>Already have an account?</strong> Enter your email and we'll get you signed in."
+      sign_up: Sign up
+      existing_account: "Enter your email and we'll get you signed in."
+      submit: "Let's go"
+      passkey_button: Sign in with a passkey
+    footer:
+      need_help_html: "Need help? %{email_link}."
+    magic_links:
+      show:
+        page_title: Check your email
+        instruction: "Then enter the verification code included in the email below:"
+        code_sent_html: "The code sent to <strong>%{email}</strong> will work for %{duration}."
+        dev_hint: "Psst, here's your code:"
+    menus:
+      show:
+        page_title: Choose an account
+        accounts_title: Your jetKB accounts
+        empty_title: "Hmm..."
+        empty_body: "You don't have any jetKB accounts."
+        sign_up_for_new: Sign up for a new jetKB account
+    starts:
+      new:
+        page_title: "Signing in..."
+        signing_in: "Just a sec while we sign you in with %{account_name}."
+        submit: Sign in
+        submits_with: "Signing in..."
+
+  signups:
+    new:
+      page_title: Signup for jetKB
+      title: Sign up
+      email_placeholder: "Enter your email address…"
+      hint: Enter your email to create an account.
+      submit: "Let's go"
+    completions:
+      new:
+        page_title: Complete your sign-up
+        full_name_placeholder: "Enter your full name…"
+        hint: "You're one step away. Just enter your name to get your own jetKB account."
+        errors_title: "Your changes couldn't be saved:"
+        submit: Continue
+        import_link: Or import a jetKB account
+
+  users:
+    email_addresses:
+      new:
+        page_title: Change your email
+        back: My profile
+        email_placeholder: New email address
+        hint_html: "Enter your new email address, then check your&nbsp;email to confirm the change."
+        submit: Continue
+      create:
+        page_title: Confirm your new email address
+        back: My profile
+        title: Check your email
+        sent_html: "We just sent an email to <strong>%{email}</strong>"
+        instruction: Hit the link in the email to confirm this is the email address you want to use with jetKB going forward.
+        done: Done
+      confirmations:
+        show:
+          page_title: Confirm email change
+          processing: Just a sec while we confirm your new email address.
+          submit: Done
+        invalid_token:
+          page_title: Link expired
+          body: "That email confirmation link is no longer valid—they expire after 30 minutes. You'll have to try again."
+          retry: Change my email address
+          stuck_html: "If you get stuck, %{email_link} and we'll get you back on track."
+
+  mailers:
+    magic_link_mailer:
+      sign_in_instructions:
+        subject: "Your jetKB code is %{code}"
+        title_sign_in: jetKB verification code
+        subtitle_sign_in: "Please enter this 6-character verification code on the jetKB sign-in page:"
+        title_welcome: Welcome to jetKB!
+        subtitle_welcome: "Please enter this 6-character verification code to finish creating your account:"
+        code_validity: "This code will work for %{duration}."
+        passkey_tip_html: "P.S. You can make your account more secure and sign-in faster with a %{passkey_link}"
+        passkey_tip_text: "P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}"
+        passkey: Passkey
+        need_help_html: "Need help? %{email_link}."

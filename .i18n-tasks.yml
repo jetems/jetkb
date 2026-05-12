@@ -26,18 +26,13 @@ data:
   write:
     - config/locales/%{locale}.yml
 
-# Keys that are dynamically referenced (e.g. AR attribute names) and
-# should not trip "unused" detection.
+# Keys that are dynamically referenced (e.g. AR attribute names by Rails)
+# and shouldn't trip "unused" detection.
 ignore_unused:
-  - activerecord.attributes.*
-  - activerecord.models.*
-  - errors.attributes.*
-  - errors.messages.*
-  - date.*
-  - time.*
-  - number.*
-  - support.*
-  - helpers.*
-
-# Phase 1+ — keys still untranslated but acknowledged. Empty for now.
-ignore_missing: []
+  - 'activerecord.*'
+  - 'errors.*'
+  - 'date.*'
+  - 'time.*'
+  - 'number.*'
+  - 'support.*'
+  - 'helpers.*'

@@ -1,20 +1,19 @@
 
 <% if @magic_link.for_sign_in? %>
-  <h1 class="title">Fizzy verification code</h1>
-  <p class="subtitle">Please enter this 6-character verification code on the Fizzy sign-in page:</p>
+  <h1 class="title"><%= t(".title_sign_in") %></h1>
+  <p class="subtitle"><%= t(".subtitle_sign_in") %></p>
 <% else %>
-  <h1 class="title">Welcome to Fizzy!</h1>
-  <p class="subtitle">Please enter this 6-character verification code to finish creating your account:</p>
+  <h1 class="title"><%= t(".title_welcome") %></h1>
+  <p class="subtitle"><%= t(".subtitle_welcome") %></p>
 <% end %>
 
 <strong class="txt-large"><%= @magic_link.code %></strong>
 
-<p>This code will work for <%= distance_of_time_in_words(MagicLink::EXPIRATION_TIME) %>.</p>
+<p><%= t(".code_validity", duration: distance_of_time_in_words(MagicLink::EXPIRATION_TIME)) %></p>
 
 <% if account = @magic_link.identity.accounts.last %>
-  <p>P.S. You can make your account more secure and sign-in faster with a <%= link_to "Passkey", my_passkeys_url(script_name: account.slug) %></p>
+  <p><%= t(".passkey_tip_html", passkey_link: link_to(t(".passkey"), my_passkeys_url(script_name: account.slug))) %></p>
 <% end %>
 
-<p class="footer">Need help? <%= mail_to JetKB::Brand::SUPPORT_EMAIL, "Send us an email"%>.
+<p class="footer"><%= t(".need_help_html", email_link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("common.send_us_an_email"))) %>
 </p>
-

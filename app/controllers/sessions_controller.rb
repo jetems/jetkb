@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     end
 
     def rate_limit_exceeded
-      rate_limit_exceeded_message = "Try again later."
+      rate_limit_exceeded_message = t("common.rate_limit_exceeded")
 
       respond_to do |format|
         format.html { redirect_to new_session_path, alert: rate_limit_exceeded_message }
@@ -65,8 +65,8 @@ class SessionsController < ApplicationController
         redirect_to_session_magic_link magic_link
       else
         respond_to do |format|
-          format.html { redirect_to new_session_path, alert: "Something went wrong" }
-          format.json { render json: { message: "Something went wrong" }, status: :unprocessable_entity }
+          format.html { redirect_to new_session_path, alert: t("common.something_went_wrong") }
+          format.json { render json: { message: t("common.something_went_wrong") }, status: :unprocessable_entity }
         end
       end
     end

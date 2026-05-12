@@ -1,4 +1,4 @@
 <div class="pad-inline txt-align-center center margin-block-double txt-subtle txt-small">
   <%= render "layouts/shared/colophon" %>.
-  Need help? <%= mail_to JetKB::Brand::SUPPORT_EMAIL, "Send us an email", class: "txt-link" %>.
+  <%= t(".need_help_html", email_link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("common.send_us_an_email"), class: "txt-link")) %>
 </div>

@@ -1,7 +1,95 @@
 zh-CN:
-  app:
-    name: jetKB
+  common:
+    send_us_an_email: 发邮件给我们
+    send_us_an_email_lower: 发邮件给我们
+    rate_limit_exceeded: 请稍后重试。
+    something_went_wrong: 出错了
+    back_to: 返回 %{label}
 
-  # Translations for jetKB-overridden / jetKB-only keys live in this file
-  # (and in config/locales/zh-CN/*.yml as it grows). Rails core translations
-  # (date, number, errors, etc.) come from the rails-i18n gem automatically.
+  sessions:
+    new:
+      page_title: 输入你的邮箱
+      title: 登录 jetKB
+      email_placeholder: 输入你的邮箱地址…
+      new_here_html: <strong>第一次来?</strong>%{signup_link} 创建账户。<strong>已有账户?</strong>输入邮箱我们会帮你登录。
+      sign_up: 注册
+      existing_account: 输入邮箱我们会帮你登录。
+      submit: 走起
+      passkey_button: 使用通行密钥登录
+    footer:
+      need_help_html: 需要帮助?%{email_link}。
+    magic_links:
+      show:
+        page_title: 查收你的邮箱
+        instruction: "然后在下方输入邮件里的验证码:"
+        code_sent_html: 发送到 <strong>%{email}</strong> 的验证码将在 %{duration} 内有效。
+        dev_hint: "验证码:"
+    menus:
+      show:
+        page_title: 选择一个账户
+        accounts_title: 你的 jetKB 账户
+        empty_title: 嗯…
+        empty_body: 你还没有 jetKB 账户。
+        sign_up_for_new: 注册一个新的 jetKB 账户
+    starts:
+      new:
+        page_title: 登录中…
+        signing_in: 正在登录 %{account_name}…
+        submit: 登录
+        submits_with: 登录中…
+
+  signups:
+    new:
+      page_title: 注册 jetKB
+      title: 注册
+      email_placeholder: 输入你的邮箱地址…
+      hint: 输入邮箱创建账户。
+      submit: 走起
+    completions:
+      new:
+        page_title: 完成注册
+        full_name_placeholder: 输入你的全名…
+        hint: 还差一步。输入名字就能拿到你的 jetKB 账户。
+        errors_title: "你的修改无法保存:"
+        submit: 继续
+        import_link: 或者导入一个 jetKB 账户
+
+  users:
+    email_addresses:
+      new:
+        page_title: 修改邮箱
+        back: 个人资料
+        email_placeholder: 新邮箱地址
+        hint_html: 输入新邮箱地址,然后查收新邮箱完成验证。
+        submit: 继续
+      create:
+        page_title: 确认你的新邮箱
+        back: 个人资料
+        title: 查收你的邮箱
+        sent_html: 我们刚刚发了一封邮件到 <strong>%{email}</strong>
+        instruction: 点击邮件里的链接,确认这是你以后用于 jetKB 的邮箱。
+        done: 完成
+      confirmations:
+        show:
+          page_title: 确认邮箱变更
+          processing: 正在确认你的新邮箱…
+          submit: 完成
+        invalid_token:
+          page_title: 链接已失效
+          body: 那封邮件确认链接已经无效——它们 30 分钟后过期。请重试。
+          retry: 修改邮箱
+          stuck_html: 卡住了?%{email_link} 我们帮你解决。
+
+  mailers:
+    magic_link_mailer:
+      sign_in_instructions:
+        subject: 你的 jetKB 验证码是 %{code}
+        title_sign_in: jetKB 验证码
+        subtitle_sign_in: "请在 jetKB 登录页输入这个 6 位验证码:"
+        title_welcome: 欢迎使用 jetKB!
+        subtitle_welcome: "请输入这个 6 位验证码以完成账户创建:"
+        code_validity: 此验证码将在 %{duration} 内有效。
+        passkey_tip_html: P.S. 使用 %{passkey_link} 让账户更安全、登录更快。
+        passkey_tip_text: "P.S. 想登录更快、账户更安全,可以添加一个通行密钥:%{passkey_url}"
+        passkey: 通行密钥
+        need_help_html: 需要帮助?%{email_link}。

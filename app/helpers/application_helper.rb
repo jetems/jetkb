@@ -3,7 +3,7 @@ module ApplicationHelper
     account_name = if Current.account && Current.session&.identity&.users&.many?
       Current.account&.name
     end
-    tag.title [ @page_title, account_name, "Fizzy" ].compact.join(" | ")
+    tag.title [ @page_title, account_name, JetKB::Brand::APP_NAME ].compact.join(" | ")
   end
 
   def icon_tag(name, **options)
@@ -17,7 +17,7 @@ module ApplicationHelper
       data[:turbo_navigation_allowed_referrer_paths] = prefer_referrer.join(",")
     end
     link_to url, class: "btn btn--back btn--circle-mobile", data: data, **options do
-      icon_tag("arrow-left") + tag.strong("Back to #{label}", class: "overflow-ellipsis") + tag.kbd("ESC", class: "txt-x-small hide-on-touch").html_safe
+      icon_tag("arrow-left") + tag.strong(t("common.back_to", label: label), class: "overflow-ellipsis") + tag.kbd("ESC", class: "txt-x-small hide-on-touch").html_safe
     end
   end
 end
