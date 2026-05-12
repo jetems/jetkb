@@ -1,5 +1,10 @@
-Notifications since <%= @bundle.starts_at.strftime("%-l%P on %A, %B %-d") %>
-You have <%= pluralize @notifications.count, "new notification" %><%= " in #{ Current.account.name }" if @user.identity.accounts.many? %>.
+<%= t(".title", since: @bundle.starts_at.strftime(t(".since_format"))) %>
+<% count_text = t(".notification_count", count: @notifications.count) %>
+<% if @user.identity.accounts.many? -%>
+<%= t(".intro_multi_html", link: count_text, account: Current.account.name).gsub(/<[^>]+>/, "") %>
+<% else -%>
+<%= t(".intro_single_html", link: count_text).gsub(/<[^>]+>/, "") %>
+<% end -%>
 
 <% @notifications.group_by { |n| n.card.board }.sort_by { |board, _| board.name.downcase }.each do |board, board_notifications| %>
 <%= board.name %>
@@ -13,10 +18,10 @@ You have <%= pluralize @notifications.count, "new notification" %><%= " in #{ Cu
 
 --------------------------------------------------------------------------------
 
-Fizzy emails you about new notifications every few hours.
+<%= t(".footer_text") %>
 
-Change how often you get these:
+<%= t(".change_frequency_text") %>
 <%= notifications_settings_url %>
 
-Unsubscribe from all email notifications:
+<%= t(".unsubscribe_text") %>
 <%= new_notifications_unsubscribe_url(access_token: @unsubscribe_token) %>

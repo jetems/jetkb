@@ -36,4 +36,6 @@ ignore_unused:
   - 'number.*'
   - 'support.*'
   - 'helpers.*'
-  - 'cards.statuses.*'   # referenced dynamically via card.status / lifecycle helpers
+  - 'cards.statuses.*'                                # referenced dynamically via card.status / lifecycle helpers
+  - 'mailers.notification.bundle_mailer.subject_single'   # used via I18n.t in bundle_mailer.rb (conditional)
+  - 'mailers.notification.bundle_mailer.subject_multi'    # used via I18n.t in bundle_mailer.rb (conditional)

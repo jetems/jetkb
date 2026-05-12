@@ -241,8 +241,6 @@ en:
         fallback: Some platforms require you to install jetKB as a web app to receive push notifications.
         ios_intro: "To receive push notifications in %{browser} for %{os}, you must first install jetKB as a web app."
       browser:
-        turn_on_for_site_for_browser: "Turn on notifications for %{browser}."
-        turn_on_for_browser: "Turn on notifications for %{browser}."
         fallback_html: "Ensure notifications are enabled for <em>%{url}</em> in your web browser settings."
       system:
         check_os_settings: "Check your %{os} settings"
@@ -403,6 +401,28 @@ en:
           stuck_html: "If you get stuck, %{email_link} and we'll get you back on track."
 
   mailers:
+    notification:
+      bundle_mailer:
+        subject_single: "jetKB: New notifications"
+        subject_multi: "jetKB (%{account}): New notifications"
+        notification:
+          title: "Notifications since %{since}"
+          since_format: "%-l%P on %A, %B %-d"
+          intro_single_html: "You have %{link}."
+          intro_multi_html: "You have %{link} in %{account}."
+          notification_count:
+            one: "1 new notification"
+            other: "%{count} new notifications"
+          footer: jetKB emails you about new notifications every few hours.
+          change_frequency: Change how often you get these
+          or: or
+          unsubscribe: unsubscribe from all email notifications
+          footer_text: jetKB emails you about new notifications every few hours.
+          change_frequency_text: "Change how often you get these:"
+          unsubscribe_text: "Unsubscribe from all email notifications:"
+        mention:
+          body:
+            mentioned_you: "%{name} mentioned you:"
     magic_link_mailer:
       sign_in_instructions:
         subject: "Your jetKB code is %{code}"
