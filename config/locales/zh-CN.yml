@@ -689,6 +689,10 @@ zh-CN:
           last_updated: 最后更新
           assigned_to: 分配给
           card_number: 卡片编号
+      perma:
+        steps:
+          add_placeholder: 添加一步…
+          add_aria: 添加一步
 
   events:
     index:
@@ -799,6 +803,13 @@ zh-CN:
       bullet_delete_html: "账户中的所有内容将在 %{time}后被删除"
       changed_mind: 改变主意了?
       restore_html: "如果你想取消删除并恢复账户,请尽快通过邮件联系我们 %{email}。"
+      text:
+        cancelled: "你的 jetKB 账户 \"%{name}\" 已被取消。"
+        what_now_heading: 接下来会发生什么?
+        bullet_access: "- 任何人都将无法再访问此账户"
+        bullet_delete: "- 账户中的所有内容将在 %{time}后被删除"
+        changed_mind_heading: 改变主意了?
+        restore: "如果你想取消删除并恢复账户,请尽快通过邮件联系我们 %{email}。"
 
   export_mailer:
     completed:
@@ -807,6 +818,9 @@ zh-CN:
       download: 下载你的数据
       footer_html: "需要帮助?%{link}。"
       send_email: 发邮件给我们
+      text:
+        intro: 你的 jetKB 数据导出已处理完成,可以下载了。
+        download: "下载你的数据:%{url}"
 
   import_mailer:
     completed:
@@ -814,6 +828,9 @@ zh-CN:
       go_to_account: 进入账户
       footer_html: "需要帮助?%{link}。"
       send_email: 发邮件给我们
+      text:
+        intro: "%{name} 已导入完成!"
+        url: "访问地址:%{url}"
     failed:
       subtitle: 很遗憾,我们无法导入你的 jetKB 账户。
       conflict: 你要导入的账户似乎已经存在。
@@ -821,6 +838,12 @@ zh-CN:
       other: 可能是导出数据损坏,或与现有数据冲突。请用一份新的导出再试,如问题持续请联系我们。
       footer_html: "需要帮助?%{link}。"
       send_email: 发邮件给我们
+      text:
+        intro: 很遗憾,我们无法导入你的 jetKB 账户。
+        conflict: 你要导入的账户似乎已经存在。
+        invalid: ZIP 文件不是 jetKB 账户的导出。
+        other: 可能是导出数据损坏,或与现有数据冲突。请用一份新的导出再试,如问题持续请联系我们。
+        footer: "需要帮助?发邮件给我们:%{email}"
 
   user_mailer:
     email_change_confirmation:
@@ -829,6 +852,13 @@ zh-CN:
       ignore: 如果你没有发起此变更,可以忽略此邮件。除非你点击按钮,否则你的邮箱不会被修改。
       footer_html: "需要帮助?%{link}。"
       send_email: 发邮件给我们
+
+  identity_mailer:
+    email_change_confirmation:
+      text:
+        subtitle: 确认你的邮箱变更
+        intro: "点击下面的链接以将该邮箱用于 jetKB:"
+        ignore: 如果你没有发起此变更,可以忽略此邮件。除非你点击按钮,否则你的邮箱不会被修改。
 
   mailers:
     notification:

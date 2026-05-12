@@ -1,11 +1,11 @@
-Unfortunately, we couldn't import your Fizzy account.
+<%= t("import_mailer.failed.text.intro") %>
 
 <% if @import.failed_due_to_conflict? -%>
-It looks like the account you are trying to import already exists.
+<%= t("import_mailer.failed.text.conflict") %>
 <% elsif @import.failed_due_to_invalid_export? -%>
-The ZIP file isn't a Fizzy account export.
+<%= t("import_mailer.failed.text.invalid") %>
 <% else -%>
-This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
+<%= t("import_mailer.failed.text.other") %>
 <% end -%>
 
-Need help? Send us an email at <%= JetKB::Brand::SUPPORT_EMAIL %>
+<%= t("import_mailer.failed.text.footer", email: JetKB::Brand::SUPPORT_EMAIL) %>

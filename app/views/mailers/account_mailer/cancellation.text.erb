@@ -1,10 +1,10 @@
-Your Fizzy account "<%= @account.name %>" was cancelled.
+<%= t("account_mailer.cancellation.text.cancelled", name: @account.name) %>
 
-WHAT HAPPENS NOW?
+<%= t("account_mailer.cancellation.text.what_now_heading") %>
 
-- No one can access the account anymore
-- Everything in the account will be deleted in <%= distance_of_time_in_words_to_now(Account::Incineratable::INCINERATION_GRACE_PERIOD.from_now) %>
+<%= t("account_mailer.cancellation.text.bullet_access") %>
+<%= t("account_mailer.cancellation.text.bullet_delete", time: distance_of_time_in_words_to_now(Account::Incineratable::INCINERATION_GRACE_PERIOD.from_now)) %>
 
-CHANGED YOUR MIND?
+<%= t("account_mailer.cancellation.text.changed_mind_heading") %>
 
-If you want to cancel this deletion and restore your account, send us an email to <%= JetKB::Brand::SUPPORT_EMAIL %> as soon as possible.
+<%= t("account_mailer.cancellation.text.restore", email: JetKB::Brand::SUPPORT_EMAIL) %>

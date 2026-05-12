@@ -1,3 +1,3 @@
-Your import of <%= @account.name %> is complete!
+<%= t("import_mailer.completed.text.intro", name: @account.name) %>
 
-Here's the URL: <%= landing_url(script_name: @account.slug) %>
+<%= t("import_mailer.completed.text.url", url: landing_url(script_name: @account.slug)) %>

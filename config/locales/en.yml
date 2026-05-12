@@ -720,6 +720,10 @@ en:
           last_updated: Last updated
           assigned_to: Assigned to
           card_number: Card number
+      perma:
+        steps:
+          add_placeholder: "Add a step…"
+          add_aria: Add a step
 
   events:
     index:
@@ -830,6 +834,13 @@ en:
       bullet_delete_html: "Everything in the account will be deleted in %{time}"
       changed_mind: Changed your mind?
       restore_html: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
+      text:
+        cancelled: "Your jetKB account \"%{name}\" was cancelled."
+        what_now_heading: WHAT HAPPENS NOW?
+        bullet_access: "- No one can access the account anymore"
+        bullet_delete: "- Everything in the account will be deleted in %{time}"
+        changed_mind_heading: CHANGED YOUR MIND?
+        restore: "If you want to cancel this deletion and restore your account, send us an email to %{email} as soon as possible."
 
   export_mailer:
     completed:
@@ -838,6 +849,9 @@ en:
       download: Download your data
       footer_html: "Need help? %{link}."
       send_email: Send us an email
+      text:
+        intro: Your jetKB data export has finished processing and is ready to download.
+        download: "Download your data: %{url}"
 
   import_mailer:
     completed:
@@ -845,6 +859,9 @@ en:
       go_to_account: Go to your account
       footer_html: "Need help? %{link}."
       send_email: Send us an email
+      text:
+        intro: "Your import of %{name} is complete!"
+        url: "Here's the URL: %{url}"
     failed:
       subtitle: Unfortunately, we couldn't import your jetKB account.
       conflict: It looks like the account you are trying to import already exists.
@@ -852,6 +869,12 @@ en:
       other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
       footer_html: "Need help? %{link}."
       send_email: Send us an email
+      text:
+        intro: Unfortunately, we couldn't import your jetKB account.
+        conflict: It looks like the account you are trying to import already exists.
+        invalid: The ZIP file isn't a jetKB account export.
+        other: This may be due to corrupted export data or a conflict with existing data. Please try again with a fresh export, or reach out for help if the problem persists.
+        footer: "Need help? Send us an email at %{email}"
 
   user_mailer:
     email_change_confirmation:
@@ -860,6 +883,13 @@ en:
       ignore: "If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button."
       footer_html: "Need help? %{link}."
       send_email: Send us an email
+
+  identity_mailer:
+    email_change_confirmation:
+      text:
+        subtitle: Confirm your email address change
+        intro: "Hit the link below to use this email address in jetKB:"
+        ignore: "If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button."
 
   mailers:
     notification:
