@@ -36,3 +36,4 @@ ignore_unused:
   - 'number.*'
   - 'support.*'
   - 'helpers.*'
+  - 'cards.statuses.*'   # referenced dynamically via card.status / lifecycle helpers

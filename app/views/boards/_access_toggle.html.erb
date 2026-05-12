@@ -16,6 +16,6 @@
     <% checkbox_data[:boards_form_target] = "meCheckbox" if user == Current.user %>
     <%= check_box_tag "user_ids[]", user.id, selected, class: "switch__input", id: nil, data: checkbox_data, disabled: disabled %>
     <span class="switch__btn round"></span>
-    <span class="for-screen-reader">Give <%= user.name %> access</span>
+    <span class="for-screen-reader"><%= t(".give_user_access", name: user.name) %></span>
   </label>
 </li>

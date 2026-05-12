@@ -25,6 +25,13 @@ zh-CN:
         add_card: 添加卡片
         add_a_card: 添加一张卡片
 
+  cards:
+    statuses:
+      done: 已完成
+      not_now: 暂不处理
+      maybe: 也许?
+      triage: 待分类
+
   boards:
     new:
       page_title: 新建看板
@@ -65,6 +72,45 @@ zh-CN:
         filter: 筛选…
         select_all: 全选
         select_none: 全不选
+    access_toggle:
+      give_user_access: 给 %{name} 访问权限
+    show:
+      column:
+        maximize: 放大列
+      filtered_cards:
+        no_match: 没有匹配的卡片
+      menu:
+        column:
+          options: 列选项
+          edit: 编辑列
+          move_left: 左移
+          move_right: 右移
+          delete: 删除列
+          delete_confirm: 确定要删除这一列吗?里面的卡片会被移回「也许?」。
+          save: 保存修改
+        columns:
+          add_a_column: 添加列
+          add_column: 添加列
+        column_form:
+          placeholder: 给这一列起个名字
+          validation: 列名不能为空
+        maximize:
+          expand: 展开列
+    columns:
+      empty_placeholder:
+        no_cards: 这里没有卡片
+        drag_here: 拖卡片到这里
+      show:
+        page_title: "列:%{name}"
+      closeds:
+        show:
+          page_title: "列:已完成"
+      not_nows:
+        show:
+          page_title: "列:暂不处理"
+      streams:
+        show:
+          page_title: "列:也许?"
 
   sessions:
     new:
