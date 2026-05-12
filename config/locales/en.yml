@@ -62,6 +62,119 @@ en:
       not_now: Not Now
       maybe: "Maybe?"
       triage: Triage
+    card_number: Card number
+    index:
+      no_match: No cards match this filter
+    edit:
+      title_placeholder: "Name it…"
+      description_placeholder: "Add some notes, context, pictures, or video about this…"
+      close_discard: Close editor and discard changes
+      cancel: Cancel
+    delete:
+      button: Delete this card
+      title: Delete this card?
+      confirm: Are you sure you want to permanently delete this card?
+      cancel: Cancel
+      submit: Delete card
+    comments:
+      comment:
+        full_history: Full history
+        edit: Edit this comment
+      edit:
+        save: Save
+        save_title: "Save changes (Ctrl+Enter)"
+        cancel: Cancel
+        cancel_title: "Cancel (Esc)"
+        delete: Delete
+        delete_confirm: Are you sure you want to delete this comment?
+    container:
+      gild:
+        demote: Demote to normal
+        demote_hint: "Demote to normal (shift+g)"
+        promote: Promote to Golden Ticket
+        promote_hint: "Promote to Golden Ticket (shift+g)"
+      closure:
+        completed_html: "Completed by <strong>%{user}</strong> on %{date}."
+        undo: Undo
+        will_postpone_html: "Moves to “Not Now” %{when} if there's no activity."
+      image:
+        remove: Remove background image
+        add: Add background image
+      save_button:
+        save: Save changes
+        save_title: "Save changes (Ctrl+Enter)"
+      content:
+        title_placeholder: "Name it…"
+        description_placeholder: "Add some notes, context, pictures, or video about this…"
+      closure_buttons:
+        edit: Edit
+        mark_done: Mark done
+        mark_as_done: Mark as Done
+      footer:
+        create:
+          create_card: Create card
+          create_card_title: "Create card (Ctrl+Enter)"
+          create_and_add: Create and add another
+          create_and_add_title: "Create and add another (Ctrl+Shift+Enter)"
+        published:
+          watch: Watch this
+          pin: Pin this card
+    pins:
+      pin_button:
+        unpin: Unpin this card
+        unpin_hint: "Unpin this card (shift+p)"
+        pin: Pin this card
+        pin_hint: "Pin this card (shift+p)"
+    watches:
+      watch_button:
+        stop_watching: Stop watching
+        stop_watching_hint: "Stop watching (shift+n)"
+        watch: Watch this
+        watch_hint: "Watch this (shift+n)"
+    taggings:
+      new:
+        title: "Tag this…"
+        placeholder_with_tags: "Add a new tag or filter…"
+        placeholder_empty: "Name this tag…"
+        create_a_new_tag: Create a new tag
+        create_tag: Create tag
+    assignments:
+      new:
+        title: "Assign this to…"
+        filter: "Filter…"
+        max_assignees: "Maximum %{count} assignees"
+        me: Me
+    steps:
+      edit:
+        placeholder: "Name this step…"
+        save: Save changes
+        cancel: Cancel changes
+        delete: Delete this step
+    columns:
+      edit:
+        legend: Choose a column for this card
+    display:
+      public_preview:
+        meta:
+          by_html: "By <strong>%{name}</strong>"
+      perma:
+        tags:
+          add_tag: Add a tag
+        board:
+          choose_board: Choose a board for this card
+        background:
+          zoom: Zoom background image
+      common:
+        meta:
+          updated: Updated
+          by: By
+          assigned_to: Assigned to
+          not_assigned: Not assigned
+        stamp:
+          by_html: 'by <span class="card__closed-by">%{name}</span>'
+        assignees:
+          assign: Assign
+          assign_to_me: Assign to me
 
   boards:
     new:

@@ -31,6 +31,119 @@ zh-CN:
       not_now: 暂不处理
       maybe: 也许?
       triage: 待分类
+    card_number: 卡片编号
+    index:
+      no_match: 没有匹配的卡片
+    edit:
+      title_placeholder: 起个名字…
+      description_placeholder: 加点笔记、背景、图片或视频…
+      close_discard: 关闭编辑器,放弃更改
+      cancel: 取消
+    delete:
+      button: 删除此卡片
+      title: 删除此卡片?
+      confirm: 确定要永久删除这张卡片吗?
+      cancel: 取消
+      submit: 删除卡片
+    comments:
+      comment:
+        full_history: 完整历史
+        edit: 编辑评论
+      edit:
+        save: 保存
+        save_title: 保存修改 (Ctrl+Enter)
+        cancel: 取消
+        cancel_title: 取消 (Esc)
+        delete: 删除
+        delete_confirm: 确定要删除这条评论吗?
+    container:
+      gild:
+        demote: 转回普通
+        demote_hint: 转回普通 (Shift+G)
+        promote: 标为金卡
+        promote_hint: 标为金卡 (Shift+G)
+      closure:
+        completed_html: 由 <strong>%{user}</strong> 于 %{date} 完成。
+        undo: 撤销
+        will_postpone_html: 如果一直没活动,将在 %{when} 自动移到「暂不处理」。
+      image:
+        remove: 移除背景图
+        add: 添加背景图
+      save_button:
+        save: 保存修改
+        save_title: 保存修改 (Ctrl+Enter)
+      content:
+        title_placeholder: 起个名字…
+        description_placeholder: 加点笔记、背景、图片或视频…
+      closure_buttons:
+        edit: 编辑
+        mark_done: 标记完成
+        mark_as_done: 标记为完成
+      footer:
+        create:
+          create_card: 创建卡片
+          create_card_title: 创建卡片 (Ctrl+Enter)
+          create_and_add: 创建并继续添加
+          create_and_add_title: 创建并继续添加 (Ctrl+Shift+Enter)
+        published:
+          watch: 关注此卡片
+          pin: 置顶此卡片
+    pins:
+      pin_button:
+        unpin: 取消置顶
+        unpin_hint: 取消置顶 (Shift+P)
+        pin: 置顶此卡片
+        pin_hint: 置顶此卡片 (Shift+P)
+    watches:
+      watch_button:
+        stop_watching: 取消关注
+        stop_watching_hint: 取消关注 (Shift+N)
+        watch: 关注此卡片
+        watch_hint: 关注此卡片 (Shift+N)
+    taggings:
+      new:
+        title: 添加标签…
+        placeholder_with_tags: 添加新标签或筛选…
+        placeholder_empty: 给标签起名字…
+        create_a_new_tag: 创建新标签
+        create_tag: 创建标签
+    assignments:
+      new:
+        title: 分配给…
+        filter: 筛选…
+        max_assignees: 最多 %{count} 名分配对象
+        me: 我
+    steps:
+      edit:
+        placeholder: 给步骤起名字…
+        save: 保存修改
+        cancel: 取消修改
+        delete: 删除此步骤
+    columns:
+      edit:
+        legend: 选择卡片所在列
+    display:
+      public_preview:
+        meta:
+          by_html: 由 <strong>%{name}</strong>
+      perma:
+        tags:
+          add_tag: 添加标签
+        board:
+          choose_board: 选择卡片所在看板
+        background:
+          zoom: 放大背景图
+      common:
+        meta:
+          updated: 更新
+          by: 由
+          assigned_to: 分配给
+          not_assigned: 未分配
+        stamp:
+          by_html: 由 <span class="card__closed-by">%{name}</span>
+        assignees:
+          assign: 分配
+          assign_to_me: 分配给我
 
   boards:
     new:

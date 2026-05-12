@@ -4,11 +4,11 @@
           controller: "hotkey",
           action: "keydown.e@document->hotkey#click",
           bridge__overflow_menu_target: "item",
-          bridge_title: "Edit",
+          bridge_title: t(".edit"),
           turbo_frame: dom_id(card, :edit)
         } do %>
     <%= icon_tag "pencil", class: "icon--mobile-only" %>
-    <span>Edit</span>
+    <span><%= t(".edit") %></span>
     <kbd class="txt-x-small hide-on-touch">e</kbd>
   <% end %>
 
@@ -17,14 +17,14 @@
           controller: "hotkey",
           form_target: "submit",
           bridge__buttons_target: ("button" unless card.postponed?),
-          bridge_title: "Mark done",
+          bridge_title: t(".mark_done"),
           bridge_display_as_primary_action: true,
           bridge_display_title: true, bridge_icon_url: bridge_icon("check"),
           action: "keydown.d@document->hotkey#click"
         },
         form: { data: { controller: "form" } } do %>
     <%= icon_tag "check", class: "icon--mobile-only" %>
-    <span class="overflow-ellipsis">Mark as Done</span>
+    <span class="overflow-ellipsis"><%= t(".mark_as_done") %></span>
     <kbd class="txt-x-small hide-on-touch">d</kbd>
   <% end %>
 

@@ -8,12 +8,12 @@
 
     <span class="btn card__hide-on-index" style="--btn-background: var(--card-bg-color);">
       <%= icon_tag "person-add" %>
-      <span class="for-screen-reader">Assign</span>
+      <span class="for-screen-reader"><%= t(".assign") %></span>
     </span>
   </button>
 
   <% unless local_assigns[:preview] %>
-    <%= button_to "Assign to me", card_self_assignment_path(card), method: :post, data: {controller: "hotkey", action: "keydown.m@document->hotkey#click" }, hidden: true %>
+    <%= button_to t(".assign_to_me"), card_self_assignment_path(card), method: :post, data: {controller: "hotkey", action: "keydown.m@document->hotkey#click" }, hidden: true %>
   <% end %>
 
   <dialog class="popup panel flex-column align-start gap-half fill-white shadow" data-dialog-target="dialog" data-action="turbo:before-morph-attribute->dialog#preventCloseOnMorphing turbo:submit-end->dialog#close">

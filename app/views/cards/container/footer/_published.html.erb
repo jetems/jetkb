@@ -2,12 +2,12 @@
 <div class="card-perma__actions card-perma__actions--right">
   <%= turbo_frame_tag card, :watch, src: card_watch_path(card), target: "_top", refresh: :morph do %>
     <%= button_to card_watch_path(card), class: "btn", data: { controller: "tooltip" } do %>
-      <%= icon_tag "bell-off" %> <span class="for-screen-reader">Watch this</span>
+      <%= icon_tag "bell-off" %> <span class="for-screen-reader"><%= t(".watch") %></span>
     <% end %>
   <% end %>
   <%= turbo_frame_tag card, :pin, src: card_pin_path(card), refresh: :morph do %>
     <%= button_to card_pin_path(card), class: "btn", data: { controller: "tooltip" } do %>
-      <%= icon_tag "unpinned" %> <span class="for-screen-reader">Pin this card</span>
+      <%= icon_tag "unpinned" %> <span class="for-screen-reader"><%= t(".pin") %></span>
     <% end %>
   <% end %>
 </div>

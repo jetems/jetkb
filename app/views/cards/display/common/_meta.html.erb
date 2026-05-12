@@ -8,18 +8,18 @@
   </span>
 
   <span class="card__meta-text card__meta-text--author">
-    By <strong><%= card.creator.familiar_name %></strong>
+    <%= t(".by") %> <strong><%= card.creator.familiar_name %></strong>
   </span>
 
   <span class="card__meta-text card__meta-text--updated overflow-ellipsis">
     <%= icon_tag "refresh--meta" %>
-    Updated
+    <%= t(".updated") %>
     <%= local_datetime_tag(card.last_active_at, style: :daysago) %>
   </span>
 
   <span class="card__meta-text card__meta-text--assignees overflow-ellipsis">
     <%= icon_tag "arrow-right" if card.assignees.any? %>
-    <%= card.assignees.any? ? "Assigned to" : "Not assigned" %>
+    <%= card.assignees.any? ? t(".assigned_to") : t(".not_assigned") %>
     <%= card.assignees.map { |assignee| "<strong>#{h assignee.familiar_name}</strong>" }.to_sentence.html_safe %>
   </span>
 
@@ -27,4 +27,3 @@
     <%= yield %>
   </div>
 </div>
-
