@@ -16,9 +16,13 @@
   --block-space-double: calc(var(--block-space) * 2);
 
   /* Text */
-  --font-sans: "Adwaita Sans", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Fizzy", "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-serif: ui-serif, serif;
-  --font-mono: ui-monospace, monospace;
+  /* CJK fonts are appended after the Latin display fonts: the browser
+     picks per-glyph, so Latin chars still use Adwaita/Segoe while
+     Chinese/Japanese/Korean chars fall through to PingFang / YaHei /
+     Noto / Hiragino as available on the host OS. */
+  --font-sans: "Adwaita Sans", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Fizzy", "Segoe UI", "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-serif: ui-serif, "Songti SC", "SimSun", serif;
+  --font-mono: ui-monospace, "Sarasa Mono SC", monospace;
 
   --text-xx-small: 0.55rem;
   --text-x-small: 0.75rem;

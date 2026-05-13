@@ -101,6 +101,31 @@
     }
   }
 
+  /* CJK typography tweaks: Chinese reads better with slightly looser
+     leading + balanced punctuation. `text-spacing-trim` collapses the
+     wide whitespace around fullwidth punctuation (。,「」() etc.) when
+     the browser supports it. */
+  :where(:lang(zh), :lang(ja), :lang(ko)) {
+    line-height: 1.6;
+    text-spacing-trim: trim-start;
+    font-feature-settings: "palt", "kern";
+  }
+
+  /* Latin headings keep their tight leading even inside CJK body text. */
+  :where(:lang(zh), :lang(ja), :lang(ko)) h1,
+  :where(:lang(zh), :lang(ja), :lang(ko)) h2,
+  :where(:lang(zh), :lang(ja), :lang(ko)) h3,
+  :where(:lang(zh), :lang(ja), :lang(ko)) h4 {
+    line-height: 1.4;
+  }
+
+  /* Avoid breaking lines in the middle of a Chinese word/phrase. */
+  :where(:lang(zh)) {
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+
   /* Turbo */
   turbo-frame,
   turbo-cable-stream-source {
