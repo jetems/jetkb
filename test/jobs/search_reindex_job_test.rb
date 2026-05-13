@@ -75,6 +75,8 @@ class SearchReindexJobTest < ActiveJob::TestCase
       if sqlite?
         ActiveRecord::Base.connection.execute("DELETE FROM search_records")
         ActiveRecord::Base.connection.execute("DELETE FROM search_records_fts")
+      elsif Fizzy.db_adapter.postgresql?
+        Search::Record::PostgreSQL::SHARD_CLASSES.each(&:delete_all)
       else
         Search::Record::Trilogy::SHARD_CLASSES.each(&:delete_all)
       end

@@ -79,13 +79,14 @@ class SmokeTest < ApplicationSystemTestCase
   test "dragging card to a new column" do
     sign_in_as(users(:david))
 
-    card = Card.find("03axhd1h3qgnsffqplkyf28fv")
+    card = cards(:buy_domain)
     assert_nil(card.column)
+    target_column = columns(:writebook_triage)
 
     visit board_url(boards(:writebook))
 
-    card_el = page.find("#article_card_03axhd1h3qgnsffqplkyf28fv")
-    column_el = page.find("#column_03axmcferfmbnv4qg816nw6bg")
+    card_el = page.find("#article_card_#{card.id}")
+    column_el = page.find("#column_#{target_column.id}")
     cards_count = column_el.find(".cards__expander-count").text.to_i
 
     card_el.drag_to(column_el)
