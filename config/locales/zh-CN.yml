@@ -1061,38 +1061,37 @@ zh-CN:
         subtitle: 确认你的邮箱变更
         intro: '点击下面的链接以将该邮箱用于 jetKB:'
         ignore: 如果你没有发起此变更,可以忽略此邮件。除非你点击按钮,否则你的邮箱不会被修改。
-  mailers:
-    notification:
-      bundle_mailer:
-        subject_single: jetKB:新通知
-        subject_multi: jetKB(%{account}):新通知
-        notification:
-          title: 自 %{since} 起的通知
-          since_format: "%A %-m月%-d日 %-l%P"
-          intro_single_html: 你有 %{link}。
-          intro_multi_html: 你在 %{account} 有 %{link}。
-          notification_count:
-            one: 1 条新通知
-            other: "%{count} 条新通知"
-          footer: jetKB 每隔几小时给你发新通知邮件。
-          change_frequency: 修改频率
-          or: 或
-          unsubscribe: 取消所有邮件通知
-          footer_text: jetKB 每隔几小时给你发新通知邮件。
-          change_frequency_text: '修改频率:'
-          unsubscribe_text: '取消所有邮件通知:'
-        mention:
-          body:
-            mentioned_you: "%{name} 提及了你:"
-    magic_link_mailer:
-      sign_in_instructions:
-        subject: 你的 jetKB 验证码是 %{code}
-        title_sign_in: jetKB 验证码
-        subtitle_sign_in: '请在 jetKB 登录页输入这个 6 位验证码:'
-        title_welcome: 欢迎使用 jetKB!
-        subtitle_welcome: '请输入这个 6 位验证码以完成账户创建:'
-        code_validity: 此验证码将在 %{duration} 内有效。
-        passkey_tip_html: P.S. 使用 %{passkey_link} 让账户更安全、登录更快。
-        passkey_tip_text: P.S. 想登录更快、账户更安全,可以添加一个通行密钥:%{passkey_url}
-        passkey: 通行密钥
-        need_help_html: 需要帮助?%{email_link}。
+  notification:
+    bundle_mailer:
+      subject_single: jetKB:新通知
+      subject_multi: jetKB(%{account}):新通知
+      notification:
+        title: 自 %{since} 起的通知
+        since_format: "%A %-m月%-d日 %-l%P"
+        intro_single_html: 你有 %{link}。
+        intro_multi_html: 你在 %{account} 有 %{link}。
+        notification_count:
+          one: 1 条新通知
+          other: "%{count} 条新通知"
+        footer: jetKB 每隔几小时给你发新通知邮件。
+        change_frequency: 修改频率
+        or: 或
+        unsubscribe: 取消所有邮件通知
+        footer_text: jetKB 每隔几小时给你发新通知邮件。
+        change_frequency_text: '修改频率:'
+        unsubscribe_text: '取消所有邮件通知:'
+      mention:
+        body:
+          mentioned_you: "%{name} 提及了你:"
+  magic_link_mailer:
+    sign_in_instructions:
+      subject: 你的 jetKB 验证码是 %{code}
+      title_sign_in: jetKB 验证码
+      subtitle_sign_in: '请在 jetKB 登录页输入这个 6 位验证码:'
+      title_welcome: 欢迎使用 jetKB!
+      subtitle_welcome: '请输入这个 6 位验证码以完成账户创建:'
+      code_validity: 此验证码将在 %{duration} 内有效。
+      passkey_tip_html: P.S. 使用 %{passkey_link} 让账户更安全、登录更快。
+      passkey_tip_text: P.S. 想登录更快、账户更安全,可以添加一个通行密钥:%{passkey_url}
+      passkey: 通行密钥
+      need_help_html: 需要帮助?%{email_link}。

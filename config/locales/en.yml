@@ -1061,38 +1061,37 @@ en:
         subtitle: Confirm your email address change
         intro: 'Hit the link below to use this email address in jetKB:'
         ignore: If you didn't request this change, you can ignore this email. Your email address WILL NOT be changed unless you hit the button.
-  mailers:
-    notification:
-      bundle_mailer:
-        subject_single: 'jetKB: New notifications'
-        subject_multi: 'jetKB (%{account}): New notifications'
-        notification:
-          title: Notifications since %{since}
-          since_format: "%-l%P on %A, %B %-d"
-          intro_single_html: You have %{link}.
-          intro_multi_html: You have %{link} in %{account}.
-          notification_count:
-            one: 1 new notification
-            other: "%{count} new notifications"
-          footer: jetKB emails you about new notifications every few hours.
-          change_frequency: Change how often you get these
-          or: or
-          unsubscribe: unsubscribe from all email notifications
-          footer_text: jetKB emails you about new notifications every few hours.
-          change_frequency_text: 'Change how often you get these:'
-          unsubscribe_text: 'Unsubscribe from all email notifications:'
-        mention:
-          body:
-            mentioned_you: "%{name} mentioned you:"
-    magic_link_mailer:
-      sign_in_instructions:
-        subject: Your jetKB code is %{code}
-        title_sign_in: jetKB verification code
-        subtitle_sign_in: 'Please enter this 6-character verification code on the jetKB sign-in page:'
-        title_welcome: Welcome to jetKB!
-        subtitle_welcome: 'Please enter this 6-character verification code to finish creating your account:'
-        code_validity: This code will work for %{duration}.
-        passkey_tip_html: P.S. You can make your account more secure and sign-in faster with a %{passkey_link}
-        passkey_tip_text: 'P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}'
-        passkey: Passkey
-        need_help_html: Need help? %{email_link}.
+  notification:
+    bundle_mailer:
+      subject_single: 'jetKB: New notifications'
+      subject_multi: 'jetKB (%{account}): New notifications'
+      notification:
+        title: Notifications since %{since}
+        since_format: "%-l%P on %A, %B %-d"
+        intro_single_html: You have %{link}.
+        intro_multi_html: You have %{link} in %{account}.
+        notification_count:
+          one: 1 new notification
+          other: "%{count} new notifications"
+        footer: jetKB emails you about new notifications every few hours.
+        change_frequency: Change how often you get these
+        or: or
+        unsubscribe: unsubscribe from all email notifications
+        footer_text: jetKB emails you about new notifications every few hours.
+        change_frequency_text: 'Change how often you get these:'
+        unsubscribe_text: 'Unsubscribe from all email notifications:'
+      mention:
+        body:
+          mentioned_you: "%{name} mentioned you:"
+  magic_link_mailer:
+    sign_in_instructions:
+      subject: Your jetKB code is %{code}
+      title_sign_in: jetKB verification code
+      subtitle_sign_in: 'Please enter this 6-character verification code on the jetKB sign-in page:'
+      title_welcome: Welcome to jetKB!
+      subtitle_welcome: 'Please enter this 6-character verification code to finish creating your account:'
+      code_validity: This code will work for %{duration}.
+      passkey_tip_html: P.S. You can make your account more secure and sign-in faster with a %{passkey_link}
+      passkey_tip_text: 'P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}'
+      passkey: Passkey
+      need_help_html: Need help? %{email_link}.

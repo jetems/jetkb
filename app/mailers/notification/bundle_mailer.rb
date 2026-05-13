@@ -13,9 +13,9 @@ class Notification::BundleMailer < ApplicationMailer
 
     if @notifications.any?
       subject = if @user.identity.accounts.many?
-        I18n.t("mailers.notification.bundle_mailer.subject_multi", account: Current.account.name)
+        I18n.t("notification.bundle_mailer.subject_multi", account: Current.account.name)
       else
-        I18n.t("mailers.notification.bundle_mailer.subject_single")
+        I18n.t("notification.bundle_mailer.subject_single")
       end
 
       mail \

@@ -15,25 +15,25 @@ class Card::Eventable::SystemCommenter
     def comment_body
       case event.action
       when "card_assigned"
-        I18n.t("cards.eventable.system_commenter.assigned_html", creator: creator_name, assignees: assignee_names)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.assigned_html", creator: creator_name, assignees: assignee_names)
       when "card_unassigned"
-        I18n.t("cards.eventable.system_commenter.unassigned_html", creator: creator_name, assignees: assignee_names)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.unassigned_html", creator: creator_name, assignees: assignee_names)
       when "card_closed"
-        I18n.t("cards.eventable.system_commenter.closed_html", creator: creator_name)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.closed_html", creator: creator_name)
       when "card_reopened"
-        I18n.t("cards.eventable.system_commenter.reopened_html", creator: creator_name)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.reopened_html", creator: creator_name)
       when "card_postponed"
-        I18n.t("cards.eventable.system_commenter.postponed_html", creator: creator_name)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.postponed_html", creator: creator_name)
       when "card_auto_postponed"
-        I18n.t("cards.eventable.system_commenter.auto_postponed_html")
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.auto_postponed_html")
       when "card_title_changed"
-        I18n.t("cards.eventable.system_commenter.title_changed_html", creator: creator_name, old_title: old_title, new_title: new_title)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.title_changed_html", creator: creator_name, old_title: old_title, new_title: new_title)
       when "card_board_changed"
-        I18n.t("cards.eventable.system_commenter.board_changed_html", creator: creator_name, old_board: old_board, new_board: new_board)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.board_changed_html", creator: creator_name, old_board: old_board, new_board: new_board)
       when "card_triaged"
-        I18n.t("cards.eventable.system_commenter.triaged_html", creator: creator_name, column: column)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.triaged_html", creator: creator_name, column: column)
       when "card_sent_back_to_triage"
-        I18n.t("cards.eventable.system_commenter.sent_back_to_triage_html", creator: creator_name)
+        ActiveSupport::HtmlSafeTranslation.translate("cards.eventable.system_commenter.sent_back_to_triage_html", creator: creator_name)
       end
     end
 
