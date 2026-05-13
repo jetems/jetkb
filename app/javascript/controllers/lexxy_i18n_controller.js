@@ -28,9 +28,13 @@ const TRANSLATIONS = {
     "Insert a table": "插入表格",
     "Insert a divider": "插入分隔线",
     "Paragraph": "段落",
+    "Normal": "正文",
     "Small heading": "小标题",
     "Medium heading": "中标题",
     "Large heading": "大标题",
+    "Small Heading": "小标题",
+    "Medium Heading": "中标题",
+    "Large Heading": "大标题",
     "Plain text": "纯文本",
     "Undo": "撤销",
     "Redo": "重做",
@@ -39,6 +43,7 @@ const TRANSLATIONS = {
     "Optional title": "可选标题",
     "Remove": "移除",
     "Delete": "删除",
+    "Delete this table?": "删除该表格?",
     "Nothing found": "未找到",
     "Files": "文件",
     // input placeholders
@@ -66,7 +71,13 @@ export default class extends Controller {
       for (const m of mutations) {
         if (m.type === "childList") {
           m.addedNodes.forEach(node => {
-            if (node.nodeType === Node.ELEMENT_NODE) this.translateAll(node)
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              this.translateAll(node)
+            } else if (node.nodeType === Node.TEXT_NODE) {
+              // textContent = "3 rows" replaces children with a fresh text
+              // node — catch the new one so DYNAMIC_PATTERNS apply.
+              this.translateText(node)
+            }
           })
         } else if (m.type === "attributes") {
           const name = m.attributeName
@@ -104,7 +115,16 @@ export default class extends Controller {
   }
 
   translateLexxyButtonsIn(root) {
-    const selector = "button.lexxy-editor__toolbar-button"
+    // Covers (a) flat toolbar buttons, (b) buttons inside dropdown menus
+    // (Normal/H2/H3/H4/Strikethrough/Underline/Clear formatting — these
+    // lack the toolbar-button class), and (c) table inline controls.
+    // Lexxy uses <button>Text</button> and <button>${icon}<span>Text</span></button>
+    // templates; translateButton walks descendants to handle both.
+    const selector = [
+      "button.lexxy-editor__toolbar-button",
+      "button.lexxy-table-control__button",
+      ".lexxy-editor__toolbar-dropdown-list button"
+    ].join(", ")
     if (root.matches?.(selector)) this.translateButton(root)
     root.querySelectorAll?.(selector).forEach(el => this.translateButton(el))
   }
@@ -117,14 +137,21 @@ export default class extends Controller {
   }
 
   translateButton(el) {
-    // Only translate buttons whose first child is a text node (no nested
-    // icons/badges that we'd accidentally clobber).
-    const text = el.firstChild
-    if (!text || text.nodeType !== Node.TEXT_NODE) return
-    const trimmed = text.nodeValue.trim()
-    if (!trimmed) return
-    const next = this.lookup(trimmed)
-    if (next && next !== trimmed) text.nodeValue = text.nodeValue.replace(trimmed, next)
+    // Find the first text-bearing descendant whose trimmed value is in the
+    // dictionary. This covers <button>Unlink</button>, <button>${icon}
+    // <span>Delete this table?</span></button>, and similar.
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+      acceptNode: node => node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    })
+    let node
+    while ((node = walker.nextNode())) {
+      const trimmed = node.nodeValue.trim()
+      const next = this.lookup(trimmed)
+      if (next && next !== trimmed) {
+        node.nodeValue = node.nodeValue.replace(trimmed, next)
+        return
+      }
+    }
   }
 
   translateText(textNode) {
