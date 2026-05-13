@@ -104,14 +104,15 @@
       display: grid;
       height: 1.5em;
       inline-size: 1.5em;
+      overflow: hidden;
       padding: 0.325em 0.275em 0.225em 0.275em;
       place-content: center;
       width: 1.5em;
       flex-shrink: 0;
 
       img {
-        max-height: 100%;
-        max-width: 100%;
+        block-size: 100%;
+        inline-size: 100%;
         object-fit: contain;
       }
     }
