@@ -81,6 +81,10 @@ en:
       description_placeholder_main: Add notes, context, images, or videos…
       close_discard_main: Close the editor, discard changes
       cancel_main: Cancel
+    boards:
+      edit:
+        title: Move this card to…
+        filter_placeholder: Filter…
     delete:
       button: Delete this card
       title: Delete this card?
@@ -787,13 +791,14 @@ en:
       skip_navigation: Skip to main content
     welcome_letter:
       close: Close dialog
-      heading: Welcome, and thanks for signing up for jetKB.
-      body_html: To get you started, we set you up with a jetKB board called <em>Playground</em>. It's got a few cards designed to help you learn jetKB itself. Open each card, go through the simple steps, and you'll be an expert in jetKB in no time. You'll see the <em>Playground</em> when you close this message.
-      contact_html: If you ever need a hand, please contact me directly at jason@37signals.com. I'm here for you, we're all here for you.
-      sign_off: Thanks again and all the best,
-      signer: Jason Fried
-      signer_email: jason@37signals.com
-      signer_title_html: "<em>CEO &amp; co-founder of 37signals, makers of jetKB, Basecamp, and HEY</em>"
+      heading: Getting started with jetKB
+      body_html: "When you close this dialog, you'll land on a sample board called <em>Playground</em>. Here are the core concepts to get you oriented:"
+      steps:
+        1_html: <strong>Cards</strong> are the unit of work. Open any card to write a description, attach files, @mention teammates, and leave comments.
+        2_html: <strong>Boards</strong> have <strong>columns</strong> (To Do, In Progress, Done, …). Drag cards between columns as their status changes.
+        3_html: The top navigation lets you <strong>create boards</strong>, <strong>check notifications</strong>, and <strong>invite collaborators</strong>. Each account supports many boards organized by project or team.
+        4_html: Cards untouched for a while are auto-archived to <em>Not now</em> (the entropy system) so your board stays focused. The cards inside Playground walk you through the full flow — just follow them.
+      tip_html: Want to go deeper? Press <kbd>?</kbd> on any page for keyboard shortcuts, or open <em>Settings</em> from the account menu to tune preferences.
   webhooks:
     link_title: Webhooks
     actions:

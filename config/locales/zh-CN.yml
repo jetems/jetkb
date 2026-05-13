@@ -81,6 +81,10 @@ zh-CN:
       description_placeholder_main: 加点笔记、背景、图片或视频…
       close_discard_main: 关闭编辑器,放弃更改
       cancel_main: 取消
+    boards:
+      edit:
+        title: 移动到看板…
+        filter_placeholder: 筛选…
     delete:
       button: 删除此卡片
       title: 删除此卡片?
@@ -787,13 +791,14 @@ zh-CN:
       skip_navigation: 跳到主要内容
     welcome_letter:
       close: 关闭对话框
-      heading: 欢迎你加入 jetKB,感谢注册。
-      body_html: 为了帮你快速上手,我们已经准备好了一个名为 <em>Playground</em> 的看板。里面有几张卡片,跟着完成简单的步骤,你很快就能熟练使用 jetKB。关闭此消息后即可看到 <em>Playground</em>。
-      contact_html: 如有任何需要,请直接通过 jason@37signals.com 联系我。我们都会为你提供支持。
-      sign_off: 再次感谢,祝一切顺利。
-      signer: Jason Fried
-      signer_email: jason@37signals.com
-      signer_title_html: "<em>37signals 联合创始人兼 CEO,jetKB、Basecamp 与 HEY 的开发团队</em>"
+      heading: 快速上手 jetKB
+      body_html: "关闭本提示后,你会看到一个名为 <em>Playground</em> 的演示看板。下面是几个核心概念,帮助你快速进入状态:"
+      steps:
+        1_html: <strong>卡片(Card)</strong>是工作的基本单位。点开任意一张卡片,可以撰写描述、附文件、@提及成员、添加评论。
+        2_html: <strong>看板(Board)</strong>由若干<strong>栏位</strong>(待办、进行中、完成等)组成,卡片在栏位间拖动以反映状态变化。
+        3_html: 顶部导航栏可<strong>创建新看板</strong>、<strong>查看通知</strong>、<strong>邀请协作者</strong>。每个账户支持多个看板,按项目或团队组织。
+        4_html: 长时间无人推进的卡片会自动归档到 <em>不急于现在</em>(熵机制),保持看板整洁。Playground 里有几张卡片演示了完整流程,跟着做就能上手。
+      tip_html: 想了解更多?在任意页面按 <kbd>?</kbd> 查看键盘快捷键,或访问账户菜单中的<em>设置</em>调整偏好。
   webhooks:
     link_title: Webhook
     actions:

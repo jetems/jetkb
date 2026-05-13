@@ -5,24 +5,18 @@
       <span class="for-screen-reader"><%= t("layouts.welcome_letter.close") %></span>
     </button>
 
-    <div class="txt-align-center margin-block-end">
-      <span class="welcome-letter__avatar txt-xx-large avatar center"><%= image_tag "jf-avatar.jpg", size: 36%></span>
-    </div>
-
     <h2 class="txt-medium margin-none txt-tight-lines"><%= t("layouts.welcome_letter.heading") %></h2>
 
     <p></p>
 
     <p><%= t("layouts.welcome_letter.body_html").html_safe %></p>
 
-    <p><%= t("layouts.welcome_letter.contact_html").html_safe %></p>
+    <ol class="welcome-letter__steps">
+      <% 4.times do |i| %>
+        <li><%= t("layouts.welcome_letter.steps.#{i + 1}_html").html_safe %></li>
+      <% end %>
+    </ol>
 
-    <p><%= t("layouts.welcome_letter.sign_off") %></p>
-
-    <span class="welcome-letter__signature"></span>
-
-    <p><strong><%= t("layouts.welcome_letter.signer") %></strong>, <%= t("layouts.welcome_letter.signer_email") %><br>
-      <%= t("layouts.welcome_letter.signer_title_html").html_safe %>
-    </p>
+    <p><%= t("layouts.welcome_letter.tip_html").html_safe %></p>
   </dialog>
 </div>
