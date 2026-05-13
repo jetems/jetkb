@@ -33,7 +33,10 @@ class Search::Query < ApplicationRecord
     end
 
     def remove_invalid_search_characters(terms)
-      terms.gsub(/[^\w"]/, " ")
+      # Use Unicode-aware character classes so CJK / accented Latin / etc.
+      # survive sanitization; the bare \w is ASCII-only and would erase
+      # any non-ASCII query before it ever reaches the stemmer.
+      terms.gsub(/[^\p{L}\p{N}_"]/u, " ")
     end
 
     def remove_unbalanced_quotes(terms)
