@@ -4,53 +4,53 @@
   <% case
     when platform.firefox? && platform.android? %>
       <ol>
-        <li><%= t("notifications.settings.system.firefox_android.s1_html").html_safe %></li>
+        <li><%= t("notifications.settings.system.firefox_android.s1_html") %></li>
         <li><%= t("notifications.settings.system.firefox_android.s2") %></li>
         <li><%= t("notifications.settings.system.firefox_android.s3") %></li>
-        <li><%= t("notifications.settings.system.firefox_android.s4_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), browser: platform.browser.capitalize).html_safe %></li>
+        <li><%= t("notifications.settings.system.firefox_android.s4_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), browser: platform.browser.capitalize) %></li>
       </ol>
     <% when platform.edge? && platform.desktop? %>
       <ol>
-        <li><%= t("notifications.settings.system.windows.s1_html").html_safe %></li>
-        <li><%= t("notifications.settings.system.windows.s2_html").html_safe %></li>
-        <li><%= t("notifications.settings.system.windows.s3_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), app: app).html_safe %></li>
+        <li><%= t("notifications.settings.system.windows.s1_html") %></li>
+        <li><%= t("notifications.settings.system.windows.s2_html") %></li>
+        <li><%= t("notifications.settings.system.windows.s3_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), app: app) %></li>
       </ol>
     <% when (platform.firefox? || platform.chrome?) && platform.desktop? %>
       <ol>
         <% if platform.windows? %>
-          <li><%= t("notifications.settings.system.windows.s1_html").html_safe %></li>
-          <li><%= t("notifications.settings.system.windows.s2_html").html_safe %></li>
-          <li><%= t("notifications.settings.system.windows.s3_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), app: app).html_safe %></li>
+          <li><%= t("notifications.settings.system.windows.s1_html") %></li>
+          <li><%= t("notifications.settings.system.windows.s2_html") %></li>
+          <li><%= t("notifications.settings.system.windows.s3_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_toggle")), app: app) %></li>
         <% else %>
-          <li><%= t("notifications.settings.system.mac.s1_html").html_safe %></li>
+          <li><%= t("notifications.settings.system.mac.s1_html") %></li>
           <li><%= t("notifications.settings.system.mac.s2") %></li>
           <li><%= t("notifications.settings.system.mac.s3") %></li>
-          <li><%= t("notifications.settings.system.mac.s4_html", app: app).html_safe %></li>
-          <li><%= t("notifications.settings.system.mac.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch"))).html_safe %></li>
+          <li><%= t("notifications.settings.system.mac.s4_html", app: app) %></li>
+          <li><%= t("notifications.settings.system.mac.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch"))) %></li>
         <% end %>
       </ol>
     <% when platform.safari? && platform.desktop? %>
       <ol>
-        <li><%= t("notifications.settings.system.mac.s1_html").html_safe %></li>
+        <li><%= t("notifications.settings.system.mac.s1_html") %></li>
         <li><%= t("notifications.settings.system.mac.s2") %></li>
         <li><%= t("notifications.settings.system.mac.s3") %></li>
-        <li><%= t("notifications.settings.system.mac.s4_html", app: app).html_safe %></li>
-        <li><%= t("notifications.settings.system.mac.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch"))).html_safe %></li>
+        <li><%= t("notifications.settings.system.mac.s4_html", app: app) %></li>
+        <li><%= t("notifications.settings.system.mac.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch"))) %></li>
       </ol>
     <% when (platform.safari? || platform.chrome?) && platform.ios? %>
       <ol>
-        <li><%= t("notifications.settings.system.ios.s1_html", gear: icon_tag("gear", aria: { hidden: "true" })).html_safe %></li>
-        <li><%= t("notifications.settings.system.ios.s2_html", app: app).html_safe %></li>
+        <li><%= t("notifications.settings.system.ios.s1_html", gear: icon_tag("gear", aria: { hidden: "true" })) %></li>
+        <li><%= t("notifications.settings.system.ios.s2_html", app: app) %></li>
         <li><%= t("notifications.settings.system.ios.s3") %></li>
-        <li><%= t("notifications.settings.system.ios.s4_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch_button"))).html_safe %></li>
+        <li><%= t("notifications.settings.system.ios.s4_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_allow_switch_button"))) %></li>
       </ol>
     <% when platform.chrome? && platform.android? %>
       <ol>
-        <li><%= t("notifications.settings.system.android.s1_html", gear: icon_tag("gear", aria: { hidden: "true" })).html_safe %></li>
+        <li><%= t("notifications.settings.system.android.s1_html", gear: icon_tag("gear", aria: { hidden: "true" })) %></li>
         <li><%= t("notifications.settings.system.android.s2") %></li>
         <li><%= t("notifications.settings.system.android.s3") %></li>
-        <li><%= t("notifications.settings.system.android.s4_html", app: app).html_safe %></li>
-        <li><%= t("notifications.settings.system.android.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_switch"))).html_safe %></li>
+        <li><%= t("notifications.settings.system.android.s4_html", app: app) %></li>
+        <li><%= t("notifications.settings.system.android.s5_html", switch: icon_tag("switch", alt: t("notifications.settings.system.alt_switch"))) %></li>
       </ol>
     <% else %>
       <p><%= t(".fallback", browser: platform.browser.capitalize) %></p>

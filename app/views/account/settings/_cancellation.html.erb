@@ -2,7 +2,7 @@
   <section class="settings__section settings__section--negative">
     <header>
       <h2 class="divider"><%= t(".title") %></h2>
-      <div><%= t(".description_html").html_safe %></div>
+      <div><%= t(".description_html") %></div>
     </header>
 
     <div data-controller="dialog toggle-enable" data-dialog-modal-value="true">
@@ -13,17 +13,17 @@
         <div class="txt-align-start">
           <h3 class="margin-block-start margin-block-end-half txt-normal"><%= t(".what_happens") %></h3>
           <ul class="list-unindented margin-block-start-half margin-block-end">
-            <li><%= t(".bullet_close_html", name: Current.account.name).html_safe %></li>
+            <li><%= t(".bullet_close_html", name: Current.account.name) %></li>
             <li><%= t(".bullet_users") %></li>
             <% if Current.account.try(:active_subscription) %>
               <li><%= t(".bullet_subscription") %></li>
             <% end %>
-            <li><%= t(".bullet_delete_html").html_safe %></li>
+            <li><%= t(".bullet_delete_html") %></li>
           </ul>
 
           <h3 class="margin-block-end-half txt-normal"><%= t(".export_reminder") %></h3>
           <p class="margin-block-start-half margin-block-end">
-            <%= t(".export_link_html", link: tag.button(t(".export_link_label"), type: "button", class: "btn btn--plain txt-link", data: { controller: "dispatch-event", dispatch_event_name_value: "open-export", action: "click->dialog#close click->dispatch-event#fire" })).html_safe %>
+            <%= t(".export_link_html", link: tag.button(t(".export_link_label"), type: "button", class: "btn btn--plain txt-link", data: { controller: "dispatch-event", dispatch_event_name_value: "open-export", action: "click->dialog#close click->dispatch-event#fire" })) %>
           </p>
         </div>
 

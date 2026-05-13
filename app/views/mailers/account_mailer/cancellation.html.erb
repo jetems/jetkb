@@ -1,11 +1,11 @@
-<p><%= t("account_mailer.cancellation.cancelled_html", name: @account.name).html_safe %></p>
+<p><%= t("account_mailer.cancellation.cancelled_html", name: @account.name) %></p>
 
 <h2><%= t("account_mailer.cancellation.what_now") %></h2>
 
 <ul>
   <li><%= t("account_mailer.cancellation.bullet_access") %></li>
-  <li><%= t("account_mailer.cancellation.bullet_delete_html", time: distance_of_time_in_words_to_now(Account::Incineratable::INCINERATION_GRACE_PERIOD.from_now)).html_safe %></li>
+  <li><%= t("account_mailer.cancellation.bullet_delete_html", time: distance_of_time_in_words_to_now(Account::Incineratable::INCINERATION_GRACE_PERIOD.from_now)) %></li>
 </ul>
 
 <i><%= t("account_mailer.cancellation.changed_mind") %></i>
-<p><%= t("account_mailer.cancellation.restore_html", email: mail_to(JetKB::Brand::SUPPORT_EMAIL)).html_safe %></p>
+<p><%= t("account_mailer.cancellation.restore_html", email: mail_to(JetKB::Brand::SUPPORT_EMAIL)) %></p>

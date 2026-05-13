@@ -41,7 +41,7 @@
 
       <dialog class="dialog panel shadow" data-dialog-target="dialog" style="--panel-size: 50ch;">
         <p class="margin-none-block-start txt-balance">
-          <%= t(".scan_to_join_html", name: Current.account.name).html_safe %>
+          <%= t(".scan_to_join_html", name: Current.account.name) %>
         </p>
 
         <%= qr_code_image(url) %>

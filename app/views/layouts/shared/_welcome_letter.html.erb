@@ -9,14 +9,14 @@
 
     <p></p>
 
-    <p><%= t("layouts.welcome_letter.body_html").html_safe %></p>
+    <p><%= t("layouts.welcome_letter.body_html") %></p>
 
     <ol class="welcome-letter__steps">
       <% 4.times do |i| %>
-        <li><%= t("layouts.welcome_letter.steps.#{i + 1}_html").html_safe %></li>
+        <li><%= t("layouts.welcome_letter.steps.#{i + 1}_html") %></li>
       <% end %>
     </ol>
 
-    <p><%= t("layouts.welcome_letter.tip_html").html_safe %></p>
+    <p><%= t("layouts.welcome_letter.tip_html") %></p>
   </dialog>
 </div>

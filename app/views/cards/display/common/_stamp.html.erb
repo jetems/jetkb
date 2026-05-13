@@ -7,7 +7,7 @@
   } do %>
     <span class="card__closed-title" data-text="<%= t("cards.statuses.not_now") %>"><%= t("cards.statuses.not_now") %></span>
     <strong class="card__closed-date"><%= card.postponed_at.strftime(t(".date_format")) %></strong>
-    <span class="card__closed-by-line"><%= t("cards.display.common.stamp.by_html", name: card.postponed_by&.familiar_name).html_safe %></span>
+    <span class="card__closed-by-line"><%= t("cards.display.common.stamp.by_html", name: card.postponed_by&.familiar_name) %></span>
   <% end %>
 <% end %>
 
@@ -20,6 +20,6 @@
   } do %>
     <span class="card__closed-title" data-text="<%= t("cards.statuses.done") %>"><%= t("cards.statuses.done") %></span>
     <strong class="card__closed-date"><%= card.closed_at.strftime(t(".date_format")) %></strong>
-    <span class="card__closed-by-line"><%= t("cards.display.common.stamp.by_html", name: card.closed_by.familiar_name).html_safe %></span>
+    <span class="card__closed-by-line"><%= t("cards.display.common.stamp.by_html", name: card.closed_by.familiar_name) %></span>
   <% end %>
 <% end %>

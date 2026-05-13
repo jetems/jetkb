@@ -5,11 +5,11 @@
 
     <% domain_link = link_to(JetKB::Brand::DOMAIN, JetKB::Brand::MARKETING_URL, class: "txt-ink txt-underline", target: "_blank", rel: "noopener noreferrer") %>
     <% if Fizzy.saas? %>
-      <div class="font-weight-semibold margin-block-end"><%= t(".saas_intro_html", link: domain_link).html_safe %></div>
+      <div class="font-weight-semibold margin-block-end"><%= t(".saas_intro_html", link: domain_link) %></div>
       <div><%= t(".saas_subtitle") %></div>
     <% else %>
       <div class="font-weight-semibold margin-block-end"><%= t(".oss_intro") %></div>
-      <div><%= t(".oss_subtitle_html", link: domain_link).html_safe %></div>
+      <div><%= t(".oss_subtitle_html", link: domain_link) %></div>
     <% end %>
   </header>
 
@@ -25,7 +25,7 @@
     </button>
   <% end %>
 
-  <p class="txt-small"><%= t(".help_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t(".send_us_an_email"), class: "txt-ink txt-underline")).html_safe %></p>
+  <p class="txt-small"><%= t(".help_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t(".send_us_an_email"), class: "txt-ink txt-underline")) %></p>
 </div>
 
 <% content_for :footer do %>

@@ -1,7 +1,7 @@
 <section class="settings__section">
   <header>
     <h2 class="divider"><%= t(".title") %></h2>
-    <div><%= t(".description_html").html_safe %></div>
+    <div><%= t(".description_html") %></div>
   </header>
 
   <%= render "entropy/auto_close", model: account.entropy, url: account_entropy_path, disabled: !Current.user.admin? %>

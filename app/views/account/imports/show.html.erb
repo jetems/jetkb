@@ -20,7 +20,7 @@
       <div><strong><%= t(".failed") %></strong></div>
       <% if @import.failed_due_to_conflict? %>
         <% kind = Fizzy.saas? ? t(".failed_conflict_kind_self") : JetKB::Brand::DOMAIN %>
-        <div><%= t(".failed_conflict_html", kind: kind).html_safe %></div>
+        <div><%= t(".failed_conflict_html", kind: kind) %></div>
       <% elsif @import.failed_due_to_invalid_export? %>
         <div><%= t(".failed_invalid") %></div>
       <% else %>

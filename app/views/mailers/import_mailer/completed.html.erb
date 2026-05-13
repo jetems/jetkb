@@ -1,5 +1,5 @@
-<p class="subtitle"><%= t("import_mailer.completed.subtitle_html", name: @account.name).html_safe %></p>
+<p class="subtitle"><%= t("import_mailer.completed.subtitle_html", name: @account.name) %></p>
 
 <p><%= link_to t("import_mailer.completed.go_to_account"), landing_url(script_name: @account.slug) %></p>
 
-<p class="footer"><%= t("import_mailer.completed.footer_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("import_mailer.completed.send_email"))).html_safe %></p>
+<p class="footer"><%= t("import_mailer.completed.footer_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("import_mailer.completed.send_email"))) %></p>

@@ -3,4 +3,4 @@
 
 <p><%= link_to t("export_mailer.completed.download"), export_download_url(@export) %></p>
 
-<p class="footer"><%= t("export_mailer.completed.footer_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("export_mailer.completed.send_email"))).html_safe %></p>
+<p class="footer"><%= t("export_mailer.completed.footer_html", link: mail_to(JetKB::Brand::SUPPORT_EMAIL, t("export_mailer.completed.send_email"))) %></p>

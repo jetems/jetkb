@@ -5,29 +5,29 @@
     <% case
       when platform.edge? %>
         <ol>
-          <li><%= t("notifications.settings.install.edge.s1_html", icon: icon_tag("install-edge", alt: t("notifications.settings.install.edge.alt", app: app)), app: app).html_safe %></li>
-          <li><%= t("notifications.settings.install.edge.s2_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.edge.s1_html", icon: icon_tag("install-edge", alt: t("notifications.settings.install.edge.alt", app: app)), app: app) %></li>
+          <li><%= t("notifications.settings.install.edge.s2_html") %></li>
         </ol>
       <% when platform.chrome? && platform.android? %>
         <ol>
-          <li><%= t("notifications.settings.install.chrome_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))).html_safe %></li>
-          <li><%= t("notifications.settings.install.chrome_android.s2_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.chrome_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))) %></li>
+          <li><%= t("notifications.settings.install.chrome_android.s2_html") %></li>
         </ol>
       <% when platform.firefox? && platform.android? %>
         <ol>
-          <li><%= t("notifications.settings.install.firefox_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))).html_safe %></li>
-          <li><%= t("notifications.settings.install.firefox_android.s2_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.firefox_android.s1_html", icon: icon_tag("menu-dots-vertical", alt: t("notifications.settings.install.alt_more"))) %></li>
+          <li><%= t("notifications.settings.install.firefox_android.s2_html") %></li>
         </ol>
       <% when platform.safari? && platform.desktop? %>
         <ol>
-          <li><%= t("notifications.settings.install.safari_desktop.s1_html").html_safe %></li>
-          <li><%= t("notifications.settings.install.safari_desktop.s2_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.safari_desktop.s1_html") %></li>
+          <li><%= t("notifications.settings.install.safari_desktop.s2_html") %></li>
         </ol>
       <% when (platform.safari? || platform.chrome?) && platform.ios? %>
         <p><%= t(".ios_intro", browser: platform.browser.capitalize, os: platform.operating_system) %></p>
         <ol>
-          <li><%= t("notifications.settings.install.ios.s1_html", icon: icon_tag("share", alt: t("notifications.settings.install.alt_share"))).html_safe %></li>
-          <li><%= t("notifications.settings.install.ios.s2_html").html_safe %></li>
+          <li><%= t("notifications.settings.install.ios.s1_html", icon: icon_tag("share", alt: t("notifications.settings.install.alt_share"))) %></li>
+          <li><%= t("notifications.settings.install.ios.s2_html") %></li>
         </ol>
       <% else %>
         <p><%= t(".fallback") %></p>

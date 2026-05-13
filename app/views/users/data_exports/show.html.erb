@@ -21,7 +21,7 @@
           class: "btn btn--link",
           data: { turbo: false, controller: "auto-click" } %>
   <% else %>
-    <div><%= t(".expired_html", link: link_to(t(".request_new_link"), user_path(@user), class: "txt-link")).html_safe %></div>
+    <div><%= t(".expired_html", link: link_to(t(".request_new_link"), user_path(@user), class: "txt-link")) %></div>
   <% end %>
 
 </div>
