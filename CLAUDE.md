@@ -122,7 +122,7 @@ jetKB adds an **optional** PostgreSQL 18+ path alongside upstream SQLite (OSS de
 - Activation: `DATABASE_ADAPTER=postgresql` env var. `Fizzy.db_adapter.postgresql?` predicate.
 - Files exclusive to the PG path (safe to evolve without touching upstream files):
   - `config/database.postgresql.yml`
-  - `db/migrate/postgresql/*.rb` (separate migration directory; PG-only)
+  - `db/postgresql_migrate/*.rb` (separate migration directory **outside** `db/migrate/` so Rails' recursive globber doesn't pick them up under MySQL/SQLite; PG-only)
   - `app/models/search/record/postgresql.rb` (tsvector + GIN + ts_headline)
 - Cross-cutting touch points (small, careful changes):
   - `lib/fizzy.rb` — `DbAdapter#postgresql?` predicate

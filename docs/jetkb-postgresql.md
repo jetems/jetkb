@@ -54,8 +54,8 @@ bin/dev
 ```
 
 `DATABASE_ADAPTER` 是切换关键。第一次跑会：
-- 跑 `db/migrate/postgresql/00000000000001_create_initial_schema.rb`（建 69 张表）
-- 跑 `db/migrate/postgresql/00000000000002_add_search_vector_and_gin.rb`（建 16 个 search shard 的 GIN 索引）
+- 跑 `db/postgresql_migrate/00000000000001_create_initial_schema.rb`（建 69 张表）
+- 跑 `db/postgresql_migrate/00000000000002_add_search_vector_and_gin.rb`（建 16 个 search shard 的 GIN 索引）
 - 把 schema dump 到 `db/structure.sql`（**不是** `schema.rb`，因为后者保不住 tsvector/GIN）
 
 ## 4. 验证
@@ -203,4 +203,4 @@ bundle install  # pg gem 不会再被安装
 unset DATABASE_ADAPTER  # 跑 SQLite 或 MySQL
 ```
 
-`config/database.postgresql.yml` 和 `db/migrate/postgresql/` 留着不影响，下次想再用直接 opt-in。
+`config/database.postgresql.yml` 和 `db/postgresql_migrate/` 留着不影响，下次想再用直接 opt-in。

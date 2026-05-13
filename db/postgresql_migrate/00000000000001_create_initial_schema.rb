@@ -10,7 +10,7 @@
 #   - text "size: :long" stripped (PG TEXT has no length cap)
 #
 # This migration only runs when DATABASE_ADAPTER=postgresql; see
-# config/application.rb which scopes db/migrate/postgresql/ to PG only.
+# config/application.rb which scopes db/postgresql_migrate/ to PG only.
 class CreateInitialSchema < ActiveRecord::Migration[8.2]
   def change
       create_table "accesses", id: :uuid, force: :cascade do |t|

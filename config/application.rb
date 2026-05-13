@@ -31,11 +31,13 @@ module Fizzy
 
     config.mission_control.jobs.http_basic_auth_enabled = false
 
-    # PostgreSQL path: load PG-only migrations from db/migrate/postgresql/ and
-    # dump structure.sql instead of schema.rb (so tsvector/GIN/uuidv7 defaults
-    # survive). MySQL/SQLite keep db/migrate/ + schema.rb untouched.
+    # PostgreSQL path: load PG-only migrations from db/postgresql_migrate/
+    # (which lives OUTSIDE db/migrate/ so Rails' recursive `db/migrate/**`
+    # globber doesn't pick them up under MySQL/SQLite) and dump
+    # db/structure.sql instead of db/schema.rb (so tsvector/GIN survive).
+    # MySQL/SQLite keep db/migrate/ + schema.rb untouched.
     if Fizzy.db_adapter.postgresql?
-      config.paths["db/migrate"] = [ Rails.root.join("db/migrate/postgresql").to_s ]
+      config.paths["db/migrate"] = [ Rails.root.join("db/postgresql_migrate").to_s ]
       config.active_record.schema_format = :sql
     end
   end

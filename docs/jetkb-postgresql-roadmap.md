@@ -155,7 +155,7 @@ end
 
 ### 6.1 选项 A — 新增 PG-only squashed initial schema（推荐）
 
-新增 `db/migrate/postgresql/00000000000000_initial_postgresql_schema.rb`，从当前 `db/schema.rb` 翻译成 PG 语法：
+新增 `db/postgresql_migrate/00000000000000_initial_postgresql_schema.rb`，从当前 `db/schema.rb` 翻译成 PG 语法：
 
 - `t.binary "id", limit: 16` → `t.uuid :id, default: -> { "uuidv7()" }`
 - `t.json` → `t.jsonb`（性能更好，PG 标准做法）
@@ -166,10 +166,10 @@ end
 
 ```ruby
 # config/application.rb
-config.paths["db/migrate"] << "db/migrate/postgresql" if Fizzy.db_adapter.postgresql?
+config.paths["db/migrate"] = [ "db/postgresql_migrate" ] if Fizzy.db_adapter.postgresql?
 ```
 
-并把 `db/migrate/postgresql/00000000000000` 之后的所有 PG 增量迁移单独维护一条线。
+并把 `db/postgresql_migrate/00000000000000` 之后的所有 PG 增量迁移单独维护一条线。
 
 ### 6.2 选项 B — 迁移文件里按 adapter 分支
 
@@ -267,7 +267,7 @@ SQLite 专用，PG 路径不会走到这里，无需改。
 
 每次 `git merge upstream/main` 之后必须检查：
 
-- `db/migrate/` 有新增迁移 → 在 `db/migrate/postgresql/` 写对应 PG 版本
+- `db/migrate/` 有新增迁移 → 在 `db/postgresql_migrate/` 写对应 PG 版本
 - `app/models/search/` 有变更 → 同步到 `app/models/search/record/postgresql.rb`
 - `lib/rails_ext/active_record_uuid_type.rb` 有改 → 同步 PG 注册
 - `config/database.*.yml` 模板调整 → 同步到 `database.postgresql.yml`
