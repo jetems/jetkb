@@ -113,3 +113,22 @@ When a `[brand]` or `[zh-CN]` change could plausibly be split as "upstream extra
 - `config/locales/en.yml` — small upstream i18n file; jetKB overrides go in `zh-CN.yml` or `en.yml` (carefully)
 - `config/initializers/jetkb_branding.rb` — recommended single home for brand config constants (create when first needed)
 - `LICENSE.md` — O'Saasy License: private/internal use is allowed; offering jetKB as a competing SaaS to third parties is not
+
+## PostgreSQL Support (fork-only third adapter)
+
+jetKB adds an **optional** PostgreSQL 18+ path alongside upstream SQLite (OSS default) and MySQL/Trilogy (SaaS default). MySQL and SQLite behavior is unchanged when PG isn't activated.
+
+- `Gemfile`: `pg` gem in `group :postgresql, optional: true` — opt in with `bundle config set --local with postgresql`.
+- Activation: `DATABASE_ADAPTER=postgresql` env var. `Fizzy.db_adapter.postgresql?` predicate.
+- Files exclusive to the PG path (safe to evolve without touching upstream files):
+  - `config/database.postgresql.yml`
+  - `db/migrate/postgresql/*.rb` (separate migration directory; PG-only)
+  - `app/models/search/record/postgresql.rb` (tsvector + GIN + ts_headline)
+- Cross-cutting touch points (small, careful changes):
+  - `lib/fizzy.rb` — `DbAdapter#postgresql?` predicate
+  - `lib/rails_ext/active_record_uuid_type.rb` — `PostgresqlUuid` type with hex/base36 round-trip
+  - `config/application.rb` — switches `schema_format` to `:sql` and migration paths when PG is active
+  - `app/models/board/accessible.rb` — uuid_type lookup is now adapter-dynamic
+- Schema dump: PG path emits `db/structure.sql` (not `schema.rb`) because Ruby schema can't represent tsvector/GIN. MySQL/SQLite still use `schema.rb`. **Do not commit both**; the active adapter determines which dump file Rails refreshes.
+
+When upstream changes any of the cross-cutting files above during a sync, audit the PG path. See `docs/jetkb-postgresql-roadmap.md` for the full design rationale and `docs/jetkb-postgresql.md` for operator-facing instructions.
