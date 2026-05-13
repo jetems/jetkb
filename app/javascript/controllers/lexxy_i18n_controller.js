@@ -9,6 +9,7 @@ import { Controller } from "@hotwired/stimulus"
 
 const TRANSLATIONS = {
   "zh-CN": {
+    // title / aria-label / button text — exact-string lookup
     "Add images and video": "插入图片/视频",
     "Upload files": "上传附件",
     "Bold": "加粗",
@@ -19,6 +20,7 @@ const TRANSLATIONS = {
     "Clear formatting": "清除格式",
     "Color highlight": "高亮颜色",
     "Link": "链接",
+    "Unlink": "取消链接",
     "Quote": "引用",
     "Code": "代码块",
     "Bullet list": "无序列表",
@@ -36,15 +38,26 @@ const TRANSLATIONS = {
     "Show more toolbar buttons": "显示更多工具",
     "Optional title": "可选标题",
     "Remove": "移除",
+    "Delete": "删除",
     "Nothing found": "未找到",
-    "Files": "文件"
+    "Files": "文件",
+    // input placeholders
+    "Enter a URL…": "输入链接地址…",
+    "Enter a URL...": "输入链接地址…"
   }
 }
 
+// Dynamic patterns for strings like "3 rows" / "1 column" that Lexxy
+// composes at runtime. Each entry is [regex, replacer(locale, match)].
+const DYNAMIC_PATTERNS = [
+  [ /^(\d+) rows?$/,    (_locale, m) => `${m[1]} 行` ],
+  [ /^(\d+) columns?$/, (_locale, m) => `${m[1]} 列` ]
+]
+
 export default class extends Controller {
   connect() {
-    const locale = document.documentElement.lang
-    this.dictionary = TRANSLATIONS[locale]
+    this.locale = document.documentElement.lang
+    this.dictionary = TRANSLATIONS[this.locale]
     if (!this.dictionary) return
 
     this.translateAll(this.element)
@@ -55,8 +68,13 @@ export default class extends Controller {
           m.addedNodes.forEach(node => {
             if (node.nodeType === Node.ELEMENT_NODE) this.translateAll(node)
           })
-        } else if (m.type === "attributes" && m.attributeName === "title") {
-          this.translate(m.target)
+        } else if (m.type === "attributes") {
+          const name = m.attributeName
+          if (name === "title" || name === "aria-label" || name === "placeholder") {
+            this.translateAttr(m.target, name)
+          }
+        } else if (m.type === "characterData") {
+          this.translateText(m.target)
         }
       }
     })
@@ -64,8 +82,9 @@ export default class extends Controller {
     this.observer.observe(this.element, {
       childList: true,
       subtree: true,
+      characterData: true,
       attributes: true,
-      attributeFilter: [ "title" ]
+      attributeFilter: [ "title", "aria-label", "placeholder" ]
     })
   }
 
@@ -74,16 +93,54 @@ export default class extends Controller {
   }
 
   translateAll(root) {
-    if (root.matches?.("[title]")) this.translate(root)
-    root.querySelectorAll?.("[title]").forEach(el => this.translate(el))
+    // Attributes
+    for (const attr of [ "title", "aria-label", "placeholder" ]) {
+      if (root.matches?.(`[${attr}]`)) this.translateAttr(root, attr)
+      root.querySelectorAll?.(`[${attr}]`).forEach(el => this.translateAttr(el, attr))
+    }
+    // Inner text — only for Lexxy buttons (limit scope; we don't want to
+    // touch arbitrary user text or framework labels)
+    this.translateLexxyButtonsIn(root)
   }
 
-  translate(el) {
-    const current = el.getAttribute("title")
-    const next = this.dictionary[current]
-    if (next && next !== current) {
-      el.setAttribute("title", next)
-      if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", next)
+  translateLexxyButtonsIn(root) {
+    const selector = "button.lexxy-editor__toolbar-button"
+    if (root.matches?.(selector)) this.translateButton(root)
+    root.querySelectorAll?.(selector).forEach(el => this.translateButton(el))
+  }
+
+  translateAttr(el, name) {
+    const current = el.getAttribute(name)
+    if (!current) return
+    const next = this.lookup(current)
+    if (next && next !== current) el.setAttribute(name, next)
+  }
+
+  translateButton(el) {
+    // Only translate buttons whose first child is a text node (no nested
+    // icons/badges that we'd accidentally clobber).
+    const text = el.firstChild
+    if (!text || text.nodeType !== Node.TEXT_NODE) return
+    const trimmed = text.nodeValue.trim()
+    if (!trimmed) return
+    const next = this.lookup(trimmed)
+    if (next && next !== trimmed) text.nodeValue = text.nodeValue.replace(trimmed, next)
+  }
+
+  translateText(textNode) {
+    const trimmed = textNode.nodeValue.trim()
+    if (!trimmed) return
+    const next = this.lookup(trimmed)
+    if (next && next !== trimmed) textNode.nodeValue = textNode.nodeValue.replace(trimmed, next)
+  }
+
+  lookup(value) {
+    const exact = this.dictionary[value]
+    if (exact) return exact
+    for (const [ regex, replacer ] of DYNAMIC_PATTERNS) {
+      const match = value.match(regex)
+      if (match) return replacer(this.locale, match)
     }
+    return null
   }
 }
