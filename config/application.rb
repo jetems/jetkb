@@ -30,5 +30,13 @@ module Fizzy
     config.action_pack.passkey.challenge_url = -> { my_passkey_challenge_path(script_name: "") }
 
     config.mission_control.jobs.http_basic_auth_enabled = false
+
+    # PostgreSQL path: load PG-only migrations from db/migrate/postgresql/ and
+    # dump structure.sql instead of schema.rb (so tsvector/GIN/uuidv7 defaults
+    # survive). MySQL/SQLite keep db/migrate/ + schema.rb untouched.
+    if Fizzy.db_adapter.postgresql?
+      config.paths["db/migrate"] = [ Rails.root.join("db/migrate/postgresql").to_s ]
+      config.active_record.schema_format = :sql
+    end
   end
 end

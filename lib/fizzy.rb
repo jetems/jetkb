@@ -29,5 +29,13 @@ module Fizzy
     def sqlite?
       @name == "sqlite"
     end
+
+    def mysql?
+      @name == "mysql"
+    end
+
+    def postgresql?
+      @name == "postgresql"
+    end
   end
 end

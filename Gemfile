@@ -69,6 +69,13 @@ end
 # Rails core translations (date / number / errors) for non-English locales
 gem "rails-i18n"
 
+# Optional PostgreSQL adapter. Install with: bundle config set --local with postgresql
+# (or BUNDLE_WITH=postgresql), then set DATABASE_ADAPTER=postgresql at runtime.
+# Requires PostgreSQL 18+ for native uuidv7() generation.
+group :postgresql, optional: true do
+  gem "pg", "~> 1.5"
+end
+
 group :development, :test do
   # Detect missing / unused i18n keys
   gem "i18n-tasks", require: false

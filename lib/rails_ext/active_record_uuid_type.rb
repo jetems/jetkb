@@ -44,3 +44,29 @@ end
 # Register the UUID type for Trilogy (MySQL) and SQLite3 adapters
 ActiveRecord::Type.register(:uuid, ActiveRecord::Type::Uuid, adapter: :trilogy)
 ActiveRecord::Type.register(:uuid, ActiveRecord::Type::Uuid, adapter: :sqlite3)
+
+# PostgreSQL stores UUIDs natively (16 bytes via the `uuid` type), but
+# userland code still expects the 25-char base36 facade. PostgresqlUuid
+# serializes to/from the canonical 36-char hyphenated UUID form that PG
+# accepts, keeping the base36 representation on the Ruby side.
+module ActiveRecord
+  module Type
+    class PostgresqlUuid < Uuid
+      def serialize(value)
+        return unless value
+
+        hex = Uuid.base36_to_hex(value)
+        "#{hex[0..7]}-#{hex[8..11]}-#{hex[12..15]}-#{hex[16..19]}-#{hex[20..31]}"
+      end
+
+      def deserialize(value)
+        return unless value
+
+        hex = value.to_s.delete("-")
+        Uuid.hex_to_base36(hex)
+      end
+    end
+  end
+end
+
+ActiveRecord::Type.register(:uuid, ActiveRecord::Type::PostgresqlUuid, adapter: :postgresql)
