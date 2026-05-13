@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_DESCRIPTION: Fizzy is Kanban as it should be. Not as it has been.
+  IMAGE_DESCRIPTION: jetKB — Fizzy 中文化分支，含 CJK 全文检索与 PostgreSQL 18+ 适配
   SOURCE_URL: https://github.com/${{ github.repository }}
 
 jobs:
