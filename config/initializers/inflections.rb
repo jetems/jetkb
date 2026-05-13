@@ -14,6 +14,7 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym "SQLite"
   inflect.acronym "IO"
+  inflect.acronym "PostgreSQL"
 
   inflect.singular "quotas", "quota"
   inflect.plural "quota", "quotas"
