@@ -11,6 +11,10 @@
 
 Rails.application.configure do
   config.i18n.available_locales = [ :en, :"zh-CN" ]
-  config.i18n.default_locale    = ENV.fetch("JETKB_DEFAULT_LOCALE", "zh-CN").to_sym
+  # Tests inherit upstream's :en assertions; keep prod/dev defaulting to
+  # :"zh-CN" but pin :en for test so upstream-shaped specs don't have to
+  # wrap every assertion in `with_locale :en`.
+  default = ENV["JETKB_DEFAULT_LOCALE"] || (Rails.env.test? ? "en" : "zh-CN")
+  config.i18n.default_locale    = default.to_sym
   config.i18n.fallbacks         = [ :en ]
 end

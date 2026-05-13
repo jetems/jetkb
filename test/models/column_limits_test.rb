@@ -27,7 +27,11 @@ class ColumnLimitsTest < ActiveSupport::TestCase
   end
 
   # Test text column limits (65535 bytes for TEXT)
+  # PG's native `text` type is unlimited, so the byte-size rejection assertions
+  # below don't apply — under DATABASE_ADAPTER=postgresql we skip them rather
+  # than ship a synthetic CHECK constraint just to satisfy the test.
   test "step content rejects text over 65535 bytes" do
+    skip "PG text column has no hard byte limit" if Fizzy.db_adapter.postgresql?
     step = Step.new(content: "a" * 65536, card: cards(:logo))
     assert_raises(*COLUMN_LIMIT_ERRORS) { step.save! }
   end
@@ -38,6 +42,7 @@ class ColumnLimitsTest < ActiveSupport::TestCase
   end
 
   test "step content counts bytes not characters for text columns" do
+    skip "PG text column has no hard byte limit" if Fizzy.db_adapter.postgresql?
     # 20000 emoji = 20000 chars but 80000 bytes (over 65535 limit)
     step = Step.new(content: "🎉" * 20000, card: cards(:logo))
     assert_raises(*COLUMN_LIMIT_ERRORS) { step.save! }
