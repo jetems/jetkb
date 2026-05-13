@@ -19,13 +19,13 @@
       &:hover {
         --input-background: var(--color-ink-lighter);
 
-        span {
+        .nav__trigger-logo {
           background: var(--color-ink-lighter);
         }
       }
     }
 
-    span {
+    .nav__trigger-logo {
       background: var(--color-ink-lightest);
       block-size: auto;
       border-radius: 0.3125em;
@@ -41,6 +41,20 @@
       padding: 0.325em 0.275em 0.225em 0.275em;
       place-content: center;
       width: 1.5em;
+      flex-shrink: 0;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .nav__trigger-wordmark {
+      margin-inline-start: 0.5em;
+      margin-inline-end: 0.3em;
+      line-height: 1;
+      white-space: nowrap;
     }
 
     svg {

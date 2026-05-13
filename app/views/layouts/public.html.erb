@@ -8,8 +8,8 @@
         <a href="#main" class="header__skip-navigation btn" data-turbo="false"><%= t("layouts.public.skip_navigation") %></a>
         <nav>
           <%= link_to JetKB::Brand::MARKETING_URL, class: "header__logo center flex-inline align-center" do %>
-            <span><%= image_tag "logo.png", alt: JetKB::Brand::APP_NAME %></span>
-            <span class="font-weight-bold txt-large"><%= JetKB::Brand::APP_NAME %></span>
+            <span class="header__logo-mark"><%= image_tag "logo.png", alt: JetKB::Brand::APP_NAME %></span>
+            <span class="header__logo-wordmark font-weight-bold txt-large"><%= JetKB::Brand::APP_NAME %></span>
           <% end %>
         </nav>
 

@@ -4,8 +4,8 @@
   <%= tag.button class:"nav__trigger input input--select center flex-inline align-center txt-normal", data: {
         action: "click->dialog#open keydown.j@document->hotkey#click keydown.meta+j@document->hotkey#click keydown.ctrl+j@document->hotkey#click",
         controller: "hotkey" } do %>
-    <span><%= image_tag "logo.png", alt: JetKB::Brand::APP_NAME %></span>
-    <span class="font-weight-bold txt-large"><%= JetKB::Brand::APP_NAME %></span>
+    <span class="nav__trigger-logo"><%= image_tag "logo.png", alt: JetKB::Brand::APP_NAME %></span>
+    <span class="nav__trigger-wordmark font-weight-bold txt-large"><%= JetKB::Brand::APP_NAME %></span>
     <kbd class="kbd txt-xx-small hide-on-touch">J</kbd>
   <% end %>
 
