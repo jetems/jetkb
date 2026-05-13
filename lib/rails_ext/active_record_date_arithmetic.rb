@@ -40,6 +40,26 @@ module SqliteDateArithmetic
   end
 end
 
+# Module for PostgreSQL adapter
+module PostgresqlDateArithmetic
+  # Generates SQL for subtracting seconds from a date/time column in PostgreSQL.
+  #
+  # @param date_column [String] The date/time column or expression
+  # @param seconds_expression [String] SQL expression that evaluates to number of seconds
+  # @return [String] PG interval expression
+  #
+  # Example:
+  #   date_subtract("last_active_at", "COALESCE(auto_postpone_period, 3600)")
+  #   # => "(last_active_at::timestamp - (COALESCE(auto_postpone_period, 3600)) * interval '1 second')"
+  #
+  # The ::timestamp cast is required when date_column is a bind placeholder
+  # ('?'); without it PG infers the bind as interval and fails the outer
+  # timestamp comparison.
+  def date_subtract(date_column, seconds_expression)
+    "(#{date_column}::timestamp - (#{seconds_expression}) * interval '1 second')"
+  end
+end
+
 ActiveSupport.on_load(:active_record) do
   # Prepend MySQL date arithmetic to AbstractMysqlAdapter (covers Trilogy, Mysql2, etc.)
   if defined?(ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter)
@@ -49,5 +69,10 @@ ActiveSupport.on_load(:active_record) do
   # Prepend SQLite date arithmetic to SQLite3Adapter
   if defined?(ActiveRecord::ConnectionAdapters::SQLite3Adapter)
     ActiveRecord::ConnectionAdapters::SQLite3Adapter.prepend(SqliteDateArithmetic)
+  end
+
+  # Prepend PostgreSQL date arithmetic to PostgreSQLAdapter
+  if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+    ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.prepend(PostgresqlDateArithmetic)
   end
 end

@@ -67,7 +67,8 @@ module Board::Accessible
       #
       # 1. Mention->Card
       # 2. Mention->Comment->Card
-      board_id_binary = ActiveRecord::Type::Uuid.new.serialize(id)
+      uuid_type = ActiveRecord::Type.lookup(:uuid, adapter: self.class.connection.adapter_name.downcase.to_sym)
+      board_id_binary = uuid_type.serialize(id)
 
       user.mentions
         .joins("LEFT JOIN cards ON mentions.source_id = cards.id AND mentions.source_type = 'Card'")
@@ -84,7 +85,7 @@ module Board::Accessible
       #
       # Notification->Event->Mention->Card and Notification->Event->Mention->Comment->Card are
       # handled by destroying mentions_for_user.
-      uuid_type = ActiveRecord::Type.lookup(:uuid, adapter: connection.adapter_name.downcase.to_sym)
+      uuid_type = ActiveRecord::Type.lookup(:uuid, adapter: self.class.connection.adapter_name.downcase.to_sym)
       board_id_binary = uuid_type.serialize(id)
 
       user.notifications

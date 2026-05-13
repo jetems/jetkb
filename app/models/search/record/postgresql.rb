@@ -38,16 +38,30 @@ module Search::Record::PostgreSQL
     end
 
     def search_fields(query)
-      open_mark = connection.quote(Search::Highlighter::OPENING_MARK)
-      close_mark = connection.quote(Search::Highlighter::CLOSING_MARK)
       ts_q = connection.quote(Search::Stemmer.stem(query.terms).split(/\s+/).reject(&:empty?).join(" & "))
+
+      # ts_headline option-list values containing whitespace, '=', or '"'
+      # must be wrapped in double quotes with internal '"' doubled. Our
+      # OPENING_MARK contains class="..." attributes, so unquoted parsing
+      # fails (PG: "invalid parameter list format").
+      title_opts   = connection.quote(ts_headline_options)
+      content_opts = connection.quote("#{ts_headline_options}, MaxFragments=2, MaxWords=20, MinWords=5")
 
       # ts_headline returns the original text with <mark>...</mark> wraps.
       # We don't go through Ruby's Highlighter pipeline (no stemming needed
       # at render time) — PG returns ready-to-render HTML fragments.
-      [ "ts_headline('jetkb_search', title, to_tsquery('jetkb_search', #{ts_q}), 'StartSel=' || #{open_mark} || ', StopSel=' || #{close_mark}) AS result_title",
-        "ts_headline('jetkb_search', content, to_tsquery('jetkb_search', #{ts_q}), 'StartSel=' || #{open_mark} || ', StopSel=' || #{close_mark} || ', MaxFragments=2, MaxWords=20, MinWords=5') AS result_content",
+      [ "ts_headline('jetkb_search', title, to_tsquery('jetkb_search', #{ts_q}), #{title_opts}) AS result_title",
+        "ts_headline('jetkb_search', content, to_tsquery('jetkb_search', #{ts_q}), #{content_opts}) AS result_content",
         "#{connection.quote(query.terms)} AS query" ]
+    end
+
+    def ts_headline_options
+      "StartSel=#{quote_ts_headline_value(Search::Highlighter::OPENING_MARK)}, " \
+      "StopSel=#{quote_ts_headline_value(Search::Highlighter::CLOSING_MARK)}"
+    end
+
+    def quote_ts_headline_value(value)
+      %("#{value.gsub('"', '""')}")
     end
 
     def for(account_id)
