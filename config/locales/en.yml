@@ -43,6 +43,29 @@ en:
       not_now: Not Now
       maybe: Maybe?
       triage: Triage
+    bubble:
+      entropy:
+        top_immediate: Closes
+        top_future: Closes in
+        center_immediate: "!"
+        bottom_immediate: Today
+        bottom_singular: day
+        bottom_plural: days
+      stalled:
+        top: Stalled for
+        bottom: days
+    eventable:
+      system_commenter:
+        assigned_html: "%{creator} <strong>assigned</strong> this to %{assignees}."
+        unassigned_html: "%{creator} <strong>unassigned</strong> from %{assignees}."
+        closed_html: "<strong>Moved</strong> to “Done” by %{creator}"
+        reopened_html: "<strong>Reopened</strong> by %{creator}"
+        postponed_html: "%{creator} <strong>moved</strong> this to “Not Now”"
+        auto_postponed_html: "<strong>Moved</strong> to “Not Now” due to inactivity"
+        title_changed_html: "%{creator} <strong>changed the title</strong> from “%{old_title}” to “%{new_title}”."
+        board_changed_html: "%{creator} <strong>moved</strong> this from “%{old_board}” to “%{new_board}”."
+        triaged_html: "%{creator} <strong>moved</strong> this to “%{column}”"
+        sent_back_to_triage_html: "%{creator} <strong>moved</strong> this back to “Maybe?”"
     status_label:
       drafted: Drafted
       added: Added
@@ -174,6 +197,7 @@ en:
           not_assigned: Not assigned
         stamp:
           by_html: by <span class="card__closed-by">%{name}</span>
+          date_format: "%b %d, %Y"
         assignees:
           assign: Assign
           assign_to_me: Assign to me
@@ -239,6 +263,11 @@ en:
         title: Email Notifications
         description: Get a single email with all your notifications every few hours, daily, or weekly.
         label: Email me about new notifications...
+        frequencies:
+          never: Never
+          every_few_hours: Every few hours
+          daily: Every day
+          weekly: Every week
       install:
         install_title: "%{prefix}jetKB as a web app."
         prefix_install: 'Install '
@@ -549,6 +578,10 @@ en:
         download_link: Download your data
         expired_html: That download link has expired. You'll need to %{link}.
         request_new_link: request a new export
+    events:
+      show:
+        heading_self: What have you been up to?
+        heading_other: What has %{name} been up to?
     joins:
       new:
         page_title: Great! Now enter your name
@@ -861,6 +894,9 @@ en:
         other: No activity for %{count} days
       no_more_activity: No more activity
     day_timeline:
+      added: Added
+      updated: Updated
+      done: Done
       column:
         expand: Expand column
         showing_recent_html: Showing the 100 most recent (%{count} are hidden)

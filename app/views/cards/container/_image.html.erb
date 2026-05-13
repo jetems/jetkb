@@ -13,6 +13,7 @@
       <%= form.file_field :image, class: "input",
             accept: "image/png, image/jpeg, image/jpg, image/webp",
             aria: { label: t(".add") },
+            title: t(".add"),
             data: { action: "upload-preview#previewImage form#submit", upload_preview_target: "input" } %>
     </label>
   <% end %>

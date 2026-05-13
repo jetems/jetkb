@@ -37,10 +37,14 @@ export default class extends Controller {
   }
 
   #showEntropy() {
+    const days = this.#entropyCleanupInDays
+    const labels = this.entropyValue.labels
+    const isImmediate = days < 1
+
     this.#render({
-      top: this.#entropyCleanupInDays < 1 ? this.entropyValue.action : `${this.entropyValue.action} in`,
-      center: this.#entropyCleanupInDays < 1 ? "!" : this.#entropyCleanupInDays,
-      bottom: this.#entropyCleanupInDays < 1 ? "Today" : (this.#entropyCleanupInDays === 1 ? "day" : "days"),
+      top: isImmediate ? labels.topImmediate : labels.topFuture,
+      center: isImmediate ? labels.centerImmediate : days,
+      bottom: isImmediate ? labels.bottomImmediate : (days === 1 ? labels.bottomSingular : labels.bottomPlural),
     })
   }
 
@@ -61,9 +65,9 @@ export default class extends Controller {
 
   #showStalled() {
     this.#render({
-      top: "Stalled for",
+      top: this.stalledValue.labels.top,
       center: signedDifferenceInDays(new Date(this.stalledValue.lastActivitySpikeAt), new Date()),
-      bottom: "days"
+      bottom: this.stalledValue.labels.bottom
     })
   }
 

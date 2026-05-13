@@ -30,15 +30,15 @@ class User::DayTimeline
   end
 
   def added_column
-    @added_column ||= build_column(:added, "Added", 1, events.where(action: %w[card_published card_reopened]))
+    @added_column ||= build_column(:added, I18n.t("events.day_timeline.added"), 1, events.where(action: %w[card_published card_reopened]))
   end
 
   def updated_column
-    @updated_column ||= build_column(:updated, "Updated", 2, events.where.not(action: %w[card_published card_closed card_reopened]))
+    @updated_column ||= build_column(:updated, I18n.t("events.day_timeline.updated"), 2, events.where.not(action: %w[card_published card_closed card_reopened]))
   end
 
   def closed_column
-    @closed_column ||= build_column(:closed, "Done", 3, events.where(action: "card_closed"))
+    @closed_column ||= build_column(:closed, I18n.t("events.day_timeline.done"), 3, events.where(action: "card_closed"))
   end
 
   def cache_key

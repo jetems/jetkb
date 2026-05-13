@@ -1,6 +1,4 @@
 class Card::Eventable::SystemCommenter
-  include ERB::Util
-
   attr_reader :card, :event
 
   def initialize(card, event)
@@ -17,53 +15,53 @@ class Card::Eventable::SystemCommenter
     def comment_body
       case event.action
       when "card_assigned"
-        "#{creator_name} <strong>assigned</strong> this to #{assignee_names}."
+        I18n.t("cards.eventable.system_commenter.assigned_html", creator: creator_name, assignees: assignee_names)
       when "card_unassigned"
-        "#{creator_name} <strong>unassigned</strong> from #{assignee_names}."
+        I18n.t("cards.eventable.system_commenter.unassigned_html", creator: creator_name, assignees: assignee_names)
       when "card_closed"
-        "<strong>Moved</strong> to “Done” by #{creator_name}"
+        I18n.t("cards.eventable.system_commenter.closed_html", creator: creator_name)
       when "card_reopened"
-        "<strong>Reopened</strong> by #{creator_name}"
+        I18n.t("cards.eventable.system_commenter.reopened_html", creator: creator_name)
       when "card_postponed"
-        "#{creator_name} <strong>moved</strong> this to “Not Now”"
+        I18n.t("cards.eventable.system_commenter.postponed_html", creator: creator_name)
       when "card_auto_postponed"
-        "<strong>Moved</strong> to “Not Now” due to inactivity"
+        I18n.t("cards.eventable.system_commenter.auto_postponed_html")
       when "card_title_changed"
-        "#{creator_name} <strong>changed the title</strong> from “#{old_title}” to “#{new_title}”."
+        I18n.t("cards.eventable.system_commenter.title_changed_html", creator: creator_name, old_title: old_title, new_title: new_title)
       when "card_board_changed"
-        "#{creator_name} <strong>moved</strong> this from “#{old_board}” to “#{new_board}”."
+        I18n.t("cards.eventable.system_commenter.board_changed_html", creator: creator_name, old_board: old_board, new_board: new_board)
       when "card_triaged"
-        "#{creator_name} <strong>moved</strong> this to “#{column}”"
+        I18n.t("cards.eventable.system_commenter.triaged_html", creator: creator_name, column: column)
       when "card_sent_back_to_triage"
-        "#{creator_name} <strong>moved</strong> this back to “Maybe?”"
+        I18n.t("cards.eventable.system_commenter.sent_back_to_triage_html", creator: creator_name)
       end
     end
 
     def creator_name
-      h event.creator.name
+      event.creator.name
     end
 
     def assignee_names
-      h event.assignees.pluck(:name).to_sentence
+      event.assignees.pluck(:name).to_sentence
     end
 
     def old_title
-      h event.particulars.dig("particulars", "old_title")
+      event.particulars.dig("particulars", "old_title")
     end
 
     def new_title
-      h event.particulars.dig("particulars", "new_title")
+      event.particulars.dig("particulars", "new_title")
     end
 
     def old_board
-      h event.particulars.dig("particulars", "old_board")
+      event.particulars.dig("particulars", "old_board")
     end
 
     def new_board
-      h event.particulars.dig("particulars", "new_board")
+      event.particulars.dig("particulars", "new_board")
     end
 
     def column
-      h event.particulars.dig("particulars", "column")
+      event.particulars.dig("particulars", "column")
     end
 end

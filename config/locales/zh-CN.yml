@@ -43,6 +43,29 @@ zh-CN:
       not_now: 暂不处理
       maybe: 也许?
       triage: 待分类
+    bubble:
+      entropy:
+        top_immediate: 即将关闭
+        top_future: 倒计时
+        center_immediate: "!"
+        bottom_immediate: 今天
+        bottom_singular: 天
+        bottom_plural: 天
+      stalled:
+        top: 停滞了
+        bottom: 天
+    eventable:
+      system_commenter:
+        assigned_html: "%{creator} <strong>把卡片分配</strong>给 %{assignees}。"
+        unassigned_html: "%{creator} <strong>取消</strong>了 %{assignees} 的分配。"
+        closed_html: "由 %{creator} <strong>移到</strong>「已完成」"
+        reopened_html: "由 %{creator} <strong>重新打开</strong>"
+        postponed_html: "%{creator} 把卡片 <strong>移到</strong>「暂不处理」"
+        auto_postponed_html: "因长期无活动 <strong>自动移到</strong>「暂不处理」"
+        title_changed_html: "%{creator} 把标题从「%{old_title}」<strong>改为</strong>「%{new_title}」。"
+        board_changed_html: "%{creator} 把卡片从「%{old_board}」<strong>移到</strong>「%{new_board}」。"
+        triaged_html: "%{creator} 把卡片 <strong>移到</strong>「%{column}」"
+        sent_back_to_triage_html: "%{creator} 把卡片 <strong>移回</strong>「也许?」"
     status_label:
       drafted: 草稿
       added: 已添加
@@ -174,6 +197,7 @@ zh-CN:
           not_assigned: 未分配
         stamp:
           by_html: 由 <span class="card__closed-by">%{name}</span>
+          date_format: "%Y年%-m月%-d日"
         assignees:
           assign: 分配
           assign_to_me: 分配给我
@@ -239,6 +263,11 @@ zh-CN:
         title: 邮件通知
         description: 每隔几小时、每天或每周收到一封汇总你所有通知的邮件。
         label: 给我发新通知邮件,频率为…
+        frequencies:
+          never: 从不
+          every_few_hours: 每隔几小时
+          daily: 每天
+          weekly: 每周
       install:
         install_title: "%{prefix}jetKB 作为网页应用安装。"
         prefix_install: '安装 '
@@ -549,6 +578,10 @@ zh-CN:
         download_link: 下载我的数据
         expired_html: 下载链接已过期,你需要 %{link}。
         request_new_link: 申请新的导出
+    events:
+      show:
+        heading_self: 你最近都做了什么?
+        heading_other: "%{name} 最近都做了什么?"
     joins:
       new:
         page_title: 太好了!请输入你的名字
@@ -861,6 +894,9 @@ zh-CN:
         other: "%{count} 天无活动"
       no_more_activity: 没有更多活动
     day_timeline:
+      added: 新增
+      updated: 更新
+      done: 已完成
       column:
         expand: 展开此列
         showing_recent_html: 仅显示最近的 100 条(%{count} 条已隐藏)

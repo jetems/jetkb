@@ -69,10 +69,10 @@ module NotificationsHelper
 
   def bundle_email_frequency_options_for(settings)
     options_for_select([
-      [ "Never", "never" ],
-      [ "Every few hours", "every_few_hours" ],
-      [ "Every day", "daily" ],
-      [ "Every week", "weekly" ]
+      [ t("notifications.settings.email.frequencies.never"), "never" ],
+      [ t("notifications.settings.email.frequencies.every_few_hours"), "every_few_hours" ],
+      [ t("notifications.settings.email.frequencies.daily"), "daily" ],
+      [ t("notifications.settings.email.frequencies.weekly"), "weekly" ]
     ], settings.bundle_email_frequency)
   end
 

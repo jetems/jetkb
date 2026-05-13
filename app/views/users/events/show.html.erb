@@ -1,5 +1,11 @@
 <turbo-frame id="user_events">
-  <h1 class="font-weight-black txt-large margin-block-double"><%= "What #{Current.user == @user ? "have you" : "has #{@user.first_name}"} been up to?" %></h1>
+  <h1 class="font-weight-black txt-large margin-block-double">
+    <% if Current.user == @user %>
+      <%= t(".heading_self") %>
+    <% else %>
+      <%= t(".heading_other", name: @user.first_name) %>
+    <% end %>
+  </h1>
 
   <div class="events margin-block-double" id="activity" data-controller="pagination" data-pagination-paginate-on-intersection-value="true">
     <%= day_timeline_pagination_frame_tag @day_timeline do %>
