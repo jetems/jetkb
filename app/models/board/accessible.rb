@@ -67,8 +67,7 @@ module Board::Accessible
       #
       # 1. Mention->Card
       # 2. Mention->Comment->Card
-      uuid_type = ActiveRecord::Type.lookup(:uuid, adapter: self.class.connection.adapter_name.downcase.to_sym)
-      board_id_binary = uuid_type.serialize(id)
+      board_id_binary = adapter_uuid_type.serialize(id)
 
       user.mentions
         .joins("LEFT JOIN cards ON mentions.source_id = cards.id AND mentions.source_type = 'Card'")
@@ -85,8 +84,7 @@ module Board::Accessible
       #
       # Notification->Event->Mention->Card and Notification->Event->Mention->Comment->Card are
       # handled by destroying mentions_for_user.
-      uuid_type = ActiveRecord::Type.lookup(:uuid, adapter: self.class.connection.adapter_name.downcase.to_sym)
-      board_id_binary = uuid_type.serialize(id)
+      board_id_binary = adapter_uuid_type.serialize(id)
 
       user.notifications
         .joins("LEFT JOIN events ON notifications.source_id = events.id AND notifications.source_type = 'Event'")
@@ -105,4 +103,19 @@ module Board::Accessible
     def pins_for(user)
       Pin.where(card: cards, user: user)
     end
+
+    private
+      # Custom :uuid type is registered per-adapter (:trilogy, :sqlite3,
+      # :postgresql), but Rails' adapter_name strings ("SQLite", "Trilogy",
+      # "PostgreSQL") don't map 1:1 to those symbols. Translate explicitly
+      # so the lookup hits the right registration for raw SQL bind values.
+      def adapter_uuid_type
+        adapter = case self.class.connection.adapter_name
+        when "SQLite"     then :sqlite3
+        when "PostgreSQL" then :postgresql
+        when "Trilogy"    then :trilogy
+        else self.class.connection.adapter_name.downcase.to_sym
+        end
+        ActiveRecord::Type.lookup(:uuid, adapter: adapter)
+      end
 end

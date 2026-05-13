@@ -37,31 +37,14 @@ module Search::Record::PostgreSQL
       Zlib.crc32(account_id.to_s) % SHARD_COUNT
     end
 
+    # We do all match-highlighting in Ruby (Search::Highlighter) using the
+    # original Card#title / Card#description text, mirroring the Trilogy path.
+    # ts_headline would highlight against the *stored* search-record title,
+    # which is stemmed and lowercased by stem_content — that loses the
+    # original case and also doesn't HTML-escape the source text, breaking
+    # the upstream "preserves marks but escapes surrounding HTML" assertion.
     def search_fields(query)
-      ts_q = connection.quote(Search::Stemmer.stem(query.terms).split(/\s+/).reject(&:empty?).join(" & "))
-
-      # ts_headline option-list values containing whitespace, '=', or '"'
-      # must be wrapped in double quotes with internal '"' doubled. Our
-      # OPENING_MARK contains class="..." attributes, so unquoted parsing
-      # fails (PG: "invalid parameter list format").
-      title_opts   = connection.quote(ts_headline_options)
-      content_opts = connection.quote("#{ts_headline_options}, MaxFragments=2, MaxWords=20, MinWords=5")
-
-      # ts_headline returns the original text with <mark>...</mark> wraps.
-      # We don't go through Ruby's Highlighter pipeline (no stemming needed
-      # at render time) — PG returns ready-to-render HTML fragments.
-      [ "ts_headline('jetkb_search', title, to_tsquery('jetkb_search', #{ts_q}), #{title_opts}) AS result_title",
-        "ts_headline('jetkb_search', content, to_tsquery('jetkb_search', #{ts_q}), #{content_opts}) AS result_content",
-        "#{connection.quote(query.terms)} AS query" ]
-    end
-
-    def ts_headline_options
-      "StartSel=#{quote_ts_headline_value(Search::Highlighter::OPENING_MARK)}, " \
-      "StopSel=#{quote_ts_headline_value(Search::Highlighter::CLOSING_MARK)}"
-    end
-
-    def quote_ts_headline_value(value)
-      %("#{value.gsub('"', '""')}")
+      "#{connection.quote(query.terms)} AS query"
     end
 
     def for(account_id)
@@ -70,23 +53,15 @@ module Search::Record::PostgreSQL
   end
 
   def card_title
-    result_title || card&.title.then { |t| highlight(t, show: :full) }
+    highlight(card.title, show: :full) if card_id
   end
 
   def card_description
-    if (text = (respond_to?(:result_content) && result_content)) && !comment
-      text.html_safe
-    elsif !comment
-      highlight(card&.description&.to_plain_text, show: :snippet)
-    end
+    highlight(card.description.to_plain_text, show: :snippet) if card_id && !comment
   end
 
   def comment_body
-    if (text = (respond_to?(:result_content) && result_content)) && comment
-      text.html_safe
-    elsif comment
-      highlight(comment.body.to_plain_text, show: :snippet)
-    end
+    highlight(comment.body.to_plain_text, show: :snippet) if comment
   end
 
   private
