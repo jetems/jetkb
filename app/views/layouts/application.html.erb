@@ -3,7 +3,7 @@
   <%= render "layouts/shared/head" %>
 
   <body class="<%= @body_class %>"
-    data-controller="local-time timezone-cookie turbo-navigation theme bridge--title bridge--text-size bridge--insets"
+    data-controller="local-time timezone-cookie turbo-navigation theme bridge--title bridge--text-size bridge--insets lexxy-i18n"
     data-action="turbo:morph@window->local-time#refreshAll turbo:before-visit@document->turbo-navigation#rememberLocation"
     data-turbo-navigation-label-value="<%= @page_title %>"
     data-platform="<%= platform.type %>"
