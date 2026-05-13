@@ -16,6 +16,7 @@ development:
   primary:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_DB", "jetkb_development") %>
+    migrations_paths: db/postgresql_migrate
   cable:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_DB", "jetkb_development") %>_cable
@@ -25,6 +26,7 @@ test:
   primary:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_TEST_DB", "jetkb_test") %>
+    migrations_paths: db/postgresql_migrate
   cable:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_TEST_DB", "jetkb_test") %>_cable
@@ -34,6 +36,7 @@ production:
   primary:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_DB", "jetkb_production") %>
+    migrations_paths: db/postgresql_migrate
   cable:
     <<: *default
     database: <%= ENV.fetch("POSTGRES_DB", "jetkb_production") %>_cable

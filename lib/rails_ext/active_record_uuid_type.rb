@@ -1,4 +1,8 @@
-# Custom UUID attribute type for MySQL binary storage with base36 string representation
+# Custom UUID attribute type for MySQL binary storage with base36 string representation.
+#
+# Under MySQL (Trilogy) and SQLite, UUIDs are stored as 16-byte binary and surfaced to
+# Ruby code as 25-char base36 strings. Under PostgreSQL, the native `uuid` type is used
+# directly and IDs are 36-char hyphenated strings end-to-end — no base36 facade.
 module ActiveRecord
   module Type
     class Uuid < Binary
@@ -7,8 +11,11 @@ module ActiveRecord
       class << self
         def generate
           uuid = SecureRandom.uuid_v7
-          hex = uuid.delete("-")
-          hex_to_base36(hex)
+          if Fizzy.db_adapter.postgresql?
+            uuid
+          else
+            hex_to_base36(uuid.delete("-"))
+          end
         end
 
         def hex_to_base36(hex)
@@ -41,32 +48,8 @@ module ActiveRecord
   end
 end
 
-# Register the UUID type for Trilogy (MySQL) and SQLite3 adapters
+# Register the UUID type for Trilogy (MySQL) and SQLite3 adapters.
+# PostgreSQL uses Rails' native :uuid type (no override) — the column is `uuid`
+# in PG and Ruby code passes hyphenated 36-char strings directly.
 ActiveRecord::Type.register(:uuid, ActiveRecord::Type::Uuid, adapter: :trilogy)
 ActiveRecord::Type.register(:uuid, ActiveRecord::Type::Uuid, adapter: :sqlite3)
-
-# PostgreSQL stores UUIDs natively (16 bytes via the `uuid` type), but
-# userland code still expects the 25-char base36 facade. PostgresqlUuid
-# serializes to/from the canonical 36-char hyphenated UUID form that PG
-# accepts, keeping the base36 representation on the Ruby side.
-module ActiveRecord
-  module Type
-    class PostgresqlUuid < Uuid
-      def serialize(value)
-        return unless value
-
-        hex = Uuid.base36_to_hex(value)
-        "#{hex[0..7]}-#{hex[8..11]}-#{hex[12..15]}-#{hex[16..19]}-#{hex[20..31]}"
-      end
-
-      def deserialize(value)
-        return unless value
-
-        hex = value.to_s.delete("-")
-        Uuid.hex_to_base36(hex)
-      end
-    end
-  end
-end
-
-ActiveRecord::Type.register(:uuid, ActiveRecord::Type::PostgresqlUuid, adapter: :postgresql)

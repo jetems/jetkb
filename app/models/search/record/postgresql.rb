@@ -13,7 +13,11 @@ module Search::Record::PostgreSQL
     # tokenizer extension (zhparser or pg_jieba) is configured; see
     # docs/jetkb-postgresql-roadmap.md §5.3.
     scope :matching, ->(query, account_id) do
-      ts_query = "account#{account_id} & (#{Search::Stemmer.stem(query).split(/\s+/).reject(&:empty?).join(" & ")})"
+      # account_id may be a 36-char hyphenated UUID under PG; hyphens are NOT
+      # operators in to_tsquery, so strip them to match the account_key tokens
+      # written by set_account_key.
+      account_token = "account#{account_id.to_s.delete('-')}"
+      ts_query = "#{account_token} & (#{Search::Stemmer.stem(query).split(/\s+/).reject(&:empty?).join(" & ")})"
       where("search_vector @@ to_tsquery('jetkb_search', ?)", ts_query)
     end
 
@@ -78,7 +82,7 @@ module Search::Record::PostgreSQL
     end
 
     def set_account_key
-      self.account_key = "account#{account_id}"
+      self.account_key = "account#{account_id.to_s.delete('-')}"
     end
 
     def highlight(text, show:)

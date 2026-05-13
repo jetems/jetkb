@@ -163,9 +163,14 @@ module FixturesTestHelper
       bytes[14] = (rand_b >> 8) & 0xff
       bytes[15] = rand_b & 0xff
 
-      # Format as UUID string and convert to base36 (25 chars)
+      # Format as UUID string. PG uses 36-char hyphenated form directly; MySQL/SQLite
+      # use the 25-char base36 facade backed by binary(16)/blob(16) storage.
       uuid = "%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x" % bytes
-      ActiveRecord::Type::Uuid.hex_to_base36(uuid.delete("-"))
+      if Fizzy.db_adapter.postgresql?
+        uuid
+      else
+        ActiveRecord::Type::Uuid.hex_to_base36(uuid.delete("-"))
+      end
     end
   end
 end
