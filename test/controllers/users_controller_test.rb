@@ -185,4 +185,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     body = response.parsed_body
     assert_equal false, body["is_agent"], "Human users must have is_agent=false"
   end
+
+  test "agent user JSON has is_agent true" do
+    agent_identity = Identity.create!(email_address: "robot@agent.local")
+    agent = accounts(:"37s").users.create!(role: :agent, name: "Bot", identity: agent_identity, active: true)
+    sign_in_as :kevin
+
+    get user_path(agent), as: :json
+    assert_response :ok
+    assert_equal true, response.parsed_body["is_agent"]
+  end
 end

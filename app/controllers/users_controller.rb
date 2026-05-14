@@ -39,7 +39,8 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = Current.account.users.active.find(params[:id])
+      scope = request.format.json? ? Current.account.users.api_active : Current.account.users.active
+      @user = scope.find(params[:id])
     end
 
     def ensure_permission_to_change_user
