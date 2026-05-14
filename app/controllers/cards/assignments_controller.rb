@@ -8,7 +8,8 @@ class Cards::AssignmentsController < ApplicationController
   end
 
   def create
-    if @card.toggle_assignment @board.users.active.find(params[:assignee_id])
+    assignee_scope = request.format.json? ? @board.users.api_active : @board.users.active
+    if @card.toggle_assignment assignee_scope.find(params[:assignee_id])
       respond_to do |format|
         format.turbo_stream
         format.json { head :no_content }
