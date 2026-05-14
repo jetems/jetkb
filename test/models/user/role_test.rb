@@ -95,4 +95,49 @@ class User::RoleTest < ActiveSupport::TestCase
     # Creator cannot administer other people's cards
     assert_not users(:david).can_administer_card?(text_card)
   end
+
+  # --- agent role tests ---
+
+  test "agent is a valid role" do
+    agent = build_agent
+    assert agent.agent?
+    assert_predicate agent, :api_active?
+  end
+
+  test "agent enum value is stable as string 'agent'" do
+    assert_equal "agent", User.roles["agent"]
+    assert_equal({ "owner" => "owner", "admin" => "admin", "member" => "member", "system" => "system", "agent" => "agent" }, User.roles)
+  end
+
+  test "agent is not in active scope" do
+    agent = build_agent
+    refute_includes User.active, agent
+  end
+
+  test "agent is in api_active scope" do
+    agent = build_agent
+    assert_includes User.api_active, agent
+  end
+
+  test "agent is in agent scope" do
+    agent = build_agent
+    assert_includes User.agent, agent
+    refute_includes User.agent, users(:david)
+  end
+
+  test "agent is not admin and not owner" do
+    agent = build_agent
+    refute agent.admin?
+    refute agent.owner?
+  end
+
+  test "human users return false for agent?" do
+    refute users(:david).agent?
+  end
+
+  private
+    def build_agent(name: "Bot")
+      identity = Identity.create!(email_address: "agent-#{SecureRandom.hex(4)}@agent.local")
+      accounts(:"37s").users.create!(role: :agent, name: name, identity: identity, active: true)
+    end
 end
