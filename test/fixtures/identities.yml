@@ -15,3 +15,9 @@ kevin:
 
 mike:
   email_address: mike@37signals.com
+
+review_bot_identity:
+  email_address: review-bot@agent.local
+
+initech_qa_bot_identity:
+  email_address: qa-bot@agent.local

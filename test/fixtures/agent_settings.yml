@@ -1,0 +1,10 @@
+review_bot:
+  id: <%= ActiveRecord::FixtureSet.identify("review_bot_setting", :uuid) %>
+  user_id: <%= ActiveRecord::FixtureSet.identify("review_bot", :uuid) %>
+  webhook_url: https://reviewer.example.com/jetkb
+  all_access_boards: true
+
+qa_bot:
+  id: <%= ActiveRecord::FixtureSet.identify("qa_bot_setting", :uuid) %>
+  user_id: <%= ActiveRecord::FixtureSet.identify("qa_bot", :uuid) %>
+  all_access_boards: true

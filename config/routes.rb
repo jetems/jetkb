@@ -107,6 +107,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :agents do
+    scope module: :agents do
+      resources :tokens, only: %i[ index create destroy ]
+      resources :board_accesses, only: %i[ index create destroy ]
+    end
+  end
+
   resources :tags, only: :index
 
   namespace :notifications do

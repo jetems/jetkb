@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :pins, dependent: :destroy
   has_many :pinned_cards, through: :pins, source: :card
   has_many :data_exports, class_name: "User::DataExport", dependent: :destroy
+  has_one :agent_setting, dependent: :destroy
 
   def deactivate
     transaction do

@@ -49,3 +49,19 @@ system_initech:
   name: System
   role: system
   account: initech_uuid
+
+review_bot:
+  id: <%= ActiveRecord::FixtureSet.identify("review_bot", :uuid) %>
+  name: Review Bot
+  role: agent
+  identity: review_bot_identity
+  account: 37s_uuid
+  active: true
+
+qa_bot:
+  id: <%= ActiveRecord::FixtureSet.identify("qa_bot", :uuid) %>
+  name: QA Bot
+  role: agent
+  identity: initech_qa_bot_identity
+  account: initech_uuid
+  active: true
