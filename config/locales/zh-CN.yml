@@ -210,6 +210,12 @@ zh-CN:
           last_updated: 最后更新
           assigned_to: 分配给
           card_number: 卡片编号
+    agent_completions:
+      results:
+        succeeded: "已完成"
+        failed: "失败"
+        cancelled: "已取消"
+        needs_human: "需人工介入"
   reactions:
     reaction:
       reacted_aria: "%{user} 反应了 %{content}"
@@ -1095,3 +1101,24 @@ zh-CN:
       passkey_tip_text: P.S. 想登录更快、账户更安全,可以添加一个通行密钥:%{passkey_url}
       passkey: 通行密钥
       need_help_html: 需要帮助?%{email_link}。
+  agents:
+    page_title: "Agent"
+    new: "新建 Agent"
+    create_button: "创建 Agent"
+    fields:
+      name: "显示名称"
+      slug: "标识符"
+      webhook_url: "Webhook 地址"
+      all_access_boards: "可访问所有开放看板"
+      permission: "权限"
+    validation:
+      slug_taken: "在本账号下已存在"
+      slug_format: "只能包含小写字母、数字、连字符"
+    flash:
+      created: "Agent 已创建"
+      token_rotated: "Token 已轮换。请立即复制 —— 不会再次显示。"
+      destroyed: "Agent 已删除"
+    list:
+      empty: "还没有 Agent。创建一个以便把任务委托给 AI。"
+      assigned_count:
+        other: "%{count} 个进行中任务"
