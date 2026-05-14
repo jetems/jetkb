@@ -8,9 +8,11 @@ class Webhook < ApplicationRecord
   PERMITTED_SCHEMES = %w[ http https ].freeze
   PERMITTED_ACTIONS = %w[
     card_assigned
+    card_assigned_to_agent
     card_closed
     card_postponed
     card_auto_postponed
+    card_agent_completed
     card_board_changed
     card_published
     card_reopened

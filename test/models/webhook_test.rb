@@ -107,4 +107,22 @@ class WebhookTest < ActiveSupport::TestCase
     webhook = Webhook.new url: "https://3.basecamp.com/integrations/webhook/buckets/456/chats/789/lines"
     assert_not webhook.for_basecamp?
   end
+
+  test "card_assigned_to_agent is a permitted action" do
+    webhook = webhooks(:active).dup
+    webhook.subscribed_actions = [ "card_assigned_to_agent" ]
+    assert_equal [ "card_assigned_to_agent" ], webhook.subscribed_actions
+  end
+
+  test "card_agent_completed is a permitted action" do
+    webhook = webhooks(:active).dup
+    webhook.subscribed_actions = [ "card_agent_completed" ]
+    assert_equal [ "card_agent_completed" ], webhook.subscribed_actions
+  end
+
+  test "unknown actions are still filtered out" do
+    webhook = webhooks(:active).dup
+    webhook.subscribed_actions = [ "card_agent_completed", "bogus_action" ]
+    assert_equal [ "card_agent_completed" ], webhook.subscribed_actions
+  end
 end
