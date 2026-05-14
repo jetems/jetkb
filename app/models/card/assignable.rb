@@ -28,6 +28,7 @@ module Card::Assignable
 
       if assignment.persisted?
         watch_by user
+        track_event :assigned_to_agent, assignee_ids: [ user.id ] if user.agent?
         track_event :assigned, assignee_ids: [ user.id ]
       end
     rescue ActiveRecord::RecordNotUnique
