@@ -83,6 +83,7 @@ Rails.application.routes.draw do
       resource :draft, only: :show
       resource :board
       resource :closure
+      resource :agent_completion, only: %i[ create ]
       resource :column
       resource :goldness
       resource :image
