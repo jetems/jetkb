@@ -86,6 +86,32 @@ class AgentsControllerTest < ActionDispatch::IntegrationTest
     assert_nil Identity.find_by(email_address: "qa-bot@agent.local")
   end
 
+  test "delete agent succeeds even after the agent completed a card" do
+    agent = users(:review_bot)
+    agent.identity.access_tokens.create!(description: "x", permission: :write)
+
+    # Simulate the agent having completed a card
+    card = cards(:logo)
+    card.board.accesses.find_or_create_by!(user: agent, account: @account) unless card.board.all_access?
+    Current.user = users(:david)
+    card.toggle_assignment(agent)
+    Card::AgentCompletion.record!(
+      card: card,
+      agent: agent,
+      result: "succeeded",
+      summary: "Did work.",
+      outcome: "closed"
+    )
+    assert_operator Card::AgentCompletion.where(user: agent).count, :>, 0
+    Current.user = nil
+
+    # Now delete the agent
+    delete "#{@account.slug}/agents/#{agent.id}",
+      headers: bearer(@admin_token).merge("Accept" => "application/json")
+    assert_response :no_content
+    assert_nil User.find_by(id: agent.id)
+  end
+
   test "cross-account access returns 404" do
     other_admin_token = users(:mike).identity.access_tokens.create!(description: "x", permission: :write).token
     # Mike is admin on Initech; he tries to read a 37s agent

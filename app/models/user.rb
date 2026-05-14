@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  has_many :card_agent_completions, class_name: "Card::AgentCompletion", dependent: :destroy
   has_many :comments, inverse_of: :creator, dependent: :destroy
 
   has_many :filters, foreign_key: :creator_id, inverse_of: :creator, dependent: :destroy
