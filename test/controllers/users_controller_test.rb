@@ -176,4 +176,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     json = @response.parsed_body
     assert json.first["email_address"].present?
   end
+
+  test "user JSON includes is_agent boolean" do
+    sign_in_as :kevin
+
+    get user_path(users(:david)), as: :json
+    assert_response :ok
+    body = response.parsed_body
+    assert_equal false, body["is_agent"], "Human users must have is_agent=false"
+  end
 end
