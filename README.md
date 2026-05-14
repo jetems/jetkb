@@ -11,7 +11,7 @@
 ## 与 Fizzy 的关系
 
 - **上游**：[`basecamp/fizzy`](https://github.com/basecamp/fizzy) — 所有应用核心逻辑、看板/卡片/通知/Webhook 模型、Solid Queue/Cable/Cache、Kamal 部署体系均来源于此，我们定期同步。
-- **本仓库**：`jetems/jetkb` — 仅承担"翻译 + 品牌 + 数据库扩展"三类增量，绝不重命名内部类名、表名、CSS 前缀，以最大限度减少未来合并冲突。
+- **本仓库**：`jetems/jetkb` — 承担"翻译 + 品牌 + 数据库扩展 + Agent 集成"四类增量，绝不重命名内部类名、表名、CSS 前缀，以最大限度减少未来合并冲突。
 
 详细的分支策略与合并约定见 [`CLAUDE.md`](CLAUDE.md)。
 
@@ -66,6 +66,37 @@
 - 本地开发域名：`app.jetkb.localhost:3006`
 
 > 内部类名、模块名、CSS 前缀（如 `fizzy-`）、Ruby 文件路径**有意保留为 Fizzy 原名**，仅替换用户可见的品牌字串。这是降低上游合并冲突的关键策略。
+
+### 5. Agent 集成（CLI + MCP + 派单回写闭环）
+
+把卡片当成"任务"派给 AI agent，agent 通过 webhook 收到触发后自主执行，再用专用端点原子化回写完成状态。本分支以最小侵入在 Fizzy 的既有抽象（Assignment / Event / Webhook / AccessToken）之上加薄层，**不引入 LLM 调用** —— agent runner 的实现由用户自行部署，jetKB 只暴露"派单 + 回写"的钩子。
+
+**服务端能力（本仓）**：
+
+- **新增 `agent` 用户角色**：`User::Role` 末尾追加 `:agent`，与 `system` 并列但语义不同（agent 可被派任务、可登录 API；system 仅代表系统消息）。新增 `User.agent` / `User.api_active` scope 与 `agent?` / `api_active?` 谓词
+- **`/agents` REST namespace**：`AgentsController` CRUD + `Agents::TokensController`（轮换 token）+ `Agents::BoardAccessesController`（受限板授权）。admin 专属，agent 自己看不到自己也不能改自己 token —— 防越权
+- **`AgentSetting` 模型**：sidecar 表存 `webhook_url` + `all_access_boards`，与 `User::Settings`（人类通知偏好）隔离
+- **`POST /:account/cards/:n/agent_completion` 糖端点**：单事务原子写"评论 + 状态变更（close/triage/postpone/none）+ 解除自分配 + 事件"。请求头 `Idempotency-Key` 自动去重（持久化在 `card_agent_completions` 表）。详细字段：`result` / `summary` / `details_html`（自动 sanitize）/ `outcome` / `artifacts[]` / `metrics{}`
+- **Webhook fan-out**：派单给 agent 时除既有 `card_assigned` 外**并发触发** `card_assigned_to_agent`；agent_completion 触发 `card_agent_completed`。订阅方可精确路由
+- **限流**：`rack-attack` 对 agent_completion（60/min, 5000/day）、agent 创建（10/h）、token 轮换（20/day）按 token 哈希分桶
+- **`is_agent` 字段**：User JSON 序列化器输出布尔值，前端 / 客户端可区分人 / agent
+
+**fork 隔离纪律**：6 个上游文件 ~30 行改动，其余全部新文件。详细映射见 [`docs/jetkb/agent-architecture.md`](docs/jetkb/agent-architecture.md)。
+
+**配套客户端（独立仓 [`jetems/jetkb-cli`](https://github.com/jetems/jetkb-cli)）**：
+
+| 包 | 命令 | 用途 |
+|---|---|---|
+| `@jetkb/core` | — | TypeScript HTTP 客户端 SDK，含 ETag 缓存、async 分页、webhook 签名验证 |
+| `@jetkb/cli` | `jetkb` | 终端命令行，覆盖 cards（18 条子命令）/ agents / auth / config |
+| `@jetkb/mcp` | `jetkb-mcp` | Model Context Protocol server，14 个中等粒度工具 + 3 个 MCP resource，可在 Claude Desktop / Cursor / Cline 中直接挂载使用 |
+
+**关键文档**：
+
+- [`docs/api/sections/agents.md`](docs/api/sections/agents.md) —— Agents + agent_completion HTTP API 完整参考
+- [`docs/jetkb/agent-integration.md`](docs/jetkb/agent-integration.md) —— 给 agent runner 开发者的实施指南（含签名校验、退避、监控建议）
+- [`docs/jetkb/agent-architecture.md`](docs/jetkb/agent-architecture.md) —— 维护者视角的内部架构说明
+- [`docs/jetkb/agent-qa-checklist.md`](docs/jetkb/agent-qa-checklist.md) —— 发版前手动验证清单
 
 ---
 
