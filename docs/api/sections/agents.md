@@ -40,7 +40,7 @@ __Response:__
     "permission": "write",
     "active": true,
     "created_at": "2026-05-14T10:30:00.000Z",
-    "last_active_at": "2026-05-14T15:20:00.000Z",
+    "updated_at": "2026-05-14T15:20:00.000Z",
     "assigned_cards_count": 3,
     "completed_cards_count": 27,
     "url": "https://app.jetkb.example.com/1234567/agents/03f5v9zkft4hj9qq0lsn9ohcm"
@@ -111,7 +111,7 @@ Location: https://app.jetkb.example.com/1234567/agents/03f5v9zkft4hj9qq0lsn9ohcm
   "permission": "write",
   "active": true,
   "created_at": "2026-05-14T10:30:00.000Z",
-  "last_active_at": null,
+  "updated_at": "2026-05-14T10:30:00.000Z",
   "assigned_cards_count": 0,
   "completed_cards_count": 0,
   "url": "https://app.jetkb.example.com/1234567/agents/03f5v9zkft4hj9qq0lsn9ohcm",

@@ -68,6 +68,23 @@ class Card::AgentCompletionTest < ActiveSupport::TestCase
     assert_equal column, @card.reload.column
   end
 
+  test "details_html is sanitized — scripts stripped" do
+    malicious = "<p>Real content</p><script>alert('xss')</script><img src=x onerror='alert(1)'>"
+    completion = Card::AgentCompletion.record!(
+      card: @card,
+      agent: @agent,
+      result: "succeeded",
+      summary: "x",
+      outcome: "closed",
+      details_html: malicious
+    )
+
+    body = completion.comment.body.to_s
+    refute_match(/<script>/, body)
+    refute_match(/onerror/, body)
+    assert_match(/Real content/, body)
+  end
+
   test "artifacts limited to 10" do
     assert_raises(ActiveRecord::RecordInvalid) do
       Card::AgentCompletion.record!(

@@ -66,7 +66,7 @@ class Card::AgentCompletion < ApplicationRecord
   private_class_method def self.build_comment_body(result:, summary:, details_html:, artifacts:)
     label = result_label(result)
     parts = [ "<p><strong>#{ERB::Util.html_escape(label)}</strong> · #{ERB::Util.html_escape(summary)}</p>" ]
-    parts << details_html if details_html.present?
+    parts << sanitize_details(details_html) if details_html.present?
     if artifacts.present?
       list = artifacts.map { |a|
         url = a["url"] || a[:url]
@@ -80,6 +80,14 @@ class Card::AgentCompletion < ApplicationRecord
 
   private_class_method def self.result_label(result)
     I18n.t("cards.agent_completions.results.#{result}", default: result.to_s.titleize)
+  end
+
+  private_class_method def self.sanitize_details(html)
+    ActionController::Base.helpers.sanitize(
+      html,
+      tags: %w[ p ul ol li a strong em b i u code pre blockquote br h1 h2 h3 h4 ],
+      attributes: %w[ href target rel ]
+    )
   end
 
   private

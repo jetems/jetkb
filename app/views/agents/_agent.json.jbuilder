@@ -10,7 +10,7 @@ json.cache! [ agent, setting ] do
   json.permission permission
   json.is_agent true
   json.created_at agent.created_at.utc
-  json.last_active_at agent.updated_at.utc
+  json.updated_at agent.updated_at.utc
   json.assigned_cards_count agent.assigned_cards.count
   json.completed_cards_count Event.where(creator: agent, action: "card_agent_completed").count
   json.url agent_url(agent)
