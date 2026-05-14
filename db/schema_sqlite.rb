@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.2].define(version: 2026_05_14_040247) do
+ActiveRecord::Schema[8.2].define(version: 2026_05_14_041628) do
   create_table "accesses", id: :uuid, force: :cascade do |t|
     t.datetime "accessed_at"
     t.uuid "account_id", null: false
@@ -129,6 +129,15 @@ ActiveRecord::Schema[8.2].define(version: 2026_05_14_040247) do
     t.string "variation_digest", limit: 255, null: false
     t.index ["account_id"], name: "index_active_storage_variant_records_on_account_id"
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "agent_settings", id: :uuid, force: :cascade do |t|
+    t.boolean "all_access_boards", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
+    t.string "webhook_url", limit: 255
+    t.index ["user_id"], name: "index_agent_settings_on_user_id", unique: true
   end
 
   create_table "assignees_filters", id: false, force: :cascade do |t|
@@ -646,6 +655,7 @@ ActiveRecord::Schema[8.2].define(version: 2026_05_14_040247) do
     t.index ["board_id", "subscribed_actions"], name: "index_webhooks_on_board_id_and_subscribed_actions"
   end
 
+  add_foreign_key "agent_settings", "users"
   add_foreign_key "card_agent_completions", "cards"
   add_foreign_key "card_agent_completions", "comments"
   add_foreign_key "card_agent_completions", "events"
