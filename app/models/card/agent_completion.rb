@@ -79,13 +79,7 @@ class Card::AgentCompletion < ApplicationRecord
   end
 
   private_class_method def self.result_label(result)
-    # Task 8 will translate these via I18n. For now, hard-code English labels.
-    {
-      "succeeded"   => "Completed",
-      "failed"      => "Failed",
-      "cancelled"   => "Cancelled",
-      "needs_human" => "Needs human review"
-    }.fetch(result, result.to_s.titleize)
+    I18n.t("cards.agent_completions.results.#{result}", default: result.to_s.titleize)
   end
 
   private

@@ -210,6 +210,12 @@ en:
           last_updated: Last updated
           assigned_to: Assigned to
           card_number: Card number
+    agent_completions:
+      results:
+        succeeded: "Completed"
+        failed: "Failed"
+        cancelled: "Cancelled"
+        needs_human: "Needs human review"
   reactions:
     reaction:
       reacted_aria: "%{user} reacted %{content}"
@@ -1095,3 +1101,26 @@ en:
       passkey_tip_text: 'P.S. If you want to sign-in faster, and make your account more secure, add a passkey: %{passkey_url}'
       passkey: Passkey
       need_help_html: Need help? %{email_link}.
+  agents:
+    page_title: "Agents"
+    new: "New agent"
+    create_button: "Create agent"
+    fields:
+      name: "Display name"
+      slug: "Slug"
+      webhook_url: "Webhook URL"
+      all_access_boards: "Access to all open boards"
+      permission: "Permission"
+    validation:
+      slug_taken: "is already taken in this account"
+      slug_format: "may only contain lowercase letters, numbers, and hyphens"
+    flash:
+      created: "Agent created"
+      token_rotated: "Token rotated. Copy it now — it won't be shown again."
+      destroyed: "Agent deleted"
+    list:
+      empty: "No agents yet. Create one to delegate tasks to AI."
+      assigned_count:
+        zero: "No active assignments"
+        one: "1 active assignment"
+        other: "%{count} active assignments"
