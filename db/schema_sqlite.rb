@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.2].define(version: 2026_02_18_120000) do
+ActiveRecord::Schema[8.2].define(version: 2026_05_14_040247) do
   create_table "accesses", id: :uuid, force: :cascade do |t|
     t.datetime "accessed_at"
     t.uuid "account_id", null: false
@@ -193,6 +193,22 @@ ActiveRecord::Schema[8.2].define(version: 2026_02_18_120000) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_card_activity_spikes_on_account_id"
     t.index ["card_id"], name: "index_card_activity_spikes_on_card_id", unique: true
+  end
+
+  create_table "card_agent_completions", id: :uuid, force: :cascade do |t|
+    t.uuid "card_id", null: false
+    t.uuid "comment_id"
+    t.datetime "created_at", null: false
+    t.uuid "event_id"
+    t.string "idempotency_key", limit: 255
+    t.json "particulars", default: -> { "json_object()" }, null: false
+    t.string "result", limit: 255, null: false
+    t.uuid "user_id", null: false
+    t.index ["card_id", "user_id", "idempotency_key"], name: "idx_agent_completions_idempotency", unique: true
+    t.index ["card_id"], name: "index_card_agent_completions_on_card_id"
+    t.index ["comment_id"], name: "index_card_agent_completions_on_comment_id"
+    t.index ["event_id"], name: "index_card_agent_completions_on_event_id"
+    t.index ["user_id"], name: "index_card_agent_completions_on_user_id"
   end
 
   create_table "card_goldnesses", id: :uuid, force: :cascade do |t|
@@ -629,6 +645,11 @@ ActiveRecord::Schema[8.2].define(version: 2026_02_18_120000) do
     t.index ["account_id"], name: "index_webhooks_on_account_id"
     t.index ["board_id", "subscribed_actions"], name: "index_webhooks_on_board_id_and_subscribed_actions"
   end
+
+  add_foreign_key "card_agent_completions", "cards"
+  add_foreign_key "card_agent_completions", "comments"
+  add_foreign_key "card_agent_completions", "events"
+  add_foreign_key "card_agent_completions", "users"
   execute "CREATE VIRTUAL TABLE search_records_fts USING fts5(\n        title,\n        content,\n        tokenize='porter'\n      )"
 
 end
