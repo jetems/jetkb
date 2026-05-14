@@ -30,7 +30,7 @@ module Authorization
     end
 
     def ensure_can_access_account
-      unless Current.account.active? && Current.user&.active?
+      unless Current.account.active? && Current.user&.api_active?
         respond_to do |format|
           format.html { redirect_to session_menu_path(script_name: nil) }
           format.json { head :forbidden }
